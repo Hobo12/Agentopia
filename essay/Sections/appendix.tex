@@ -1,0 +1,1811 @@
+\section{World and Character Creation}
+\label{app:creation}
+
+\subsection{Pipeline Overview}
+\label{app:creation_process}
+
+Each simulation world is designed as a self-contained community resembling a small town,
+where most characters know one another and the social network is intentionally dense.
+This closed-community design serves a critical purpose:
+it ensures that every person referenced in a character's backstory, memories, or relationships is probably an interactable agent within the simulation,
+preventing agents from attempting to interact with non-existent entities.
+
+Each world is constructed through a five-step pipeline:
+(1) world setting design,
+(2) reference story selection,
+(3) incremental character generation,
+(4) attribute assignment,
+and (5) consistency verification.
+Steps~(1)--(2) are manually crafted by the authors,
+steps~(3)--(4) are driven by LLMs~\footnote{In this paper, we employ Claude Opus 4.6 for these steps.},
+and step~(5) employs Claude Code~\footnote{https://claude.com/product/claude-code} for automated quality assurance~\footnote{In this paper, we employ Claude 4.6 Opus for Claude Code in this step.}.
+
+\paragraph{Step 1: World Setting}
+For each simulation world, we manually craft a \textit{worldview document} that defines the social structure, geographic environment, temporal setting, and thematic focus.
+For example, \campus{} is set in a top-tier Chinese high school in 2020, emphasizing academic pressure, campus friendships, and adolescent growth;
+\apartment{} depicts a shared-living scenario among young professionals;
+and \academy{} adapts a fantasy school setting with magical elements.
+Each worldview specifies the society structures, social norms, and everyday concerns that ground the agents' behavior.
+Importantly, the setting is designed as a closed community so that all characters an agent might reference probably exist within the world.
+
+\paragraph{Step 2: Reference Story Selection}
+To encourage diverse and dramatically rich character dynamics, we curate a set of reference stories adapted from well-known literary works and films.
+These references serve as creative seeds---the LLM is instructed to \textit{adapt} rather than replicate them, ensuring original character designs that exhibit realistic interpersonal tensions.
+Each reference is a 100 to 200 word synopsis covering key relationships and conflicts (\eg, unrequited affection, friendship rivalry, mentor-student dynamics).
+
+\paragraph{Step 3: Incremental Character Generation}
+Characters are generated incrementally using Claude Opus 4.6 with temperature 1.0.
+The process begins by creating two seed characters together with their mutual relationship descriptions.
+Subsequently, characters are added one at a time: for each new character, the LLM receives the worldview, an example character template, summaries of all existing characters, and the current relationship matrix.
+When the population exceeds 10, we randomly sample 6 relationship edges from the existing matrix to keep the prompt within a manageable length while preserving structural context.
+The LLM outputs a structured YAML profile for each character---including demographic information, appearance, personality traits (qualitative), skills, values, conflicts, and core motivations---along with updated bidirectional relationship descriptions.
+Each relationship entry describes one character's perception of another, covering appearance evaluation, ability assessment, personality impression, perceived relationship role, and known facts, within approximately 100 words.
+The relationship descriptions are directly stored as each character's initial memory about the other characters it knows
+(see \S\ref{app:schema} for storage details),
+so that every agent begins the simulation with pre-existing social knowledge about its social circle.
+To ensure name diversity, character names are drawn from a pre-curated name list tailored to each world's cultural setting (\eg, German-style names for the medieval world, Chinese names for the campus world), and the LLM is explicitly prohibited from reusing names.
+Each character's values and motivations are derived by the LLM from the character's backstory, occupation, and personality, ensuring internal coherence.
+We repeat this process until each world contains 100 characters.
+
+\paragraph{Step 4: Attribute Assignment}
+The character profiles generated in Step~3 contain qualitative attribute levels (\eg, personality ``High'', skill ``Proficient'').
+In this step, we convert these qualitative descriptions into the quantitative values required by the simulation system.
+Personality traits and talents are mapped to a 0 to 100 scale via range-based random sampling
+(\eg, ``Low'' $\to$ [10, 25], ``Average'' $\to$ [55, 65], ``High'' $\to$ [90, 100]).
+Initial skills use a five-tier mapping onto a 0 to 300 scale:
+Untrained $\to$ [0, 10], Beginner $\to$ [15, 30], Some Experience $\to$ [35, 95], Proficient $\to$ [100, 295], and Master $\to$ 300.
+The skill scale is substantially wider than that of personality and talents because skills grow continuously through practice during the simulation with no hard upper bound
+(see \S\ref{app:numeric} for the full numeric system).
+Additionally, economic attributes such as initial deposits are assigned based on each character's position and income level.
+Initial deposits are capped at $20\times$ the fixed weekly income, approximating 20 weeks of savings.
+
+\paragraph{Step 5: Consistency Verification}
+After generation, we conduct a systematic quality review using Claude Code.
+This automated verification identifies and resolves three categories of issues:
+(1) \textit{Currency unit inconsistency}---during generation, some characters' economic data contain non-standard currency units
+instead of pure numeric values; all monetary fields are normalized to a unified numeric format.
+(2) \textit{Duplicate characters}---the LLM occasionally produces two characters with highly similar backstories, occupations, or personality profiles; such duplicates are identified and either merged or regenerated.
+(3) \textit{Memory inconsistency across characters}---this includes
+(a) contradictions between A's perception of B and B's perception of A (\eg, A considers B a close friend while B describes A as a stranger),
+(b) conflicting accounts of a third party (\eg, A and B give incompatible descriptions of C's background), and
+(c) references to characters who do not exist in the world.
+For case~(c), when a character's backstory mentions a person outside the 100-agent population, we revise the description to indicate that this person has left the community and is no longer reachable, thereby preventing the agent from attempting to contact a non-existent entity.
+All identified issues are flagged and corrected before the simulation begins.
+
+\subsection{Details of Character Data and Memory System}
+\label{app:schema}
+
+Each character's data is organized as a directory tree under \texttt{persona/\{name\}/}, comprising a \textbf{profile} and a \textbf{memory system}.
+Figure~\ref{fig:schema} shows an abridged example from the \academy{} world.
+
+The \textbf{profile} (\texttt{profile/year=YYYY.json}) contains:
+\textit{name}, \textit{gender}, \textit{birthday};
+\textit{appearance\_and\_impression} ($\sim$70 words describing the first impression an outsider would form);
+\textit{talents} (9 dimensions shared across all characters, each with a character-specific numeric value on a 0 to 100 scale: beauty, communication, creativity, health, honesty, integrity, intelligence, leadership, and trustworthiness);
+\textit{personality\_traits} (10 dimensions shared across all characters, each with a character-specific numeric value on a 0 to 100 scale: confidence, control, curiosity, empathy, extraversion, feeling, intuition, judging, patience, and responsibility);
+\textit{skills} (a dictionary mapping skill names to numeric proficiency on a 0 to 300 scale);
+\textit{details} (detailed backstory), \textit{conflicts}, \textit{core\_motivation}, \textit{values}, and \textit{preferences};
+\textit{position} (role, organization, weekly income);
+and \textit{init\_assets} (initial deposit and possessions).
+
+The \textbf{memory system} organizes each agent's memories across multiple files, which we call \textit{memory files}.
+Each memory file is implemented as a JSONL file where new memory entries are continuously appended.
+At initialization, the system pre-populates a \texttt{characters/} subdirectory containing one memory file per known character,
+storing the agent's knowledge of that person (appearance, abilities, personality, relationship, etc.).
+Beyond these initial files, agents can freely manage their own memory system during the simulation---they may create new memory files
+to record various types of information (\eg, personal plans, general notes, working memory), even though these files do not exist at initialization.
+All memory files are dynamically updated as agents interact and accumulate new experiences.
+
+\begin{figure}[h]
+\centering
+\small
+\begin{verbatim}
+persona/Cecilia Fairmont/
++-- profile/year=2020.json
+|   +-- name: "Cecilia Fairmont"
+|   +-- gender: "Female", birthday: "Y2003-W8-activity-D4"
+|   +-- appearance_and_impression: "Standing 167cm ... pale
+|   |   ash-blonde ... projects the impression of a brilliant,
+|   |   tightly wound young woman ..."
+|   +-- talents: {intelligence: 90, creativity: 85,
+|   |            leadership: 30, communication: 65, ...}
+|   +-- personality_traits: {curiosity: 100, control: 90,
+|   |                       introversion: 100, patience: 85, ...}
+|   +-- skills: {Transfiguration: 170, Charms: 170,
+|   |           Arithmancy: 170, Herbology: 15, ...}
+|   +-- position: {role: "Student, Seventh Year",
+|   |             organization: "The Academy / The Scholar House"}
+|   \-- init_assets: {deposit: 85, possessions: [...]}
+\-- memory/files/
+    +-- characters/          (pre-initialized)
+    |   +-- Adelaide Hawthorne.jsonl
+    |   +-- Alistair Rowan.jsonl
+    |   \-- ...
+    +-- general.jsonl         (agent-created)
+    \-- working_memory.jsonl  (agent-created)
+\end{verbatim}
+\caption{Abridged character data schema, illustrated with Cecilia Fairmont from \academy{}. Files under \texttt{characters/} are pre-initialized; \texttt{general.jsonl} and \texttt{working\_memory.jsonl} are autonomously created by agents during the simulation.}
+\label{fig:schema}
+\end{figure}
+
+\section{System Design Details}
+\label{app:system_design}
+
+\subsection{Design Philosophy of the Simulation Procedure}
+\label{sec:appendix_design_philosophy}
+
+Our goal is to simulate the full range of human social behaviors as naturally and richly as possible.
+However, the central challenge is that LLMs operate in a turn-based generation mode and cannot perceive or interact in real time as humans do.
+
+A natural starting point would be a unified-timeline framework where agents act freely and perceive their surroundings in real time.
+For example, when an agent moves from a classroom to a playground, it would observe every other agent present and what they are doing at each moment.
+However, maintaining such real-time perception requires prohibitive computational cost, making long-term social simulation infeasible.
+More fundamentally, such a framework would disproportionately focus on low-level perception and physical operations (\eg, movement, object manipulation), leaving less capacity for the social behaviors we actually care about (\eg, planning, socializing, decision-making).
+
+We therefore design a simulation framework that embraces the turn-based nature of LLMs, starting from two foundational functions: \textit{communication} and \textit{activity}.
+
+\paragraph{Activity Simulation}
+Our primary focus is on multi-agent interactions.
+We define multi-agent interactions as activities with explicit, specific themes, inspired by the given-circumstance acting paradigm in CoSER~\citep{wang2025coser}.
+These activities are either created through invitations between agents (\ie, joint activities), or  arranged by the environment model (\ie, encounter activities).
+
+\paragraph{Communication Simulation}
+We design a multi-round communication framework where messages are exchanged in a text-message style.
+In each round, every agent simultaneously sees the messages sent to it in the previous round, then decides whom to contact and what to say.
+This avoids the need to simulate real-time perception, making computational cost significantly more manageable.
+Within this framework, we design action types such as \texttt{propose\_joint\_activity}, \texttt{cancel\_joint\_activity}, and \texttt{respond\_invitation}, along with corresponding resolution logic, to model the complex dynamics of social scheduling in real life.
+
+\paragraph{Synchronous vs.\ Asynchronous Design}
+An alternative design is an asynchronous framework where different agents can be in different stages simultaneously, \eg, one agent communicating while another is carrying out an activity.
+However, this introduces substantial design complexity.
+For example, if an agent in the communication stage sends a message to another agent currently in the activity stage, should the recipient receive it immediately? When should it decide to reply?
+After careful consideration, we adopt a synchronous framework: all agents proceed through the same stage together.
+During the Contact stage, all agents communicate; during the Activity stage, all agents carry out activities.
+This greatly simplifies the system design while preserving rich social behavior modeling.
+
+Building on this foundation, we add the Plan and Review stages to give agents space for planning and reflecting on their social lives,
+introduce solo and public activity types to diversify the range of experiences,
+and create the position, location, and economy systems to enrich the simulation environment.
+Together, these components form the complete simulation procedure described in \S~\ref{sec:simulation_procedure}.
+
+\subsection{Details of Simulation Procedure}
+\label{sec:appendix_procedure}
+
+This section provides a complete description of the simulation procedure, expanding on the overview in \S~\ref{sec:simulation_procedure}.
+Each simulated year spans $n_w$ weeks, and each week contains $n_d$ days.
+The week serves as the scheduling unit, while the day serves as the activity execution unit.
+In our experiments, we set $n_w = 10$, $n_d = 5$, and $n_c = 5$, chosen to balance simulation fidelity with computational cost.
+Each week proceeds through the following stages in order.
+
+\paragraph{Weekly Settlement (Before Plan)}
+Before any agent action, two automatic settlements take place:
+\begin{inparaenum}[\it (1)]
+\item \textit{fulfillment decay}: mood, social, and esteem each decay by 15\% of their current value, while material fulfillment does not decay (it is controlled by the economy system, see \S~\ref{app:economy});
+\item each agent receives its weekly income, including position-based salary and any extra fixed income.
+\end{inparaenum}
+The decay mechanism forces agents to continuously engage in activities to maintain fulfillment, creating an intrinsic motivation loop.
+
+\paragraph{Plan}
+Each agent reviews its goals, reflects on the previous week, makes a weekly plan, and selects a living standard (frugal, moderate, comfortable, or luxurious) that determines weekly expenses and material fulfillment changes (see \S~\ref{app:economy} for details).
+Agents can access memory files via function calls to organize their knowledge and intentions.
+
+\paragraph{Before Contact: Public Activity Generation and Sign-up}
+Before the Contact stage, the environment model generates public events for the upcoming week(s).
+Each event specifies a name, description, start date, duration in weeks (1 = one-time, $>$1 = repeats weekly on the same day for multiple weeks), and an eligibility list (\texttt{"all"} or a named subset of agents).
+The number of events generated per week is controlled by configuration.
+After generation, each agent is shown only the events they are eligible for and independently decides whether to sign up.
+
+\paragraph{Contact}
+The Contact stage runs for $n_c$ contact rounds.
+In each round, agents may send messages or arrange joint activities via four action types: \texttt{contact},
+\texttt{propose\_joint\_activity}, \texttt{respond\_invitation}, and \texttt{cancel\_joint\_activity}.
+After all rounds complete, the system runs schedule resolution to determine which joint activities are
+successfully created.
+Full details of the communication mechanism, action formats, and schedule resolution are provided in
+\S~\ref{sec:appendix_contact_details}.
+
+
+\paragraph{After Contact: Encounter Activity Generation}
+After schedule resolution, the environment model generates encounter activities for idle agents, \ie, those without any scheduled activity on a given day.
+The number of encounters per day is $\lfloor n_{\text{idle}} / 5 \rfloor$, with probabilistic rounding of the fractional part.
+Encounters occur only at public locations.
+For each idle agent, the system retrieves their top 10 most recently interacted characters (via \texttt{get\_top\_related\_names}), and the environment model uses this relationship information to generate meaningful encounter scenarios, pairing agents with existing social connections into the same encounter.
+
+\paragraph{Activity}
+Each week contains $n_d$ activity days.
+On each day, the system builds activities from agent schedules following the priority order: joint $>$ public $>$ encounter $>$ solo.
+Agents without any scheduled activity are automatically assigned solo activities.
+All activity types execute in parallel.
+Detailed execution mechanisms, including concurrency control, are described in \S\ref{sec:appendix_concurrency}.
+
+\paragraph{Review}
+Each agent summarizes its weekly experiences into a diary entry and updates its memory files via function calls, consolidating new knowledge about relationships, plans, and self-reflection.
+
+\paragraph{Weekly Cleanup}
+At the end of each week, agents with possessions exceeding the maximum limit (default 50 items) are prompted to discard excess items.
+The agent selects which items to discard, preventing unbounded item accumulation.
+
+\paragraph{Year-End Settlement}
+At the end of each simulated year, three processes take place in order:
+\begin{inparaenum}[\it (1)]
+\item the environment model updates each agent's profile (\S~\ref{sec:appendix_profile_update});
+\item new positions are introduced and agents compete for positions through position application (\S~\ref{sec:appendix_enrollment});
+\item life rewards are calculated (\S~\ref{sec:life_reward}).
+\end{inparaenum}
+
+\subsection{Details of Contact Stage}
+\label{sec:appendix_contact_details}
+
+\paragraph{Contact Rounds}
+The Contact stage runs for $n_c$ contact rounds.
+In each round, all agents act in parallel: they read newly arrived messages along with the contact history from the past three weeks, then send messages or arrange activities.
+Each agent may issue at most 10 actions per round, encouraging agents to prioritize the most important interactions.
+
+\paragraph{Error Feedback Mechanism}
+If an agent's action has formatting errors or violates scheduling rules (\eg, invalid location, non-existent invitee, time outside the allowed window), the system captures the error and feeds it back in the next round's prompt.
+The error is formatted as \texttt{"Action: [original action]\textbackslash nError: [error description]"}, allowing the agent to correct its behavior in subsequent rounds.
+Actions with errors are treated as invalid and automatically discarded; they are not sent to other agents.
+
+\paragraph{Action Types and Format}
+Unlike function calls, actions are wrapped with \texttt{<role\_action>} tags in the agent's text output.
+Four action types are available:
+
+\begin{itemize}[nosep]
+\item \texttt{contact}: send a text message to a specific person. Parameters: \texttt{to} (recipient name), \texttt{message} (message content).
+\item \texttt{propose\_joint\_activity}: propose a joint activity. Parameters: \texttt{activity\_name} (unique name), \texttt{proposal} (description), \texttt{invited\_persons} (list of invitees), \texttt{time} (format: \texttt{Y[year]-\allowbreak W[week]\allowbreak -activity-D[day]}), \texttt{location}, \texttt{required\_participants} (optional list), \texttt{message} (accompanying message).
+\item \texttt{respond\_invitation}: accept or decline an invitation. Parameters: \texttt{activity\_name} (matching the proposal), \texttt{to} (proposer name), \texttt{decision} (\texttt{"yes"} or \texttt{"no"}), \texttt{message} (response message).
+\item \texttt{cancel\_joint\_activity}: cancel a previously proposed activity. Parameters: \texttt{activity\_name} (matching the proposal), \texttt{message} (cancellation reason, sent to all invitees).
+\end{itemize}
+
+Agents may propose activities up to 4 weeks in advance (configurable via \texttt{max\_weeks\_for\_future\_schedule}).
+If \texttt{required\_participants} is specified, all listed persons must respond \texttt{"yes"} for the activity to be created; otherwise, at least one acceptance suffices.
+
+\paragraph{Schedule Resolution}
+After Contact ends, the system runs schedule resolution over all \texttt{propose\_joint\_activity}, \texttt{respond\_invitation}, and \texttt{cancel\_joint\_activity} actions collected during the week.
+The resolution proceeds in the following steps:
+\begin{enumerate}[nosep]
+\item \textbf{Cancel processing}: if the proposer issued a \texttt{cancel\_joint\_activity}, the proposal is voided and all invitees are notified.
+\item \textbf{Response deduplication}: for each invitee, only the last \texttt{respond\_invitation} to a given proposal is kept; earlier responses are discarded.
+\item \textbf{Time conflict resolution}: for each agent, if multiple schedules fall on the same day, the system keeps the one with the highest priority and automatically sets the rest to \texttt{"no"} with a reason attached. The priority order is: existing joint activity (from earlier weeks) $>$ newly proposed joint activity $>$ newly accepted joint activity $>$ existing public/encounter activity. Concretely, a newly confirmed joint activity overrides a previously scheduled public or encounter activity, but cannot override an already-confirmed joint activity from an earlier week (first-come-first-served across weeks).
+\item \textbf{Activity creation}: for each non-canceled proposal, the activity is created only if \textit{(a)} the proposer has not been removed by a time conflict, \textit{(b)} all \texttt{required\_participants} responded \texttt{"yes"}, and \textit{(c)} at least one invitee responded \texttt{"yes"}.
+\end{enumerate}
+
+
+\subsection{Details of Joint Activities}
+\label{sec:appendix_activity}
+
+This section describes the interaction details of joint activities.
+Encounter activities are a special case of joint activities and follow the same procedure described below.
+
+\paragraph{Enter Activity}
+Before the multi-turn dialogue begins, each participant first performs an analysis of the situation.
+The agent is asked to analyze its position, goals, action plan, potential risks, and strategies for the upcoming activity.
+This analysis is then injected into the context for the subsequent multi-turn dialogue, helping the agent maintain a coherent strategy throughout the interaction.
+
+\paragraph{Turn Control}
+At the start of each turn, the environment model provides an environmental description and selects the next speaker, following CoSER~\citep{wang2025coser}.
+Each activity has a minimum and maximum turn limit (default 5 and 20).
+The activity ends if the maximum turn count is reached, or the environment model proactively decides to end it after the minimum turn count.
+After the activity concludes, the environment model evaluates each participant's experience throughout the multi-turn dialogue and provides feedback, including changes to their states.
+
+\paragraph{Visibility Tags}
+In joint and encounter activities, agents can use visibility tags to control who sees their messages:
+\begin{itemize}[nosep]
+\item \texttt{<private>}: visible only to the speaker. Used for inner thoughts and private actions.
+\item \texttt{<visible\_to="A,B">}: visible only to the specified participants. Others receive a notification that a private exchange is occurring, but cannot see the content.
+\item Default (no tag): publicly visible to all participants.
+\end{itemize}
+
+\paragraph{Gift System}
+During joint and encounter activities, agents can transfer items they own to other participants via a \texttt{gift} action.
+The system validates that the sender owns the item and the receiver is a current participant, then immediately moves the item from the sender to the receiver.
+Both parties receive a system notification confirming the transfer.
+
+\paragraph{Early Exit}
+Agents may choose to leave an activity before it concludes via an \texttt{exit\_activity} action.
+Once an agent exits, it no longer participates in subsequent turns, and other participants receive a departure notification.
+If fewer than 2 participants remain, the activity ends automatically.
+
+\paragraph{Exit Activity (Reflection)}
+After an activity concludes and the environment model provides feedback (including state changes), each agent performs an additional step to reflect on the experience.
+This mechanism applies to all four activity types, with the reflection content varying by type.
+For joint and encounter activities, the agent produces both a summary of the activity process and a personal reflection (mindset shifts, emotional arc) based on the full dialogue history and environment model feedback.
+For solo activities, the agent reflects based on its action description and the environment model's outcome feedback.
+For public activities, the agent additionally sees what other participants did, and may create or update memory files for participants of interest.
+The reflection is recorded in the agent's activity history and serves as context in subsequent weeks.
+
+\subsection{Details of Solo Activity}
+\label{sec:appendix_solo_activity}
+
+Solo activity is the fallback when an agent has no other schedule. The agent generates a description of its intended action.
+The environment model evaluates the feasibility of the action, considering factors such as the agent's position, skill levels, and age, and determines the degree of success and gains accordingly.
+When an agent with insufficient skills attempts a task beyond their capability, the environment model will probably provide a negative feedback with limited progress.
+The environment model then determines whether the action involves spending. If so, it generates spending options for the agent to choose from, and the transaction is completed upon selection.
+The environment model then evaluates the outcome and provides feedback including changes to vitality, fulfillment, and skills.
+
+\subsection{Details of Encounter Activity}
+\label{sec:appendix_encounter_activity}
+
+Encounter activity is a special form of joint activity.
+The difference is that, while joint activities are established through agents' proactive interactions during the Contact stage, encounter activities are system-arranged: the environment model pairs idle agents after the Contact stage concludes.
+Each encounter involves exactly two agents.
+The environment model receives as input the list of idle agents per day (including their known relationships), brief profiles of all idle agents, and the list of available locations.
+For pairing, the environment model prioritizes agents who already have a relationship (to deepen existing connections), and otherwise pairs agents who have not yet met (for a first meeting scenario).
+The environment model also generates a scene description for each encounter: it describes the objective circumstance of the meeting without assuming characters' thoughts and behaviors, and creates a natural conflict or interesting situation (\eg, ``At the convenience store, both reach for the last bottle of drink on the shelf at the same time.'').
+Upon conclusion, mutual recognition is automatically established between participants, and the environment model provides feedback.
+The detailed execution procedure is identical to that of joint activities (\S~\ref{sec:appendix_activity}).
+
+\subsection{Details of Public Activity}
+\label{sec:appendix_public_activity}
+
+Public activities are generated by the environment model before the Contact stage. Agents may sign up for events that match their interests during Contact.
+Each participant executes the activity independently, similar to solo activity, but multiple agents participate in the same event simultaneously.
+After the activity concludes, each participant receives a summary of what other participants did during the event.
+Based on this information, agents may choose to initiate contact with participants they find interesting.
+For each pair that mutually choose to connect, the system creates an initial recognition entry in each agent's memory file for the other.
+If only one agent chooses to connect, a unidirectional record is created only in that agent's memory.
+The environment model then provides feedback for each participant, including changes to their states.
+
+
+
+\subsection{Details of Context Management}
+\label{sec:appendix_context}
+
+Table~\ref{tab:context_management} presents the full context composition for each stage of agent LLM calls.
+The context is organized into three layers.
+
+The \textbf{roleplay prompt} serves as the system message and is shared across all stages.
+It contains the agent's full persona (profile and dynamic state), worldview rules, summaries of key memory files, recent history, current location, commonsense guidelines, roleplay principles, and output requirements.
+Memory file summaries are ranked by recency of access (tracked via a hidden access log).
+When an agent knows more than 50 characters, only the 50 most recently accessed are shown, but current interaction partners are always included regardless of this limit.
+Recent history comprises weekly diary summaries from previous weeks, recent activity records, and the agent's own responses from earlier stages of the current week.
+
+The \textbf{stage prompt} is appended as a user message with stage-specific instructions and context, as detailed in Table~\ref{tab:context_management} and Table~\ref{tab:additional_stages}. 
+Table~\ref{tab:additional_stages} lists the prompts for special stages, such as \dq{signup public activity} and \dq{position application}.
+
+The \textbf{message history} records the LLM's input-output messages accumulated during the current multi-round interaction.
+It contains three categories of information:
+\begin{inparaenum}[\it (1)]
+\item prior dialogue turns in multi-round interactions, such as conversation history during joint activities;
+\item function call requests and results from the function calling loop;
+\item and compacted reasoning summaries for open-source models.
+\end{inparaenum}
+Message history is cleared between stages.
+Cross-stage continuity is instead provided by the recent history component of the roleplay prompt, which includes the agent's summarized outputs from earlier stages of the current week.
+
+\paragraph{Function Calling Loop}
+Each LLM invocation runs up to 8 rounds of function calling.
+In rounds 1 through 7, \texttt{tool\_choice} is set to \texttt{auto}, allowing the agent to freely invoke functions (\eg, \texttt{read\_file}, \texttt{update\_file}) or produce a final answer.
+In the last round, \texttt{tool\_choice} is forced to \texttt{none}, requiring a text response.
+
+\paragraph{Compacted Reasoning}
+For open-source models with explicit reasoning traces, multi-round function calling produces lengthy thinking content.
+To preserve reasoning capability while reducing context length, an additional LLM call generates a compact summary ($\sim$200 words) of the reasoning process after the final answer is produced.
+This summary captures background motivations, the core thinking process, and a concise function call history, and is prepended to the final answer for use as context in subsequent stages.
+Closed-source models (\eg, GPT-4o, Claude) skip this step, as their reasoning is not exposed in the output.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Context composition for agent LLM calls at the main weekly stages. The roleplay prompt is shared across all stages and includes recent history for cross-stage continuity. Each stage appends its own stage prompt. Message history accumulates during multi-round interactions within a stage and is cleared between stages. Additional stages are listed in Table~\ref{tab:additional_stages}.}
+  \label{tab:context_management}
+  \small
+  \begin{tabular}{p{2.0cm} p{3.0cm} p{8.0cm}}
+    \toprule
+    \textbf{Stage} & \textbf{Component} & \textbf{Information Provided} \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{\textit{Roleplay Prompt}} {\scriptsize (system message, shared across all stages)}} \\
+    \midrule
+      & Persona          & Profile (background, personality, talents, position) + dynamic state (vitality, fulfillment, skills, assets) \\
+      & Worldview        & Time system, weekly cycle, activity types, reward rules \\
+      & Memory File Summary & Recent memory files ranked by access recency (limit 50; interaction partners guaranteed) \\
+      & Recent History   & Weekly diaries (previous weeks) + activity records (recent weeks) + agent's own outputs from earlier stages this week \\
+      & Location         & Current surroundings (activity venue or home) \\
+      & Guidelines       & Commonsense rules, roleplay principles, output requirements \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{\textit{Stage Prompt}} {\scriptsize (first user message, per-stage)}} \\
+    \midrule
+    \multirow{2}{*}{Plan}
+      & Schedule         & Confirmed joint activities and public events for upcoming weeks \\
+      & Plan Instructions & Goal-setting, reflection, and living standard selection \\
+    \midrule
+    \multirow{5}{*}{Contact}
+      & Schedule         & Confirmed joint activities and public events for upcoming weeks \\
+      & Error Feedback   & Errors from last contact round (invalid actions discarded) \\
+      & Contact History  & Full message exchange history from the past 3 weeks \\
+      & Map              & Available locations for activities \\
+      & Contact Instructions & Scheduling window, action types (contact, propose, respond, cancel), action limit \\
+    \midrule
+    \multirow{4}{*}{\shortstack[l]{Activity\\{(Joint/}\\{Encounter)}}}
+      & Schedule         & Confirmed activities for this week \\
+      & Activity Background & Who, what, why for today's activity (for joint activities) \\
+      & Participant Info & Public information of other participants \\
+      & Activity Instructions & Visibility tags, gift/exit actions, turn format, word limit \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Activity\\(Solo)}}
+      & Schedule         & Confirmed activities for this week \\
+      & Solo Instructions & Activity choice, state effects, shopping/services \\
+    \midrule
+    \multirow{3}{*}{\shortstack[l]{Activity\\(Public)}}
+      & Schedule         & Confirmed activities for this week \\
+      & Event Info       & Event name, description, other participants present \\
+      & Public Instructions & Observation-only interaction \\
+    \midrule
+    \multirow{1}{*}{Review}
+      & Review Instructions & Weekly summary, reflection, and diary writing \\
+    \midrule
+    \multicolumn{3}{l}{\textbf{\textit{Message History}} {\scriptsize (other messages, within this stage)}} \\
+    \midrule
+      & Dialogue History {\scriptsize (joint/encounter)} & Multi-turn dialogue (environment model narration + participant responses, with visibility filtering) \\
+      & Function Calls   & Tool call requests + results (up to 8 rounds per invocation) \\
+      & Compacted Reasoning & For open-source models: $\sim$200-word summary of reasoning process prepended to final answer \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+
+
+\begin{table}[htbp]
+  \centering
+  \caption{Stage prompt composition for additional agent LLM calls. All calls share the same roleplay prompt (Table~\ref{tab:context_management}) as the system message. Enter Activity and Exit Activity are described in \S~\ref{sec:appendix_activity}.}
+  \label{tab:additional_stages}
+  \small
+  \begin{tabular}{p{2.8cm} p{3.0cm} p{7.2cm}}
+    \toprule
+    \textbf{Stage} & \textbf{Component} & \textbf{Information Provided} \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Signup\\{\scriptsize (before Contact)}}}
+      & Schedule         & Confirmed activities for upcoming weeks \\
+      & Signup Instructions & List of eligible public events (name, time, existing schedule, description), signup action format \\
+    \midrule
+    \multirow{3}{*}{\shortstack[l]{Enter Activity\\{\scriptsize (joint/encounter)}}}
+      & Schedule         & Confirmed activities for this week \\
+      & Activity Background & Who, what, why for today's activity; location description; other participants' public info \\
+      & Analysis Instructions & Analyze position, goals, action plan, potential risks, and strategies before the activity starts \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Exit Activity\\{\scriptsize (joint/encounter)}}}
+      & Activity Context  & Full multi-turn dialogue history from the activity, plus environment model feedback \\
+      & Reflection Instructions & Summarize the activity process and reflect on mindset shifts and emotional arc \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Exit Activity\\{\scriptsize (solo)}}}
+      & Activity Context  & Agent's action description and environment model feedback \\
+      & Reflection Instructions & Reflect on the activity content and outcome \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Exit Activity\\{\scriptsize (public)}}}
+      & Activity Context  & Agent's action description, environment model feedback, and other participants' activities \\
+      & Reflection Instructions & Reflect on the activity; optionally create or update memory files for other participants \\
+    \midrule
+    \multirow{2}{*}{Position Application}
+      & Position Info     & All available positions (description, income, skill growth, requirements) and agent's current position \\
+      & Application Instructions & Express up to 3 position preferences in order; may choose to stay in current position \\
+    \midrule
+    \multirow{2}{*}{Judge Others}
+      & Known People      & Names and memory file summaries of top related characters \\
+      & Scoring Instructions & Score each known character independently on affection and respect (0 to 100) \\
+    \midrule
+    \multirow{2}{*}{\shortstack[l]{Settle Week\\{\scriptsize (conditional)}}}
+      & Possessions       & Full list of currently owned items with descriptions \\
+      & Discard Instructions & Select items to discard when possessions exceed the capacity limit \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Response Filtering and Roleplay Principles}
+\label{sec:appendix_principles}
+
+During simulation, the environment model checks each agent response against a set of roleplay principles.
+Table~\ref{tab:principles} lists the complete principle set.
+Responses that violate any principle are marked as rejected and filtered out during training data construction (\S~\ref{sec:training_data}).
+
+\begin{table}[htbp]
+  \centering
+  \caption{Roleplay principles used for response filtering. The environment model evaluates each agent response against these principles during simulation.}
+  \label{tab:principles}
+  \small
+  \begin{tabular}{p{3.8cm} p{9.5cm}}
+    \toprule
+    \textbf{Principle} & \textbf{Description} \\
+    \midrule
+    Scope of control & The agent should only control its own actions and speech, not determine outcomes or control others' behaviors and thoughts. \\
+    No hallucination & Only reference information present in context; do not fabricate objects, events, or information not mentioned. \\
+    Character consistency & Personality traits and behavior patterns should match the established persona. \\
+    Cognitive boundaries & Knowledge and cognitive limits should match the character's identity and background. \\
+    Motivation consistency & Actions should be supported by reasonable internal motivations. \\
+    State consistency & Mental and physical states (\eg, fatigue, injury) should not shift abruptly. \\
+    Emotional continuity & Emotional changes should be gradual, not sudden. \\
+    Natural relationship progression & Relationships should not develop abruptly; going from strangers to close friends requires a reasonable process. \\
+    No parroting & Do not repeat the same content three or more times; conversation should make substantial progress. \\
+    No AI assistant behavior & Characters should not speak or act like customer service agents or AI assistants. \\
+    Substantive dialogue & Dialogue should provide new information rather than spinning in circles. \\
+    Selective disclosure & What to share depends on the relationship; strangers do not bare their souls. \\
+    Independent self & Characters should express their own goals, preferences, likes and dislikes. \\
+    Colloquial speech & Use casual, conversational language in everyday dialogue. \\
+    Directness & Speak directly; do not pad responses with unnecessary hedging or filler. \\
+    First-person perspective & Speech, actions, and thoughts should use first-person perspective; action descriptions can omit the subject. \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\subsection{Fulfillment and Vitality}
+\label{sec:appendix_states}
+
+\paragraph{Fulfillment}
+Fulfillment has four dimensions (mood, material, social, and esteem), each on a 0 to 100 scale.
+The value 50 serves as a neutral baseline, representing neither satisfaction nor dissatisfaction.
+Values above 50 indicate positive fulfillment, while values below 50 indicate dissatisfaction.
+At the beginning of each week, each dimension decays proportionally:
+\begin{equation}
+v' = v - v \times r_d
+\end{equation}
+where $v$ is the current value and $r_d$ is the per-dimension decay ratio.
+The decay ratios are: mood $r_d = 0.15$, social $r_d = 0.15$, esteem $r_d = 0.15$, and material $r_d = 0$.
+Material fulfillment does not decay because it is controlled separately by the economy system through living standard selection (\S~\ref{app:economy}), and does not require an additional decay mechanism.
+This decay mechanism simulates the natural fading of satisfaction: agents must continuously engage in activities to maintain fulfillment, or it naturally declines toward the baseline.
+This creates an intrinsic motivation loop: inactivity leads to declining fulfillment, which drives agents to seek new activities.
+
+\paragraph{Vitality}
+Vitality represents an agent's energy level on a 0 to 100 scale.
+Activities consume vitality, while rest recovers it.
+The vitality level is communicated to agents via prompt descriptions (\eg, 50 to 69 indicates tiredness and reduced efficiency), influencing their behavioral decisions.
+Additionally, low vitality incurs penalties in reward calculation: when vitality falls below a threshold, the subjective reward is reduced.
+
+\subsection{Profile Update}
+\label{sec:appendix_profile_update}
+
+At the end of each simulated year, the environment model updates each agent's profile to reflect a year of lived experience.
+The update covers personality traits, talents, skills, and other numeric attributes.
+The environment model receives the agent's current profile, the year's activity history, social interaction records, and state change trajectories.
+Based on this information, the environment model generates an updated profile that reflects the agent's growth, changes, or decline over the year.
+For example, an agent who frequently engages in social activities may see an increase in extraversion, while an agent who has worked in a specific field for a long time may gain skill growth in related areas.
+
+
+\subsection{Details of Economy System}
+\label{app:economy}
+
+Each agent has a deposit account with income and expenses.
+
+\paragraph{Income}
+Agents receive income from three sources:
+(1) a \textit{position-based weekly salary} (\$0 to \$500), automatically deposited at the beginning of each week;
+(2) \textit{extra weekly income} from family support, investments, or other external sources, also deposited automatically;
+and (3) \textit{work income} earned during solo activity slots (\$40 to \$200 per day, tiered by skill level).
+The first two constitute an agent's fixed weekly income (combined range approximately \$100 to \$500),
+while the third is available to any agent who chooses to spend its activity slots on work.
+
+\paragraph{Expenses}
+Agents spend money in two ways.
+First, during the weekly planning phase, each agent selects a \textit{living standard} from four tiers:
+frugal (\$100/week), moderate (\$200/week), comfortable (\$300/week), or luxurious (\$500/week).
+Higher tiers yield greater material fulfillment, while the frugal tier reduces it.
+This mechanism forces a core trade-off between saving and immediate material satisfaction.
+Second, agents may encounter \textit{consumption opportunities} during solo activities (\eg, shopping, entertainment),
+where the environment model provides available items and prices based on the specific context, and the agent decides whether to make a purchase.
+Consumption brings material fulfillment following a piecewise function:
+\$0 to \$100 yields +1 per \$20 spent (max +5),
+\$100 to \$300 yields an additional +1 per \$40 (max +10 total),
+and spending above \$300 is capped at +10.
+
+We create a \textit{price reference list} for each world---ranging from free activities (\$0) to luxury purchases (\$15{,}000)---which the environment model consults when assigning goods and prices to activities.
+This ensures that large purchases require sustained saving over multiple simulated weeks, providing a natural anti-inflation mechanism.
+
+
+
+\subsection{Details of Position and Position Application}
+\label{sec:appendix_enrollment}
+
+A position represents an agent's job or role in the world, serving as the key source of income and skill development.
+
+\paragraph{Position Attributes}
+Each position is defined by the following attributes:
+\begin{itemize}[nosep]
+\item \textbf{Organization and role}: together forming a unique identifier in the format \texttt{\{organization\}/\{role\}}, \eg, \texttt{The Academy/Potions Teacher}.
+\item \textbf{Type}: \texttt{work} or \texttt{non-work} (\eg, student). Both types can provide income.
+\item \textbf{Weekly income}: a fixed amount the agent receives each week automatically.
+\item \textbf{Weekly skill gain}: experience points in specific skills that accumulate automatically each week, \eg, \texttt{\{``teaching'': 5, ``leadership'': 3\}}.
+\item \textbf{Capacity}: the maximum number of agents that can hold this position simultaneously.
+\item \textbf{Requirements} (optional): entry conditions including minimum skill levels and age limits (\texttt{min\_age}, \texttt{max\_age}). For example, a high-school student position may set \texttt{max\_age=18}.
+\end{itemize}
+
+\paragraph{Position Creation}
+Positions are introduced through three sources:
+\begin{enumerate}[nosep]
+\item \textbf{Born with characters.} Each character comes with an initial position as part of its background, assigned during the character creation process (\S~\ref{app:creation_process}).
+\item \textbf{World initialization.} After character creation and before the simulation starts, the environment model is provided with all positions initially held by characters and designs additional positions to enrich the world's occupational structure.
+To ensure balance, the system imposes constraints on total capacity and diversity: total capacity across all positions ranges from $C$ to $1.5C$ (where $C$ is the number of agents), each work position holds at most $\lfloor C/3 \rfloor$ agents, and the number of distinct positions ranges from 10 to $\lfloor C/3 \rfloor$.
+\item \textbf{Yearly growth.} At the beginning of each year, the system adds $\max(2, \lfloor P/10 \rfloor)$ new positions, where $P$ is the initial position count.
+New positions require minimum skill levels above the current highest among all agents, ensuring they serve as growth targets that agents must work toward.
+Income for new positions scales with skill requirements, and capacity is limited to 1 to 2 slots to maintain scarcity and encourage competition.
+\end{enumerate}
+
+\paragraph{Position Application Process}
+Position application is triggered at the end of each simulated year, allowing agents to change their positions.
+The process consists of three steps:
+\begin{inparaenum}[\it (1)]
+\item each agent expresses up to three position preferences, ranked by priority.
+Agents may choose \texttt{STAY\_CURRENT} to retain their current position, which is automatically granted unless they have exceeded the position's age limit;
+\item the environment model evaluates candidates across three matching rounds: in the $k$-th round, unmatched agents' $k$-th choice is processed, with the environment model assessing candidates' skills against remaining slots;
+\item accepted agents update their positions and establish relationships with new colleagues. Unmatched agents remain in their current position, while those who have exceeded their position's age limit become unemployed.
+\end{inparaenum}
+
+\subsection{Location System}
+\label{sec:appendix_location}
+
+We design a location system for \method, mainly for providing agents with accurate, grounded environmental perception.
+We observe that without environmental information, agents tend to hallucinate objects or places that do not exist.
+We therefore implement a simple location system to provide such information.
+The location system is not the focus of this work.
+The system comprises two types of locations---public locations and private locations---both
+created at initialization and persisted in \texttt{locations.json}.
+
+\paragraph{Public Locations}
+Public locations are generated by the environment model based on the world setting and character profiles.
+Each location contains a name, size (\texttt{small}, \texttt{medium}, or \texttt{large}),
+a description (4 to 6 sentences covering spatial layout and atmosphere),
+and a list of surrounding objects (5 to 6 items).
+The object list serves as a grounding constraint:
+agents are expected to reference only objects that exist in the environment,
+rather than fabricating props that are not present.
+Each world generates 30 public locations by default,
+with a size distribution of approximately 50\% small, 35\% medium, and 15\% large.
+
+\paragraph{Private Locations}
+Private locations represent each character's home (key: \texttt{home/\{name\}}).
+Each home is generated by the environment model based on the character's backstory and occupation,
+containing a description (2 to 4 sentences) and a list of representative objects (4 to 6 items).
+An agent can invite others to its home for activities;
+others' homes are only accessible when invited.
+
+\paragraph{Location Selection}
+When an agent proposes a joint activity, or when the environment model arranges an encounter activity,
+they are provided with the full list of available locations and must choose one from the list.
+For agents proposing activities, their own private location is also available as an option.
+
+\subsection{Numeric System}
+\label{app:numeric}
+
+\paragraph{Personality Traits}
+All characters share the same 10 personality dimensions, each measured on a 0 to 100 scale where 50 represents the neutral baseline:
+confidence, control, curiosity, empathy, extraversion, feeling, intuition, judging, patience, and responsibility.
+These dimensions cover the four MBTI axes (extraversion vs.\ introversion, sensing vs.\ intuition, thinking vs.\ feeling, judging vs.\ perceiving) along with supplementary social and motivational traits.
+These traits evolve slowly during the simulation, changing by at most $\pm 3$ per simulated year, reflecting the psychological stability of personality.
+
+\paragraph{Talents}
+All characters share the same 9 talent dimensions, measured on a 0 to 100 scale with 50 representing the population average:
+beauty, communication, creativity, health, honesty, integrity, intelligence, leadership, and trustworthiness.
+Talents represent innate aptitudes and change by at most $\pm 5$ per year.
+
+\paragraph{Skills}
+Skills are measured on an open-ended 0 to 300 scale:
+0 (untrained), 10 (beginner), 30 (some experience), 100 (proficient), and 300 (master).
+Unlike personality and talents, skills grow continuously through practice and work, increasing by $+1$ to $+5$ per simulated week depending on the activity, with no hard upper bound.
+
+\paragraph{Agent States}
+Two dynamic state variables track each agent's condition.
+\textit{Vitality} (0 to 100, initial value 70) represents physical energy, depleted by activities ($-1$ to $-5$ per slot) and restored by rest ($+5$ to $+10$).
+\textit{Fulfillment} comprises four independent dimensions---material, mood, social, and esteem---each on a 0 to 100 scale with an initial neutral value of 50.
+Fulfillment naturally decays each week, requiring agents to actively maintain their well-being through social interactions, leisure, and achievements.
+
+
+\subsection{Concurrency Control}
+\label{sec:appendix_concurrency}
+
+The system is designed to maximize concurrency across all activity executions within a day.
+Different activity types have different concurrency characteristics and are handled accordingly.
+
+Joint activities involve sequential multi-turn dialogue and are the hardest to parallelize; they are therefore given the highest priority and submitted first.
+Encounter activities follow the same logic.
+Solo activities are fully independent and execute with complete concurrency.
+Public activities employ a two-level concurrency design.
+At the outer level, multiple public activities run concurrently.
+At the inner level, within each public activity, all participants first complete their individual phases (entering the activity and acting independently) in parallel, then proceed through the subsequent phases also in parallel.
+
+Overall, activities are submitted in the order: joint $\to$ solo $\to$ public.
+While joint activities are running, solo activities are interleaved to fill available capacity; public activities are submitted last to avoid competing with joint activities for resources.
+
+
+
+
+
+\subsection{Configuration Parameters}
+\label{app:config}
+
+Table~\ref{tab:config_params} lists the key numerical parameters that govern simulation behavior.
+
+\begin{table}[htbp]
+\centering
+\caption{Key configuration parameters used in the simulation.}
+\label{tab:config_params}
+\resizebox{0.8\linewidth}{!}{
+\small
+\begin{tabular}{p{4.2cm} p{1.8cm} p{7.2cm}}
+\toprule
+\textbf{Parameter} & \textbf{Value} & \textbf{Description} \\
+\midrule
+\multicolumn{3}{l}{\textit{Time}} \\
+\texttt{n\_year} & 10 & Simulated years per run \\
+\texttt{n\_week} & 10 & Weeks per simulated year \\
+\texttt{n\_day} & 5 & Activity days per week \\
+\texttt{n\_contact\_slot} & 5 & Communication rounds per Contact stage \\
+\midrule
+\multicolumn{3}{l}{\textit{Contact}} \\
+\texttt{n\_action\_per\_slot} & 10 & Max actions per agent per contact round \\
+\texttt{max\_future\_schedule\_weeks} & 4 & How many weeks ahead an agent can propose activities \\
+\texttt{n\_prev\_contact\_weeks} & 3 & Weeks of prior contact history shown in prompt \\
+\midrule
+\multicolumn{3}{l}{\textit{Activity}} \\
+\texttt{joint\_activity\_min/max\_turns} & 5 / 20 & Turn range for joint and encounter activities \\
+\texttt{solo\_activity\_min/max\_turns} & 2 / 5 & Turn range for solo activity environment model evaluation \\
+\texttt{max\_possessions} & 50 & Max items an agent can hold before discarding \\
+\midrule
+\multicolumn{3}{l}{\textit{Public Activity}} \\
+\texttt{max\_events\_per\_week} & 10 & Max public events generated per week \\
+\texttt{max\_repeat\_weeks} & 5 & Max duration (weeks) a public event can repeat \\
+\midrule
+\multicolumn{3}{l}{\textit{Location}} \\
+\texttt{n\_locations} & 30 & Number of public locations per world \\
+\midrule
+\multicolumn{3}{l}{\textit{Fulfillment Decay}} \\
+\texttt{decay\_ratio} (mood) & 0.15 & Weekly proportional decay for mood fulfillment \\
+\texttt{decay\_ratio} (social) & 0.15 & Weekly proportional decay for social fulfillment \\
+\texttt{decay\_ratio} (esteem) & 0.15 & Weekly proportional decay for esteem fulfillment \\
+\texttt{decay\_ratio} (material) & 0 & Material fulfillment does not decay \\
+\midrule
+\multicolumn{3}{l}{\textit{State Change Limits per Activity}} \\
+\texttt{vitality} delta & [$-$5, $+$5] & Per-activity vitality change (all activity types) \\
+\texttt{mood} delta (solo/joint) & [$-$5, $+$5] & Per-activity mood change \\
+\texttt{social} delta (joint) & [$-$5, $+$5] & Per-activity social fulfillment change \\
+\texttt{esteem} delta (solo) & [$-$1, $+$1] & Per-activity esteem change (solo) \\
+\texttt{esteem} delta (joint) & [$-$3, $+$3] & Per-activity esteem change (joint) \\
+\texttt{skills} delta & [0, $+$3] & Per-activity skill increase \\
+\texttt{money} delta (solo) & [$-$200, $+$200] & Per-activity spending/earning (solo only) \\
+\midrule
+\multicolumn{3}{l}{\textit{Economy}} \\
+\texttt{weekly\_income} & \$100 to \$500 & Position-based weekly salary range \\
+\texttt{work\_income} (low/mid/high) & \$40 to \$200 & Daily work income by skill tier \\
+Living standard costs & \$100 / 200 / 300 / 500 & Frugal / moderate / comfortable / luxurious \\
+Living standard material delta & $-$5 / 0 / $+$5 / $+$10 & Material fulfillment change per living standard \\
+\midrule
+\multicolumn{3}{l}{\textit{Reward}} \\
+\texttt{period\_weeks} & 10 & Reward calculation interval (once per year) \\
+\texttt{pagerank\_damping} & 0.85 & PageRank damping factor for social reward \\
+\texttt{social\_weight} & 0.4 & $\lambda_{\text{social}}$: weight of social reward in total life reward \\
+\texttt{economy\_weight} & 0.2 & $\lambda_{\text{econ}}$: weight of economy reward in total life reward \\
+\texttt{subjective\_weight} & 0.4 & $\lambda_{\text{subj}} = 1 - \lambda_{\text{social}} - \lambda_{\text{econ}}$ \\
+\texttt{mutual\_affection\_alpha} & 2.0 & Mutual affection coefficient $\alpha$ in social reward \\
+\texttt{misery\_threshold\_percentile} & 0.25 & Bottom 25\% fulfillment triggers misery penalty \\
+\texttt{misery\_penalty\_value} & 5 & Penalty weight $\lambda_p$ deducted per misery event \\
+\texttt{gamma} & 0.90 & Discount factor for computing returns \\
+\texttt{sft\_top\_fraction} & 0.25 & Top fraction of agents selected for SFT training \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\section{Experiment Settings}
+
+\subsection{Training via Life Rewards}
+\label{sec:appendix_sft}
+
+Qwen3.5-397B-A17B is fine-tuned via supervised fine-tuning (SFT).
+Training data is constructed by selecting the top 25\% of agents by advantage at each time step
+from the first four simulated years across all three worlds.
+Environment model data is collected separately via random sampling, with high-frequency activity types downsampled to balance the training distribution.
+
+\paragraph{Return Normalization}
+In advantage estimation, we use the return at the previous time step as the baseline:
+$A_t = G_{t+1} - G_t$.
+However, $G_t$ at different time steps accumulates different numbers of future rewards, leading to different scales.
+We normalize each return by dividing by the discounted effective horizon:
+\begin{equation}
+G_t^{\text{norm}} = \frac{G_t}{\sum_{k=0}^{T-t} \gamma^k} = \frac{G_t \cdot (1 - \gamma)}{1 - \gamma^{T-t+1}}
+\end{equation}
+If all rewards were a constant $r$, the normalized return would equal $r$ at every time step,
+regardless of the remaining horizon.
+This removes the scale difference across different time steps, making the advantage computation more reasonable.
+
+\paragraph{Per-Period Trajectory Selection}
+Even with return normalization, scale differences in advantages across time steps may persist.
+In addition, the initial step lacks a meaningful estimate of reward and return.
+We set a virtual $G_0 = 0$ in this case, which may inflates the advantages of the first period.
+To address these issues, we select the top 25\% of agent trajectories by advantage \textit{within each period independently}, rather than ranking globally across different periods.
+This follows a natural heuristic that high-quality trajectories should be distributed across different periods.
+In practice, it eliminates the effect of cross-period scale differences on selection and ensures temporal diversity in the training data.
+
+Following~\citet{lu2025onpolicy}, self-distillation is employed to prevent catastrophic forgetting.
+Specifically, responses are generated from Qwen3.5-397B on the Tulu V3 instruction set~\citep{lambert2024tulu}
+and mixed into the training data as general-purpose samples.
+The training mixture consists of 50\% role-playing data and 50\% general-purpose data (measured by output tokens).
+
+A learning rate of $1 \times 10^{-5}$ with a minimum learning rate of $1 \times 10^{-6}$ is used,
+with a training batch size of 256.
+The model is fine-tuned for 1 epoch on 30 nodes of 8$\times$H100 80GB GPUs.
+
+
+\subsection{CoSER Evaluation}
+\label{sec:appendix_coser}
+
+Qwen3.5-397B-Agentopia is evaluated on the CoSER Test~\citep{wang2025coser}
+to assess its generalization to general-purpose role-playing tasks.
+CoSER evaluates LLMs via given-circumstance acting:
+given a character profile and situational context,
+the model generates character-consistent dialogue and actions.
+
+The evaluation uses 200 test samples from the CoSER Test.
+Qwen3-235B-A22B~\citep{qwen3} serves as the judge model,
+the next speaker prediction (NSP) model, and the environment model.
+Each simulation runs for at most 20 turns.
+
+Performance is assessed across four dimensions:
+(1) \textit{Anthropomorphism}, evaluating whether agents behave in a human-like manner,
+covering self-identity, emotional depth, persona coherence, and social interaction;
+(2) \textit{Character Fidelity}, assessing whether agents faithfully portray their characters,
+examining language style, knowledge and background, personality and behavior, and social relationships;
+(3) \textit{Storyline Quality}, evaluating whether the simulated conversation develops naturally,
+focusing on narrative flow and logical consistency;
+and (4) \textit{Storyline Consistency}, measuring alignment between the simulated conversation
+and the original dialogue,
+\ie, whether agents' reactions (emotions, attitudes, behaviors) remain consistent with the original.
+
+The comparison models include
+Claude-4.5-Opus, Gemini-3-Pro, Claude-4.5-Sonnet, GPT-5-Mini,
+CoSER-70B, and the baseline Qwen3.5-397B.
+
+
+\subsection{Metrics Definition}
+\label{sec:appendix_metrics}
+
+We define a set of analytical metrics to describe agent behaviors and social dynamics,
+covering fulfillment, activity, contact, personal growth, social evaluation, and computational cost.
+Reward metrics are defined separately in \S~\ref{sec:life_reward}.
+Other metrics are defined as follows: 
+
+\paragraph{Fulfillment Metrics}
+Four fulfillment dimensions (0 to 100 scale) are recorded as snapshots at the end of each year,
+reflecting an agent's subjective well-being as described in \S~\ref{app:numeric}:
+(1) \textbf{fulfillment\_mood},
+(2) \textbf{fulfillment\_material},
+(3) \textbf{fulfillment\_social}, and
+(4) \textbf{fulfillment\_esteem}.
+Additionally,
+(5) \textbf{fulfillment\_penalties} counts the number of (week, dimension) pairs
+where fulfillment or vitality falls below a penalty threshold
+(summed yearly).
+
+\paragraph{Activity Metrics}
+Six metrics describe an agent's activity participation patterns
+(all summed yearly):
+(1) \textbf{joint\_proposed}: number of joint activities initiated by the agent;
+(2) \textbf{joint\_participated}: number of joint activities attended, including those the agent proposed;
+(3) \textbf{public\_participated}: number of public activities attended;
+(4) \textbf{solo\_count}: number of solo activity days, computed as total activity days per week minus days occupied by any scheduled activity;
+(5) \textbf{activity\_consumption\_count}: number of consumption events during the week;
+(6) \textbf{total\_spending\_amount}: total spending on new possessions.
+
+\paragraph{Contact Metrics}
+Two metrics capture an agent's social initiative and popularity
+(both summed yearly):
+(1) \textbf{active\_contacts}: number of contact messages sent by the agent;
+(2) \textbf{passive\_contacts}: number of contact messages received by the agent.
+
+\paragraph{Personal Growth Metrics}
+Four metrics measure an agent's skill development and economic status.
+The first two are summed yearly; the last two use year-end snapshots:
+(1) \textbf{extra\_earning\_count}: number of solo activity slots in which the agent earned work income;
+(2) \textbf{skill\_improvement\_count}: number of activities that produced at least one skill advance;
+(3) \textbf{total\_skills}: sum of all skill values at week end;
+(4) \textbf{deposit}: deposit balance at week end.
+
+\paragraph{Social Evaluation Metrics}
+Six metrics are recorded at settlement weeks, reflecting an agent's standing in the social network
+(year-end snapshots):
+(1) \textbf{n\_liked\_by}: number of other agents whose affection toward this agent is $\geq 60$;
+(2) \textbf{n\_likes}: number of others this agent has affection $\geq 60$ toward;
+(3) \textbf{n\_respected\_by}: number of other agents whose respect toward this agent is $\geq 60$;
+(4) \textbf{n\_respects}: number of others this agent has respect $\geq 60$ toward;
+(5) \textbf{n\_mutual\_like}: number of agents where both this agent's affection toward them and their affection toward this agent are $\geq 60$;
+(6) \textbf{n\_mutual\_respect}: number of agents where both this agent's respect toward them and their respect toward this agent are $\geq 60$.
+
+\paragraph{Computational Cost Metrics}
+Three metrics measure the per-week LLM usage
+(all summed yearly):
+(1) \textbf{input\_tokens}: total input tokens consumed by LLM calls;
+(2) \textbf{output\_tokens}: total output tokens generated by LLM calls;
+(3) \textbf{function\_call\_count}: total number of function calls made by LLM.
+
+
+\section{Additional Results}
+
+\subsection{Training via Life Rewards: Detailed Trends}
+\label{sec:appendix_sft_trends}
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{Figures/sft_comparison_main.png}
+\caption{%
+Metric trends for social evaluation, economy, and activity patterns
+over four simulated years across \campus{} and \apartment{}.
+Solid lines represent Qwen3.5-397B-Agentopia; dashed lines represent the original Qwen3.5-397B;
+black lines show the cross-world average.}
+\label{fig:sft_main}
+\end{figure}
+
+Table~\ref{tab:sft_cross_world} reports cross-world average metrics.
+Here we present the per-year trends for both \campus{} and \apartment{},
+illustrating how Qwen3.5-397B and Qwen3.5-397B-Agentopia diverge over the four simulated years as the underlying model.
+
+
+
+\paragraph{Qwen3.5-397B-Agentopia's advantage emerges over the long term}
+The two models start with similar social metrics in Year~1, but diverge steadily thereafter:
+by Year~4, agents driven by Qwen3.5-397B-Agentopia are respected by 35.7\% more peers,
+liked by 22.2\% more,
+and hold 21.7\% more mutual-respect ties than those driven by the original Qwen3.5-397B.
+Rather than producing immediate gains,
+the advantage of life reward training manifests
+as agents interact with the society over multiple years.
+
+\paragraph{Economy--fulfillment trade-off}
+In Year~1, Qwen3.5-397B-Agentopia accumulates more wealth than the baseline.
+In later years, economy reward converges between the two models,
+probably because Qwen3.5-397B-Agentopia agents treat their savings as sufficient
+and shift priorities away from further accumulation.
+Meanwhile, material fulfillment remains consistently lower ($-$9\% to $-$22\%),
+indicating that agents learn to reduce spending to optimize economy reward.
+
+\paragraph{Subjective reward: material fulfillment masks underlying gains}
+As shown in Figure~\ref{fig:sft_reward},
+Qwen3.5-397B-Agentopia's subjective reward is lower than the baseline in the first two years,
+but surpasses it in Year~3 and Year~4.
+This is largely driven by the material fulfillment gap:
+agents save more aggressively, sacrificing material satisfaction.
+However, Figure~\ref{fig:sft_main} shows that Qwen3.5-397B-Agentopia
+leads consistently in mood, social, and esteem fulfillment throughout all four years.
+If material fulfillment were excluded,
+Qwen3.5-397B-Agentopia would likely hold a sustained advantage in subjective reward
+from the very beginning.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/sft_comparison_reward.png}
+\caption{%
+Reward component trends over four simulated years,
+averaged over \campus{} and \apartment{}.
+Solid lines represent Qwen3.5-397B-Agentopia; dashed lines represent the original Qwen3.5-397B.}
+\label{fig:sft_reward}
+\end{figure}
+
+
+\subsection{Per-World Reward Distributions}
+\label{sec:appendix_reward_per_world}
+
+Figure~\ref{fig:reward_distribution} presents pooled reward distributions across all three worlds.
+Figure~\ref{fig:reward_dist_per_world} provides per-world breakdowns,
+revealing structural differences across social settings.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=0.8\textwidth]{Figures/reward_distribution_per_world.png}
+  \caption{%
+    Per-world reward dimension distributions over 10 simulated years.
+    Each row corresponds to one world; triangles mark annual means.
+  }
+  \label{fig:reward_dist_per_world}
+\end{figure*}
+
+Based on Figure~\ref{fig:reward_dist_per_world}, we analyze each reward dimension and have the following findings:
+(1) Subjective reward shows a consistent upward trend across all three worlds,
+with the mean rising from approximately 45 to 60 over 10 years,
+indicating that agents progressively achieve greater well-being through sustained social participation;
+(2) social reward remains broadly stable across all three worlds, with the mean near 0.01.
+This stability is inherent to its design:
+social reward is based on relative rankings rather than absolute performance,
+so gains for one agent largely come at the expense of others;
+(3) economy reward exhibits high variance across all three worlds.
+The absolute levels differ due to world design (different initial price and salary structures).
+\academy{} and \campus{} show upward trends,
+while \apartment{} shows declining yearly deposit gains
+as agents' deposits grow large relative to their income.
+\academy{} shows the clearest growth trajectory (mean rising from approximately \$100 to \$1{,}000),
+suggesting that agents learn to leverage skill advances and extra income for wealth accumulation.
+The bimodal appearance of economy reward in the pooled figure (Figure~\ref{fig:reward_distribution})
+stems from this cross-world heterogeneity rather than within-world polarization.
+
+\subsection{Reward--Behavior Correlation Details}
+\label{sec:appendix_reward_correlation}
+
+
+\paragraph{Social Reward}
+Table~\ref{tab:corr_social} lists the 10 behavioral metrics most strongly correlated with social reward.
+\texttt{n\_respected\_by} and \texttt{n\_liked\_by} are the only strong predictors
+($r = 0.68$, with $r = 0.74$ to $0.86$ in \academy{} and \campus{}),
+while the third-ranked metric drops sharply to $r = 0.19$.
+All behavioral metrics (contacts, activities, tokens) remain below $r = 0.19$,
+confirming that social standing is determined by others' evaluations rather than the agent's own effort.
+This result is by design: social reward is computed via PageRank-based algorithm over inter-agent evaluation rankings,
+which naturally amplifies reputation signals.
+
+\begin{table}[htbp]
+  \centering
+  \caption{%
+    Top-10 metrics correlated with social reward, sorted by mean Pearson's $|r|$.
+  }
+  \label{tab:corr_social}
+  \small
+  \begin{tabular}{clcccc}
+    \toprule
+    \# & Metric & Pearson's $r$ & \apartment{} & \academy{} & \campus{} \\
+    \midrule
+    1  & n\_respected\_by         & $+$0.68 & $+$0.39 & $+$0.86 & $+$0.79 \\
+    2  & n\_liked\_by             & $+$0.68 & $+$0.44 & $+$0.85 & $+$0.74 \\
+    3  & n\_likes                 & $+$0.19 & $+$0.11 & $+$0.20 & $+$0.27 \\
+    4  & joint\_participated      & $+$0.19 & $+$0.34 & $+$0.13 & $+$0.10 \\
+    5  & fulfillment\_esteem      & $+$0.17 & $+$0.28 & $+$0.12 & $+$0.10 \\
+    6  & total\_skills            & $+$0.16 & $+$0.12 & $+$0.14 & $+$0.21 \\
+    7  & joint\_proposed          & $+$0.15 & $+$0.25 & $+$0.15 & $+$0.05 \\
+    8  & output\_tokens           & $+$0.15 & $+$0.28 & $+$0.02 & $+$0.15 \\
+    9  & passive\_contacts        & $+$0.15 & $+$0.09 & $+$0.12 & $+$0.23 \\
+    10 & n\_respects              & $+$0.14 & $+$0.10 & $+$0.06 & $+$0.27 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Subjective Reward}
+Subjective reward is driven by three factor groups as shown in Table~\ref{tab:corr_subjective}:
+(1) fulfillment dimensions, with material ($r = 0.73$) as the strongest single predictor,
+highly consistent across worlds ($0.71$ to $0.77$),
+followed by mood ($0.54$), social ($0.52$), and esteem ($0.30$);
+(2) penalties ($r = -0.64$), triggered when fulfillment remains persistently low,
+consistent across all three worlds ($-0.61$ to $-0.68$);
+and (3) social activity, where passive contacts ($0.43$), active contacts ($0.42$),
+and likes given ($0.39$) serve as positive predictors,
+while solo activities are a notable negative signal
+(\apartment{} $r = -0.53$, \campus{} $r = -0.49$).
+
+\begin{table}[htbp]
+  \centering
+  \caption{%
+    Top-10 metrics correlated with subjective reward, sorted by mean Pearson's $|r|$.
+  }
+  \label{tab:corr_subjective}
+  \small
+  \begin{tabular}{clcccc}
+    \toprule
+    \# & Metric & Pearson's $r$ & \apartment{} & \academy{} & \campus{} \\
+    \midrule
+    1  & fulfillment\_material    & $+$0.73 & $+$0.77 & $+$0.71 & $+$0.72 \\
+    2  & n\_penalties             & $-$0.64 & $-$0.61 & $-$0.68 & $-$0.64 \\
+    3  & fulfillment\_mood        & $+$0.54 & $+$0.56 & $+$0.44 & $+$0.62 \\
+    4  & input\_tokens            & $+$0.52 & $+$0.58 & $+$0.37 & $+$0.62 \\
+    5  & fulfillment\_social      & $+$0.52 & $+$0.54 & $+$0.37 & $+$0.65 \\
+    6  & total\_spending\_amount  & $+$0.46 & $+$0.45 & $+$0.42 & $+$0.50 \\
+    7  & passive\_contacts        & $+$0.43 & $+$0.44 & $+$0.32 & $+$0.51 \\
+    8  & active\_contacts         & $+$0.42 & $+$0.42 & $+$0.30 & $+$0.53 \\
+    9  & solo\_count              & $-$0.40 & $-$0.53 & $-$0.17 & $-$0.49 \\
+    10 & n\_likes                 & $+$0.39 & $+$0.46 & $+$0.34 & $+$0.38 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Economy Reward}
+Economy reward is dominated by deposit level (Table~\ref{tab:corr_economy}, $r = 0.56$),
+followed by extra earnings ($0.31$) and total skills ($0.30$).
+These two metrics are linked in two ways:
+work activities simultaneously produce income and skill growth,
+so extra earnings and skill advances naturally co-occur;
+moreover, higher skill levels increase the earnings from subsequent work,
+creating a positive feedback loop that drives deposit growth.
+Metrics ranked 4th and below all have $|r| \leq 0.15$.
+
+\begin{table}[htbp]
+  \centering
+  \caption{%
+    Top-10 metrics correlated with economy reward, sorted by mean Pearson's $|r|$.
+  }
+  \label{tab:corr_economy}
+  \small
+  \begin{tabular}{clcccc}
+    \toprule
+    \# & Metric & Pearson's $r$ & \apartment{} & \academy{} & \campus{} \\
+    \midrule
+    1  & deposit                  & $+$0.56 & $+$0.62 & $+$0.77 & $+$0.29 \\
+    2  & extra\_earning\_count    & $+$0.31 & $+$0.20 & $+$0.43 & $+$0.30 \\
+    3  & total\_skills            & $+$0.30 & $+$0.15 & $+$0.41 & $+$0.34 \\
+    4  & fulfillment\_material    & $+$0.13 & $-$0.08 & $+$0.31 & $+$0.15 \\
+    5  & n\_likes                 & $+$0.09 & $-$0.12 & $+$0.24 & $+$0.14 \\
+    6  & solo\_count              & $+$0.15 & $+$0.19 & $+$0.28 & $-$0.02 \\
+    7  & n\_respects              & $+$0.06 & $-$0.15 & $+$0.22 & $+$0.11 \\
+    8  & skill\_improvement\_count& $+$0.14 & $+$0.17 & $+$0.26 & $+$0.01 \\
+    9  & public\_participated     & $-$0.14 & $-$0.11 & $-$0.15 & $-$0.14 \\
+    10 & fulfillment\_social      & $-$0.14 & $-$0.14 & $-$0.26 & $-$0.00 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\paragraph{Cross-World Consistency}
+The top predictors of social and subjective rewards are consistent
+in direction and magnitude across all three worlds.
+For social reward, reputation metrics (\texttt{n\_respected\_by}, \texttt{n\_liked\_by})
+are dominant in all worlds, though the effect is stronger in \academy{} and \campus{}
+($r = 0.74$ to $0.86$) than in \apartment{} ($r = 0.39$ to $0.44$).
+This difference likely arises because \apartment{} has a looser social network---residents
+are strangers who move into a shared building with fewer pre-existing relationships,
+leading to narrower coverage in inter-agent evaluations.
+Economy reward shows the weakest cross-world consistency.
+As shown in Fig~\ref{fig:reward_behavior_correlation}, 
+\campus{} shows the weakest correlation ($r = 0.20$) between deposit and total reward,
+because economy in a school setting is less related with overall well-being and largely determined by fixed institutional roles
+(student allowances, teacher salaries).
+
+\subsection{Friendship Distribution}
+\label{sec:appendix_friend_distribution}
+
+To quantify the evolution of social networks,
+we define \textit{mutual friendship}:
+agents A and B are mutual friends if and only if both A's affection toward B
+and B's affection toward A are $\geq 60$.
+This definition excludes one-sided affection and only counts reciprocated relationships.
+Figure~\ref{fig:friend_distribution} shows the distribution of mutual friend counts per agent
+across 10 simulated years in the three worlds.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/friend_distribution.pdf}
+  \caption{%
+    Mutual friend count distribution per agent over 10 simulated years.
+    Mutual friendship is defined as bidirectional affection $\geq 60$.
+    Color intensity indicates the number of agents at each position; triangles mark annual means.
+  }
+  \label{fig:friend_distribution}
+\end{figure*}
+
+The three worlds exhibit distinct social network evolution patterns:
+\begin{inparaenum}[\it (1)]
+\item In \apartment{}, mean mutual friend count grows steadily from 4.3 to 10.1 over 10 years,
+indicating that strangers in a shared living space continuously deepen their relationships
+and expand their social networks over time.
+\item \academy{} shows a non-monotonic pattern:
+the mean rises from 4.2 to 5.3 by year 3,
+drops sharply to 3.3 by year 6 (with 21 agents having zero mutual friends),
+then recovers to 5.0 by year 10.
+\item \campus{} exhibits steady growth (mean from 3.8 to 7.2)
+with very few isolated agents ($\leq 3$ with zero mutual friends throughout),
+indicating that the close daily interactions in a school environment foster widespread reciprocated friendships.
+\end{inparaenum}
+
+
+\subsection{Social Network Visualization}
+\label{sec:appendix_social_network}
+
+To visualize how social networks evolve,
+we construct mutual friendship graphs at initialization (Year~0) and after 10 simulated years,
+using the same definition as \S\ref{sec:appendix_friend_distribution}
+(bidirectional affection $\geq 60$).
+Communities are detected using the Louvain algorithm~\citep{blondel2008louvain}.
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/social_network_initial_graph.png}
+  \caption{%
+    Initial social networks (Year~0) across three worlds.
+    Nodes represent agents; edges represent mutual friendships (bidirectional affection $\geq 60$).
+    Node color indicates community membership; node size reflects friend count.
+  }
+  \label{fig:social_network_initial}
+\end{figure*}
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/social_network_graph.png}
+  \caption{%
+    Social networks after 10 years of simulation.
+    Same layout convention as Figure~\ref{fig:social_network_initial}.
+  }
+  \label{fig:social_network_year10}
+\end{figure*}
+
+At initialization (Figure~\ref{fig:social_network_initial}),
+all three worlds share similar sparse structures with roughly 3 mutual friends per agent on average.
+After 10 years (Figure~\ref{fig:social_network_year10}),
+the networks become substantially denser,
+but the three worlds diverge in structure:
+\begin{inparaenum}[\it (1)]
+\item \apartment{} develops the densest network
+(mean 10.1 mutual friends),
+with extensive cross-community connections;
+\item \campus{} grows steadily (mean 7.3)
+and forms multiple well-defined communities;
+\item \academy{} grows most slowly (mean 5.0)
+with a comparatively sparse structure.
+\end{inparaenum}
+
+
+\subsection{Inter-Component Reward Correlation}
+\label{sec:appendix_reward_correlation_inter}
+
+We compute pairwise Spearman rank correlation coefficients ($\rho$) among the three reward dimensions
+over all 100 agents at each annual settle period,
+pooled across 10 years.
+Figure~\ref{fig:reward_correlation_heatmap} presents the pooled correlation matrices for each world.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/reward_correlation_heatmap.png}
+  \caption{%
+    Spearman rank correlation ($\rho$) between reward dimensions for each world, pooled over 10 years.
+    Values close to zero indicate low correlation between the two dimensions.
+  }
+  \label{fig:reward_correlation_heatmap}
+\end{figure}
+
+All pooled pairwise correlations satisfy $|\rho| \leq 0.21$,
+indicating that the three reward dimensions capture distinct aspects of agent life.
+Social $\leftrightarrow$ Economy shows the weakest coupling ($|\rho| \leq 0.11$) across all worlds.
+Subjective $\leftrightarrow$ Economy varies by world:
+\academy{} exhibits a weak positive correlation ($\rho = +0.21$),
+while \apartment{} shows a weak negative one ($\rho = -0.16$).
+
+
+\subsection{Wealth Inequality and Social Mobility}
+\label{sec:appendix_matthew_effect}
+
+We examine two aspects of economic and social dynamics in the simulated societies:
+(1) \textit{wealth inequality}---whether the deposit distribution among agents
+becomes more concentrated or more dispersed over time,
+measured by the Gini coefficient;
+and (2) \textit{social mobility}---whether agents can change their position
+in the overall reward ranking over time,
+or whether top-ranked and bottom-ranked agents tend to remain in their positions.
+
+\paragraph{Wealth Inequality}
+We compute the Gini coefficient~\citep{gini1921measurement} of agent deposits at each year.
+We also split agents into four groups by initial deposit
+(Q1 = poorest 25\%, Q4 = richest 25\%)
+and track each group's mean deposit over time.
+Results are shown in Figure~\ref{fig:matthew_effect}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/matthew_effect.png}
+  \caption{%
+    Wealth inequality over 10 simulated years.
+    \textbf{Left:} Gini coefficient of deposit distributions.
+    \textbf{Right:} Mean deposit grouped by initial wealth quartile
+    (Q1 = poorest 25\%, Q4 = richest 25\%).
+  }
+  \label{fig:matthew_effect}
+\end{figure}
+
+No Matthew effect is observed:
+Gini coefficients drop in all three worlds,
+indicating that wealth becomes more evenly distributed over time.
+This is expected:
+agents have no direct economic interactions---only
+gift-giving can transfer wealth, but this is rarely used---so
+each agent earns and spends independently,
+with no mechanism for initial advantages to compound.
+
+\paragraph{Social Mobility}
+The wealth gap narrows, but overall reward rankings are more stable.
+We rank agents by total reward each year,
+split them into four quartiles,
+and compute how often agents move between quartiles from one year to the next
+(averaged over 9 year-pairs).
+Results are shown in Figure~\ref{fig:reward_transition}.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/reward_matthew_effect.png}
+  \caption{%
+    Year-to-year ranking transition heatmaps.
+    Agents are ranked by total reward at each year and divided into four quartiles
+    (Q1 = bottom 25\%, Q4 = top 25\%).
+    Each cell $(i, j)$ shows the probability that an agent in $Q_i$ one year
+    moves to $Q_j$ the next year, averaged over 9 consecutive year-pairs.
+  }
+  \label{fig:reward_transition}
+\end{figure}
+
+Overall reward rankings show strong persistence.
+Agents in the top and bottom quartiles stay there 72 to 79\% of the time.
+Within a single year, almost no agent jumps from the bottom quartile to the top or vice versa.
+Middle-ranked agents are more mobile (48 to 56\% retention).
+
+
+\subsection{Reward Quartile Behavioral Profiles}
+\label{sec:appendix_reward_success_profile}
+
+This section extends the reward--behavior correlation analysis in \S\ref{sec:long_term_analysis}.
+At each year, agents are divided into four quartiles based on each reward dimension
+(Q1 = top 25\%, Q4 = bottom 25\%).
+For each dimension, we then select the 6 behavioral metrics most correlated with it
+(ranked by mean $|r|$ across worlds; Table~\ref{tab:success_top_metrics})
+and track each quartile's mean on these 6 metrics over 10 years.
+
+\begin{table}[htbp]
+  \centering
+  \caption{%
+    Top 6 behavioral metrics per reward dimension.
+    $|r|$ values are taken from the Combined column of
+    Figure~\ref{fig:reward_behavior_correlation}.
+  }
+  \label{tab:success_top_metrics}
+  \small
+  \begin{tabular}{clcclcclc}
+    \toprule
+    \multicolumn{3}{c}{Social} & \multicolumn{3}{c}{Subjective} & \multicolumn{3}{c}{Economy} \\
+    \cmidrule(lr){1-3} \cmidrule(lr){4-6} \cmidrule(lr){7-9}
+    \# & Metric & $|r|$ & \# & Metric & $|r|$ & \# & Metric & $|r|$ \\
+    \midrule
+    1 & n\_respected\_by   & 0.68 & 1 & fulfill.\_material   & 0.73 & 1 & deposit              & 0.56 \\
+    2 & n\_liked\_by       & 0.68 & 2 & n\_penalties         & 0.64 & 2 & extra\_earning       & 0.31 \\
+    3 & n\_likes           & 0.19 & 3 & fulfill.\_mood       & 0.54 & 3 & total\_skills        & 0.30 \\
+    4 & joint\_particip.   & 0.19 & 4 & input\_tokens        & 0.52 & 4 & solo\_count          & 0.15 \\
+    5 & fulfill.\_esteem   & 0.17 & 5 & fulfill.\_social     & 0.52 & 5 & skill\_improve.      & 0.14 \\
+    6 & total\_skills      & 0.16 & 6 & total\_spending      & 0.46 & 6 & public\_partic.      & 0.14 \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+
+\paragraph{Social Reward}
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/reward_success_social.png}
+  \caption{%
+    Social reward quartile profiles over 10 years across three worlds.
+    Q1 (red) = top 25\%, Q4 (blue) = bottom 25\%.
+  }
+  \label{fig:success_social}
+\end{figure*}
+
+Figure~\ref{fig:success_social} presents the results.
+\textit{(1)}~\texttt{n\_respected\_by} shows the most dramatic divergence:
+in \academy{}, the Q1--Q4 gap expands from 8.8 (Year~1) to 34.7 (Year~10),
+and \apartment{} and \campus{} show the same trend at smaller magnitudes;
+\texttt{n\_liked\_by} follows a similar pattern.
+\textit{(2)}~The Q1--Q4 gap in \texttt{n\_likes} shrinks to near zero by Year~10,
+indicating that high-status agents do not like more people even though they are liked by more people.
+
+
+\paragraph{Subjective Reward}
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/reward_success_subjective.png}
+  \caption{%
+    Subjective reward quartile profiles over 10 years across three worlds.
+  }
+  \label{fig:success_subjective}
+\end{figure*}
+
+Figure~\ref{fig:success_subjective} presents the results.
+\textit{(1)}~Material fulfillment polarization is extreme:
+Q1 agents approach the ceiling ($\sim$97 to 99) by Year~6 to 7,
+while Q4 agents stagnate at 18 to 55 across worlds.
+\textit{(2)}~Penalty count serves as a persistent differentiator---Q1
+agents receive 2 to 4 penalties per year while Q4 agents accumulate 20 to 25,
+and this gap remains stable over 10 years.
+\textit{(3)}~In contrast, the Q1--Q4 gap in \texttt{fulfillment\_mood}
+and \texttt{fulfillment\_social} narrows over time across all three worlds,
+suggesting that agents can catch up emotionally and socially but not materially.
+
+
+\paragraph{Economy Reward}
+
+\begin{figure*}[htbp]
+  \centering
+  \includegraphics[width=\textwidth]{Figures/reward_success_economy.png}
+  \caption{%
+    Economy reward quartile profiles over 10 years across three worlds.
+  }
+  \label{fig:success_economy}
+\end{figure*}
+
+Figure~\ref{fig:success_economy} presents the results.
+\textit{(1)}~The Q1--Q4 deposit gap expands steadily over 10 years across all three worlds.
+\textit{(2)}~Agents in the top economy quartile (Q1) consistently engage in more extra earning activities,
+which directly contributes to their greater wealth accumulation.
+\textit{(3)}~Q1 agents also maintain higher total skills across all years,
+enabling better income opportunities and further compounding their wealth advantage.
+
+
+
+
+
+
+\subsection{Striving vs.\ Leisurely Agent Profiles}
+\label{sec:appendix_ambition_profile}
+
+We aim to identify behavioral differences between agents who actively pursue growth
+and those who favor a more comfortable routine.
+To quantify this, we compute a \textit{striving score} for each agent
+based on two metrics: extra earning count and skill advance count.
+For each simulated year, both metrics are min-max normalized across agents,
+then averaged.
+The final score is the mean across all 10 years.
+We rank agents by this score and compare the top 25\% (\textbf{Striving}, $n=25$ per world)
+against the bottom 25\% (\textbf{Leisurely}, $n=25$ per world),
+excluding the middle 50\%.
+
+Figure~\ref{fig:ambition_profile} shows the ratio of the Striving group mean
+to the Leisurely group mean for each behavioral metric (combined across three worlds).
+A ratio above 1.0 means Striving agents score higher on that metric;
+below 1.0 means Leisurely agents score higher.
+
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.6\linewidth]{Figures/ambition_profile.png}
+  \caption{%
+    Striving-to-Leisurely ratio for each behavioral metric (combined across three worlds).
+    A ratio of 1.0 indicates equal group means.
+    Red bars indicate that Striving agents score higher; blue bars indicate that Leisurely agents score higher.
+  }
+  \label{fig:ambition_profile}
+\end{figure}
+
+\paragraph{Key findings}
+The comparison reveals a consistent trade-off across all three worlds:
+\begin{inparaenum}[\it (1)]
+\item \textbf{Striving agents do more solo activities and fewer social activities.}
+      Striving agents perform 1.71$\times$ more solo activities than Leisurely agents,
+      while participating in fewer joint activities (0.72$\times$)
+      and initiating fewer contacts (0.85$\times$).
+      This is expected by design:
+      solo activities are the primary channel for skill advances and extra earning,
+      the two metrics that define the striving score;
+\item \textbf{Striving agents accumulate more wealth.}
+      Striving agents have 1.70$\times$ the deposit and 1.67$\times$ the annual deposit growth
+      compared to Leisurely agents.
+      The gap is most extreme in \campus{},
+      where Striving agents hold 6.6$\times$ the wealth of Leisurely agents;
+\item \textbf{Striving agents receive more penalties.}
+      Striving agents receive 2.11$\times$ more penalties than Leisurely agents,
+      the single largest group difference across all metrics.
+      In pursuing growth and higher income,
+      these agents tend to push themselves at the expense of their fulfillment,
+      which triggers more penalties from the reward system;
+\item \textbf{Striving does not lead to greater well-being.}
+      Because Striving agents spend less time on social activities,
+      they have substantially lower social fulfillment (0.75$\times$).
+      More broadly, their fulfillment scores are lower across most dimensions---mood
+      (0.93$\times$) and esteem (0.92$\times$) both favor Leisurely agents---even
+      though their greater wealth translates to slightly higher material fulfillment (1.06$\times$).
+\end{inparaenum}
+
+
+\subsection{Cross-World Divergence Analysis}
+\label{sec:appendix_cross_world}
+
+While experiments in \S\ref{sec:experiments} mainly examine emergent behaviors observed across all three worlds,
+this section focuses on \textit{world-specific} divergences---behavioral patterns
+that arise from each world's distinct social structure, demographic composition,
+and economic environment.
+
+The three settings cover different demographics:
+\campus{} focuses on teenagers in a school environment,
+\apartment{} on working adults in a residential setting,
+and \academy{} on a mix of students and faculty in an academic institution.
+
+\paragraph{\campus{}: institutional scaffolding drives broad personality growth}
+Agents in \campus{} exhibit the most pronounced personality growth
+among all three worlds,
+with a mean total trait change of 154 points over 10 years.
+Multiple agents show extreme growth in individual dimensions
+(e.g., confidence +50, patience +50).
+The world also features significant upward mobility:
+33\% of agents shift their economic ranking by 30 or more positions over 10 years
+(Spearman $\rho = 0.46$ between initial and final deposit rankings).
+The narrow initial wealth gap (4$\times$) means that even moderate income changes
+can substantially alter relative economic standing.
+When experiencing mood declines,
+\campus{} agents tend to \textit{increase} their social activity---initiating
+more joint activities---possibly because
+classmates and teachers can provide emotional support in a school environment.
+
+\paragraph{\apartment{}: autonomy produces diverse individual strategies}
+The world exhibits near-complete economic stratification:
+ranking agents by deposit, the Spearman correlation between initial and final rankings is $\rho = 0.87$,
+and only 5\% of agents shift their deposit ranking by 30 or more positions.
+A distinctive phenomenon is the emergence of agents
+who maintain near-perfect well-being (mood $\geq$ 95) despite
+participating almost exclusively in solo activities.
+This pattern is virtually absent in \campus{},
+where high solo rates correlate strongly with low mood.
+When experiencing mood declines,
+\apartment{} agents tend to \textit{reduce} their activity levels
+rather than seeking social support.
+
+\paragraph{\academy{}: structural transitions disrupt social continuity}
+\academy{} exhibits the most dramatic social deterioration among all three worlds.
+It records the highest number of significant affection drops
+($\geq$15 points): 335 cases, compared to 255 in \campus{} and 285 in \apartment{}.
+Agents in \academy{} also exhibit the broadest career diversity:
+one agent transitions through 7 different positions over 10 years,
+as the fantasy setting's flexible skill definitions lower the barrier
+to cross-domain career pivots.
+
+\paragraph{Summary}
+These divergences arise from identical agent architectures operating under
+different world settings.
+No world-specific behavioral rules are encoded---the same Plan, Contact,
+Activity, and Review mechanisms produce qualitatively different social dynamics
+depending on the environmental context,
+demonstrating that world design serves as a meaningful independent variable
+in agent-based social simulation.
+
+
+\subsection{Model Comparison}
+\label{sec:appendix_model_comparison}
+
+To compare different LLMs as role-playing agent backbones,
+we conduct 4-year simulations on \campus{} and \academy{}
+with five models:
+Qwen3.5-27B, Qwen3.5-397B-A17B,
+DeepSeek-v3.2, Gemini-3-Flash,
+and GPT-5-mini.
+Each model controls 20 agents per world (40 agents total).
+All agents share the same architecture and world rules;
+only the underlying LLM differs.
+All metrics are z-scored within each world across all 100 agents,
+then averaged by model group and across worlds.
+
+\paragraph{Adjusted social reward}
+Social reward largely depends on each agent's initial character design---some
+characters are inherently likeable while others are designed to be less popular,
+introducing statistical bias when comparing models.
+To correct for this,
+we compute the pre-simulation social reward at $t=0$ (running mutual evaluation using only initial character profiles) as the baseline,
+then subtract this baseline from the agent's social reward of each year.
+The resulting Adjusted Social Reward (Soc.~($\Delta$))
+isolates the model's contribution to social standing
+from the character assignment.
+As shown in Table~\ref{tab:social_trajectory},
+the Init column varies widely across models ($-$0.23 to $+$0.27),
+confirming the necessity of this adjustment.
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: reward and fulfillment metrics.
+Soc.~($\Delta$) indicates social reward adjusted by pre-simulation baseline.
+\textbf{Bold} = highest, \underline{underline} = lowest per column.}
+\label{tab:model_reward_fulfillment}
+\begin{tabular}{l c c c c | c c c c}
+\toprule
+& \multicolumn{4}{c}{\textbf{Reward (z-score)}}
+& \multicolumn{4}{c}{\textbf{Fulfillment (z-score)}} \\
+\cmidrule(lr){2-5} \cmidrule(l){6-9}
+\textbf{Model} & Total & Subj. & Econ. & Soc.~($\Delta$) & Mood & Social & Esteem & Material \\
+\midrule
+Qwen3.5-27B      & \underline{$-$0.07} & \underline{$-$0.23} & +0.11 & $-$0.03 & +0.00 & $-$0.10 & \underline{$-$0.36} & \underline{$-$0.27} \\
+Qwen3.5-397B     & $-$0.03 & +0.18 & \underline{$-$0.28} & \textbf{+0.13} & +0.28 & +0.13 & $-$0.26 & +0.13 \\
+DeepSeek-v3.2    & $-$0.06 & $-$0.10 & +0.09 & $-$0.02 & \textbf{+0.56} & +0.28 & +0.17 & $-$0.16 \\
+Gemini-3-Flash   & \textbf{+0.10} & \textbf{+0.31} & $-$0.20 & +0.03 & $-$0.23 & \textbf{+0.32} & \textbf{+0.52} & \textbf{+0.35} \\
+GPT-5-mini       & +0.06 & $-$0.17 & \textbf{+0.29} & \underline{$-$0.10} & \underline{$-$0.44} & \underline{$-$0.62} & $-$0.06 & $-$0.05 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: activity and economy metrics.
+\textbf{Bold} = highest, \underline{underline} = lowest per column.}
+\label{tab:model_activity_economy}
+\begin{tabular}{l c c c c c c}
+\toprule
+\textbf{Model} & Jnt.Prop. & Jnt.Part. & Pub.Part. & Solo & Deposit & Skills~$\Delta$ \\
+\midrule
+Qwen3.5-27B      & $-$0.55 & $-$0.15 & $-$0.26 & +0.21 & $-$0.15 & $-$0.11 \\
+Qwen3.5-397B     & $-$0.03 & +0.05 & +0.64 & $-$0.28 & $-$0.13 & \underline{$-$0.37} \\
+DeepSeek-v3.2    & \underline{$-$0.61} & +0.05 & \textbf{+0.80} & \underline{$-$0.45} & \underline{$-$0.17} & $-$0.06 \\
+Gemini-3-Flash   & \textbf{+0.88} & \textbf{+0.37} & \underline{$-$0.96} & +0.19 & +0.07 & $-$0.17 \\
+GPT-5-mini       & +0.32 & \underline{$-$0.32} & $-$0.22 & \textbf{+0.34} & \textbf{+0.38} & \textbf{+0.71} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Social reward trajectory by model (z-score).
+Init = pre-simulation baseline; Avg. = average of 4 years. Soc.~($\Delta$) = Avg. $-$ Init.
+\textbf{Bold} = highest, \underline{underline} = lowest per column.}
+\label{tab:social_trajectory}
+\begin{tabular}{l c c c c c c c}
+\toprule
+\textbf{Model} & Init & Year 1 & Year 2 & Year 3 & Year 4 & Avg. & Soc.~($\Delta$) \\
+\midrule
+Qwen3.5-27B      & +0.02 & \textbf{+0.14} & +0.01 & $-$0.04 & \underline{$-$0.19} & $-$0.01 & $-$0.03 \\
+Qwen3.5-397B     & \underline{$-$0.23} & $-$0.02 & $-$0.08 & \underline{$-$0.20} & $-$0.11 & \underline{$-$0.11} & \textbf{+0.13} \\
+DeepSeek-v3.2    & $-$0.08 & \underline{$-$0.13} & \underline{$-$0.10} & $-$0.04 & $-$0.06 & $-$0.10 & $-$0.02 \\
+Gemini-3-Flash   & +0.02 & $-$0.10 & +0.01 & \textbf{+0.15} & +0.15 & +0.05 & +0.03 \\
+GPT-5-mini       & \textbf{+0.27} & +0.11 & \textbf{+0.15} & +0.13 & \textbf{+0.21} & \textbf{+0.16} & \underline{$-$0.10} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{Analysis}
+Tables~\ref{tab:model_reward_fulfillment}--\ref{tab:social_trajectory}
+reveal distinct behavioral profiles across models:
+\begin{inparaenum}[\it (1)]
+\item \textbf{Gemini-3-Flash achieves the highest total reward (+0.10),}
+driven by subjective well-being (+0.31) and relationship-oriented metrics
+(social fulfillment +0.32, esteem +0.52),
+while strongly avoiding public events ($-$0.96);
+\item \textbf{GPT-5-mini leads in economic metrics}
+(deposit +0.38, skills +0.71)
+but ranks last in social fulfillment ($-$0.62) and mood ($-$0.44).
+Table~\ref{tab:social_trajectory} shows it benefits from
+the highest initial social reward (+0.27) yet has
+the largest decline ($\Delta = -0.10$);
+\item \textbf{Qwen3.5-397B shows the highest adjusted social reward ($\Delta = +0.13$)}
+despite starting from the lowest initial social reward ($-$0.23),
+and exhibits high public event participation (+0.64);
+\item \textbf{DeepSeek-v3.2 gravitates toward public events} (+0.80)
+with the highest mood (+0.56),
+but initiates the fewest joint proposals ($-$0.61);
+\item \textbf{Qwen3.5-27B, the smallest open model, shows the weakest overall performance,}
+ranking last in total reward ($-$0.07),
+esteem ($-$0.36), and material satisfaction ($-$0.27).
+\end{inparaenum}
+
+A notable social--economic trade-off emerges:
+models that excel in economic metrics (GPT-5-mini)
+tend to underperform in social metrics,
+while socially adept models (Gemini-3-Flash)
+show weaker economic performance.
+
+\paragraph{Per-world breakdowns}
+Tables~\ref{tab:model_campus_reward}--\ref{tab:model_academy_activity}
+provide per-world breakdowns.
+The trends described above are broadly consistent across both worlds.
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: reward and fulfillment metrics (\campus{}).
+All values are z-scored within this world.
+\textbf{Bold} = highest, \underline{underline} = lowest.}
+\label{tab:model_campus_reward}
+\begin{tabular}{l c c c c | c c c c}
+\toprule
+& \multicolumn{4}{c}{\textbf{Reward (z-score)}}
+& \multicolumn{4}{c}{\textbf{Fulfillment (z-score)}} \\
+\cmidrule(lr){2-5} \cmidrule(l){6-9}
+\textbf{Model} & Total & Subj. & Econ. & Soc.~($\Delta$) & Mood & Social & Esteem & Material \\
+\midrule
+Qwen3.5-27B      & $-$0.00 & \underline{$-$0.31} & \textbf{+0.38} & +0.04 & \underline{$-$0.30} & $-$0.07 & $-$0.41 & \underline{$-$0.28} \\
+Qwen3.5-397B     & \underline{$-$0.16} & +0.03 & $-$0.35 & +0.07 & \textbf{+0.39} & $-$0.03 & \underline{$-$0.42} & $-$0.02 \\
+DeepSeek-v3.2    & $-$0.04 & $-$0.04 & +0.16 & \textbf{+0.08} & +0.37 & +0.17 & $-$0.02 & $-$0.08 \\
+Gemini-3-Flash   & +0.01 & \textbf{+0.27} & \underline{$-$0.46} & \underline{$-$0.10} & $-$0.30 & \textbf{+0.41} & \textbf{+0.45} & \textbf{+0.26} \\
+GPT-5-mini       & \textbf{+0.19} & +0.05 & +0.26 & $-$0.09 & $-$0.15 & \underline{$-$0.48} & +0.40 & +0.12 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: activity and economy metrics (\campus{}).
+All values are z-scored within this world.
+\textbf{Bold} = highest, \underline{underline} = lowest.}
+\label{tab:model_campus_activity}
+\begin{tabular}{l c c c c c c}
+\toprule
+\textbf{Model} & Jnt.Prop. & Jnt.Part. & Pub.Part. & Solo & Deposit & Skills~$\Delta$ \\
+\midrule
+Qwen3.5-27B      & \underline{$-$0.65} & \underline{$-$0.15} & $-$0.41 & +0.18 & $-$0.04 & $-$0.01 \\
+Qwen3.5-397B     & $-$0.02 & $-$0.15 & +0.63 & $-$0.06 & \underline{$-$0.31} & $-$0.11 \\
+DeepSeek-v3.2    & $-$0.57 & $-$0.12 & \textbf{+0.91} & \underline{$-$0.44} & $-$0.11 & $-$0.07 \\
+Gemini-3-Flash   & \textbf{+0.85} & \textbf{+0.46} & \underline{$-$0.92} & +0.14 & $-$0.12 & \underline{$-$0.33} \\
+GPT-5-mini       & +0.39 & $-$0.03 & $-$0.21 & \textbf{+0.18} & \textbf{+0.57} & \textbf{+0.52} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: reward and fulfillment metrics (\academy{}).
+All values are z-scored within this world.
+\textbf{Bold} = highest, \underline{underline} = lowest.}
+\label{tab:model_academy_reward}
+\begin{tabular}{l c c c c | c c c c}
+\toprule
+& \multicolumn{4}{c}{\textbf{Reward (z-score)}}
+& \multicolumn{4}{c}{\textbf{Fulfillment (z-score)}} \\
+\cmidrule(lr){2-5} \cmidrule(l){6-9}
+\textbf{Model} & Total & Subj. & Econ. & Soc.~($\Delta$) & Mood & Social & Esteem & Material \\
+\midrule
+Qwen3.5-27B      & \underline{$-$0.14} & $-$0.15 & $-$0.17 & $-$0.11 & $-$0.04 & $-$0.13 & $-$0.31 & \underline{$-$0.26} \\
+Qwen3.5-397B     & +0.11 & +0.33 & \underline{$-$0.22} & \textbf{+0.18} & +0.17 & +0.28 & $-$0.10 & +0.29 \\
+DeepSeek-v3.2    & $-$0.08 & $-$0.15 & +0.02 & $-$0.11 & \textbf{+0.76} & \textbf{+0.39} & +0.35 & $-$0.25 \\
+Gemini-3-Flash   & \textbf{+0.19} & \textbf{+0.35} & +0.05 & +0.16 & $-$0.16 & +0.23 & \textbf{+0.58} & \textbf{+0.43} \\
+GPT-5-mini       & $-$0.08 & \underline{$-$0.38} & \textbf{+0.32} & \underline{$-$0.12} & \underline{$-$0.73} & \underline{$-$0.77} & \underline{$-$0.52} & $-$0.22 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[t]
+\centering
+\caption{Model comparison: activity and economy metrics (\academy{}).
+All values are z-scored within this world.
+\textbf{Bold} = highest, \underline{underline} = lowest.}
+\label{tab:model_academy_activity}
+\begin{tabular}{l c c c c c c}
+\toprule
+\textbf{Model} & Jnt.Prop. & Jnt.Part. & Pub.Part. & Solo & Deposit & Skills~$\Delta$ \\
+\midrule
+Qwen3.5-27B      & $-$0.46 & $-$0.15 & $-$0.11 & +0.25 & \underline{$-$0.26} & $-$0.21 \\
+Qwen3.5-397B     & $-$0.04 & +0.26 & +0.65 & \underline{$-$0.50} & +0.04 & \underline{$-$0.63} \\
+DeepSeek-v3.2    & \underline{$-$0.65} & +0.22 & \textbf{+0.69} & $-$0.46 & $-$0.23 & $-$0.05 \\
+Gemini-3-Flash   & \textbf{+0.90} & \textbf{+0.29} & \underline{$-$0.99} & +0.23 & \textbf{+0.26} & $-$0.02 \\
+GPT-5-mini       & +0.25 & \underline{$-$0.62} & $-$0.24 & \textbf{+0.49} & +0.19 & \textbf{+0.91} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Computational Cost Details}
+\label{sec:appendix_cost}
+
+Table~\ref{tab:cost_god_rp} breaks down the token consumption
+between the environment model and the role-playing (RP) agents.
+Role-playing agents account for approximately 95\% of all input tokens,
+as each agent requires its full persona context at every generation step.
+Table~\ref{tab:cost_god_feature} further breaks down the environment model's consumption by feature.
+Joint activity dominates environment model costs,
+accounting for over 70\% of environment model input tokens across all three worlds.
+
+\begin{table}[h]
+\centering
+\caption{Token consumption breakdown by environment model (EM) and role-playing (RP) agents
+across three worlds (in million tokens).}
+\label{tab:cost_god_rp}
+\small
+\begin{tabular}{l rrr rrr}
+\toprule
+& \multicolumn{3}{c}{\textbf{Input (M)}} & \multicolumn{3}{c}{\textbf{Output (M)}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7}
+\textbf{World} & EM & RP & Total & EM & RP & Total \\
+\midrule
+\campus{}       & 731 & 18,311 & 19,041 & 31 & 393 & 425 \\
+\academy{}      & 662 & 10,640 & 11,302 & 20 & 294 & 315 \\
+\apartment{}    & 601 &  9,098 &  9,699 & 19 & 297 & 317 \\
+\midrule
+\textbf{Average} & 665 & 12,683 & 13,347 & 24 & 328 & 352 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption{Environment model token consumption by feature across three worlds (in million tokens).}
+\label{tab:cost_god_feature}
+\resizebox{\linewidth}{!}{
+\small
+\begin{tabular}{l r r r r r r r r r}
+\toprule
+& \multicolumn{3}{c}{\textbf{\campus{}}} & \multicolumn{3}{c}{\textbf{\academy{}}} & \multicolumn{3}{c}{\textbf{\apartment{}}} \\
+\cmidrule(lr){2-4} \cmidrule(lr){5-7} \cmidrule(lr){8-10}
+\textbf{Feature} & Input (M) & Output (M) & Calls & Input (M) & Output (M) & Calls & Input (M) & Output (M) & Calls \\
+\midrule
+Joint Activity    & 525.36 & 18.57 & 133,579 & 518.78 & 12.32 & 146,039 & 501.95 & 12.64 & 153,608 \\
+Solo Activity     & 167.92 &  3.19 &  16,890 & 118.67 &  2.44 &  18,241 &  75.73 &  1.98 &  15,224 \\
+Profile Update    &  16.55 &  8.82 &   1,000 &  11.29 &  4.70 &   1,000 &  10.62 &  3.84 &   1,000 \\
+Public Activity   &  16.40 &  0.53 &   1,863 &  10.49 &  0.56 &   1,753 &  10.72 &  0.56 &   1,937 \\
+Encounter         &   4.16 &  0.37 &     100 &   2.38 &  0.41 &     100 &   1.93 &  0.43 &     100 \\
+Position Application &   0.16 &  0.01 &      28 &   0.27 &  0.02 &      60 &   0.12 &  0.01 &      37 \\
+\midrule
+\textbf{Total}    & 730.55 & 31.49 & 153,460 & 661.87 & 20.43 & 167,193 & 601.07 & 19.47 & 171,906 \\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+
+\section{Case Studies}
+\label{app:case_studies}
+
+\input{Tables/case_study}
+
+\section{System Prompts}
+\label{sec:appendix_prompts}
+\input{Sections/appendix_prompts}
+
+

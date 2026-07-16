@@ -1,0 +1,237 @@
+
+\section{\method}
+\label{sec:framework}
+
+
+This section presents the design of \method,
+a unified framework for long-term life simulation in agent societies.
+The framework is organized around three core concepts: the simulation procedure, the agent, and the environment model:
+\textit{(1)} For the simulation procedure, agents live through weekly cycles, each consisting of four stages: Plan, Contact, Activity, and Review, which jointly support diverse social behaviors.
+\textit{(2)} For the agent, the core challenge is context management, \ie, providing each LLM with sufficient context including the character's persona, states, relationships, and memories. 
+Agents' long-term memory is implemented as a file system that agents autonomously manage via function calls. 
+\textit{(3)} To orchestrate the simulation, \method introduces the environment model, a separate LLM that organizes events, provides environmental feedback, and drives the simulation forward, replacing hard-coded rules.
+We describe agent design in \S~\ref{sec:agent_design},
+the simulation procedure in \S~\ref{sec:simulation_procedure},
+contact and scheduling in \S~\ref{sec:contact},
+activities in \S~\ref{sec:activity},
+and environment design in \S~\ref{sec:environment}.
+
+\subsection{Agent Design}
+\label{sec:agent_design}
+
+In \method, each agent role-plays as a specific persona, which comprises a \textit{profile}, \textit{social relationships}, and \textit{dynamic states}, comprehensively representing the character.
+
+
+\begin{enumerate}
+    \item \textbf{Profile}:
+    The profile stores an agent's identity information, including a background story, personality traits, talents, as well as initial values for positions and assets. 
+    These attributes remain relatively stable during simulation and are only updated once per simulated year.
+    The full profile schema is provided in \S~\ref{app:schema}, and the character creation process is described in \S~\ref{app:creation}.
+    
+    \item \textbf{Social Relationships}:
+    In \method, relationships are modeled entirely via inter-character memory.
+    We do not explicitly define or store character relationships.
+    Instead, relationships are represented through each character's memory of the other, stored as free text and autonomously managed by agents.
+    This design uniformly represents friends, lovers, strangers, rivals, and other relationship types without requiring separate mechanisms.
+    Relationships can be unidirectional and expanded through multi-person activities.
+    The relationship network is initialized during world creation (\S~\ref{app:creation}) and subsequently managed autonomously by agents.
+    
+    \item \textbf{Dynamic States}:
+    Dynamic states represent an agent's current life conditions and evolve with activities.
+    They include vitality, fulfillment, skills, position, and assets.
+    \textit{Vitality} represents energy level. 
+    \textit{Fulfillment} is based on Maslow's hierarchy of needs~\citep{maslow1943theory}, which captures agents' subjective satisfaction from four dimensions: mood, material, social, and esteem.
+    It serves as the basis for subjective rewards.
+    Following hedonic adaptation theory~\citep{Headey2014}, fulfillment decays naturally each week.
+    Fulfillment and vitality changes are determined by the environment model based on activity content, rather than hard-coded rules.
+    The details are provided in \S~\ref{sec:appendix_states}.
+    \textit{Skills} represent an agent's acquired abilities.
+    \textit{Position} represents an agent's current occupation, which provides weekly income and skill growth (\S~\ref{sec:appendix_enrollment}).
+    \textit{Assets} consist of a deposit and a list of possessions (\S~\ref{app:economy}).
+    
+\end{enumerate}
+
+Besides, \method carefully designs a context management mechanism to provide agents with sufficient context across stages, and equips agents with memory files as long-term memory that agents autonomously manage.
+Together, \method provides rich context for LLMs to simulate human social lives.
+
+\begin{enumerate}
+    
+    \item \textbf{Context Management}:
+    \method carefully designs a comprehensive context management mechanism to provide agents' underlying LLMs with sufficient information to simulate human social lives.
+    This is achieved through three context layers:
+    \textit{(1)} \textbf{Roleplay prompt}: provides the foundational role-playing information shared across all stages.
+    It contains the agent's full persona, recent weekly diaries as short-term memory, summaries of key memory files as long-term memory, worldview rules and role-play principles, \etc,
+    enabling agents to correctly accumulate memory across stages and weeks throughout the simulation.
+    \textit{(2)} \textbf{Stage prompt}: provides stage-specific instructions and context, \eg, scheduling rules and communication history  for the Contact stage.
+    \textit{(3)} \textbf{Message history}: records LLMs' multi-turn messages accumulated within the current stage, including prior dialogues, calls and results of memory functions, and compacted reasoning process.
+    Together, these three layers combine automatic and agent-driven context management, providing comprehensive context for agents to simulate human social lives.
+    The details are elaborated in \S~\ref{sec:appendix_context}.
+
+    \item \textbf{Memory Files}:
+    While weekly diaries serve as short-term memory by recording recent experiences, memory files provide agents with \textit{long-term memory}, a file-system-based persistent store that agents autonomously manage via function calls.
+    Agents decide what to remember, update, or discard, giving them full control over what persists across weeks and years.
+    Each agent maintains memory files in three categories:
+    \texttt{general.txt} for personal notes and plans,
+    \texttt{characters/<who>.txt} for the agent's knowledge of and relationship with specific people,
+    and \texttt{others/<name>.txt} for any other topics.
+    Memory files provide context to LLMs in two ways: (1)
+    summaries of recently accessed files are \textit{automatically} included in the roleplay prompt, 
+    and (2) agents \textit{autonomously} retrieve full content on demand, included in the message history.
+    Agents manage these files through three functions: \texttt{read\_file} to retrieve content, \texttt{update\_file} to write new content, and \texttt{list\_files} to list all files.
+    A read-before-write constraint is enforced: an update is only permitted after the agent has read the target file in the same invocation, ensuring updates build upon existing content rather than overwriting blindly.
+    Agents can also create new files for topics they wish to track.
+    
+    
+    \end{enumerate}
+\subsection{Simulation Procedure}
+\label{sec:simulation_procedure}
+
+A fundamental constraint of LLM-based agents is that they generate responses turn by turn:
+they receive a complete context and produce a single reply, unlike humans who continuously perceive and react in real time (\eg, interrupting a conversation mid-sentence).
+The simulation procedure must therefore be designed around turn-based interaction.
+Meanwhile, \method focuses on abstract social interactions (\eg, planning, socializing, decision-making) rather than low-level operations (\eg, movement, object manipulation).
+This abstraction enables the system to model richer social behaviors with fewer LLM calls, achieving higher token efficiency for long-term simulation.
+
+With these considerations, we design a comprehensive simulation procedure.
+\method uses the \textit{week} as its basic time unit.
+A simulated year spans $n_w$ weeks; year-end triggers profile updates, position application, and life reward calculation.~\footnote{%
+The \textit{day}, \textit{week}, and \textit{year} in \method serve as three hierarchical layers of abstract simulation time.
+They are designed to simulate human life cycles at comparable scales, without strictly corresponding to real-world calendar units.}
+Each week consists of four stages: Plan, Contact, Activity, and Review.
+
+
+
+
+\begin{enumerate}
+
+\item \textbf{Plan}: 
+Based on memory and current state, each agent makes a weekly plan.
+Agents are able to review previous plans and store or update new ones through function calls (\eg, \texttt{read\_file}, \texttt{update\_file}).
+Agents also select an abstract consumption level (\ie, living standard) for the week, which abstracts their monetary spending and influences material fulfillment.
+
+\item \textbf{Contact (\& Scheduling)}: 
+In this stage, agents communicate with each other over multiple rounds.
+One primary purpose of communication is to arrange shared schedules: agents can propose invitations, which others may accept or decline, thereby creating joint activity schedules.
+The detailed mechanism is introduced in \S~\ref{sec:contact}.
+
+\item \textbf{Activity}: 
+In this stage, agents carry out diverse activities.
+Each weekly cycle contains $n_d$ active days, and on each day, every agent carries out exactly one activity.
+Activities fall into four types: joint, solo, encounter, and public.
+Through these activities, agents can pursue personal growth, work, or leisure on their own, or engage with others in shared experiences.
+Activity types and execution are detailed in \S~\ref{sec:activity}.
+
+\item \textbf{Review}: 
+At the end of each week, agents reflect on their weekly experiences and summarize them into a weekly diary.
+Based on this reflection, agents can update their memory files via function calls.
+The weekly diaries are included in each agent's context in subsequent weeks, allowing agents to recall their past experiences.
+
+\end{enumerate}
+
+At the end of each simulated year, three processes take place.
+\textit{(1) Profile Update:} the environment model makes incremental updates to each agent's profile (\eg, personality traits, talents) based on their accumulated experiences over the year.
+\textit{(2) Position Application:} agents may apply for new positions based on their preferences and compete for limited vacancy based on their abilities and skills.
+\textit{(3) Life Reward Calculation:} life rewards are calculated, measuring each agent's social standing, subjective fulfillment, and economic status over the past year.
+
+\subsection{Contact \& Scheduling}
+\label{sec:contact}
+
+The Contact stage serves two purposes: communication between agents and scheduling of activities.
+Communication is restricted to pairwise exchanges, while multi-person conversations are deferred to joint activities.
+Constrained by the turn-based nature of LLM generation, communication in \method proceeds in rounds.
+Each week consists of $n_c$ contact rounds.
+In each round, an agent receives newly arrived messages along with the contact history from the past three weeks, then decides whom to contact and what actions to take.
+After all rounds conclude, the system resolves the contact history to determine which joint activities have been successfully created.
+
+\paragraph{Actions}
+In \method, agents must generate \textit{actions} to trigger real communication and scheduling.
+Actions are wrapped with \texttt{<role\_action>} tags in agents' responses, which the system then parses and executes.
+They are different from function calls.
+Four action types are available: \texttt{contact}, \texttt{propose\_joint\_activity}, \texttt{respond\_invitation} and \texttt{cancel\_joint\_activity} (\S~\ref{sec:appendix_contact_details}).
+
+\paragraph{Schedule Resolution} After all contact rounds conclude, the system resolves which joint activities are successfully created based on all collected actions.
+The process handles cancellations, deduplicates responses, resolves time conflicts, and checks creation condition. 
+The full rules and procedure are described in \S~\ref{sec:appendix_procedure}.
+
+\paragraph{Scheduling Public and Encounter Activities}
+Public and encounter activities are scheduled in dedicated stages before and after Contact, respectively.
+Before Contact, the environment model creates public events for the upcoming weeks, and agents sign up for those that match their interests.
+After Contact, the environment model arranges encounter activities to create chance meetings for idle agents, \ie, those without any scheduled activity on a given day.
+
+\subsection{Activities}
+\label{sec:activity}
+
+Activities are the core stage of \method, where agents carry out activities and develop abilities, fulfillment, wealth, and social relationships.
+\method supports four activity types: joint, solo, encounter, and public.
+Agents carry out activities according to their schedules, defaulting to solo activities when unscheduled.
+After each activity, the environment model provides feedback based on the agent's experience (including state changes), and the agent reflects on the outcome and may update its memory files accordingly.
+The four activity types are described below:
+
+\begin{enumerate}
+\item \textbf{Joint Activity}:
+Joint activities model multi-agent, multi-turn interactions.
+They are created through invitation and negotiation during the Contact stage.
+Participants take turns speaking; following~\citet{wang2025coser}, we employ the environment model to provide environmental descriptions and select the next speaker each turn.
+Agents can choose the visibility of their generated content, using special tags to mark each segment as public, private, or selective (visible only to specified persons).
+Agents are also permitted two actions: \texttt{gift} to transfer items to another participant, and \texttt{exit} to leave the activity early.
+Additionally, we introduce a response filtering mechanism, where the environment model evaluates each agent response based on a set of roleplay principles covering anthropomorphism, character fidelity, and feasibility, filtering out responses that violate any principle.
+Details about joint activity execution and response filtering are provided in \S~\ref{sec:appendix_activity} and \S~\ref{sec:appendix_principles}, respectively.
+
+\item \textbf{Solo Activity}:
+Solo activity serves as the default when an agent has no other schedule, allowing activities such as studying, working, or leisure and consumption.
+It follows a single-turn format: the agent describes its intended action, and the environment model evaluates the feasibility of the action based on the character's background and provides an outcome.
+If the agent's intention does not match its abilities, the environment model provides negative feedback.
+Solo activities also support spending, where agents may purchase goods or services to gain material fulfillment (\S~\ref{app:economy}).
+Details about solo activity execution are described in \S~\ref{sec:appendix_solo_activity}.
+
+\item \textbf{Encounter Activity}:
+Encounters are chance meetings arranged by the environment model for idle agents, and serve as a special case of joint activity.
+They follow the same multi-turn dialogue format as joint activities, but do not appear in agent schedules.
+Encounters are designed to let the environment model create meaningful chance meetings: for example, introducing strangers to expand social networks, or bringing together agents with significant plot connections or special relationships.
+
+\item \textbf{Public Activity}:
+Public activities represent open community events centered around shared interests (\eg, workshops, interest groups).
+They are designed by the environment model, and agents may sign up independently based on their own interests.
+The execution generally follows a similar flow to solo activity.
+The key difference is that, at the end of the activity, agents see what other participants did, and may get to know them.
+Details for public activities are described in \S~\ref{sec:appendix_public_activity}.
+
+\end{enumerate}
+
+\subsection{Environment Design}
+\label{sec:environment}
+
+This section introduces the environment design in \method, including the environment model, the economy system, the position application mechanism, and the location system.
+These components serve as essential parts that support the comprehensive simulation of social lives in agent societies.
+
+\paragraph{Environment Model}
+Building a comprehensive social simulation environment to appropriately orchestrate the simulation and provide environmental feedback for role-playing agents is a complex yet important task.
+In \method, we introduce the environment model, a stateless LLM, to handle these functions instead of hard-coding extensive rules.
+During activities, it provides feedback to agent behavior, judging feasibility and evaluating outcomes.
+Besides, it predicts next speakers in joint activities, generates public and encounter activities, ranks candidates for position applications, updates agent profiles at year-end, and performs response filtering to exclude low-quality outputs.
+These functions collectively support the smooth progression of life simulation in the multi-agent society.
+Hence, the environment model essentially serves as a generative environment engine, providing intelligent, generative responses to agent behaviors.
+Our prompts for the environment model are displayed in Tables~\ref{tab:prompts_god_joint}, \ref{tab:prompts_god_eval}, and~\ref{tab:prompts_god_world}.
+
+\paragraph{Economy System}
+\method includes a basic economy system where agents earn and spend money.
+Income comes from three sources: a position-based weekly salary, character-specific weekly income, and additional work during the activity stage.
+Expenses take two forms.
+First, agents select a living standard each week (from frugal to luxurious), representing the richness of their material life for that week.
+Second, agents may choose to engage in consumption activities during solo activities (\eg, shopping, entertainment).
+Through spending, agents gain material fulfillment, which contributes to improvement in subjective reward.
+Meanwhile, accumulating more wealth leads to higher economy reward (\S~\ref{app:economy}).
+
+\paragraph{Position System}
+Each agent holds a position that represents its job or social role.
+A position provides two weekly benefits: a fixed income and skill growth in relevant abilities.
+During character construction, the environment model assigns each agent an initial position based on the world setting and character profiles.
+Once per year, a position application process allows agents to decide whether to change their position, and the environment model determines outcomes based on agents' abilities and position requirements.
+The details about position and position application are described in \S~\ref{sec:appendix_enrollment}.
+
+\paragraph{Location System}
+\method implements a simple location mechanism.
+Its primary purpose is to provide agents with grounded environmental perception.
+In our early experiments, we find that agents tend to hallucinate environmental details and objects without location information explicitly provided.
+Hence, we employ the environment model to create a set of locations for each world, and require joint activities and encounter activities to specify a location.
+Details are provided in \S~\ref{sec:appendix_location}.

@@ -1,0 +1,105 @@
+
+\section{Reward and Optimization}
+\label{sec:reward}
+
+This section presents life reward and the training method built upon it.
+The design of life reward draws from human well-being as a prior to define agent rewards, guiding agents toward human-like goals.
+As LLMs optimize toward these goals, they are expected to naturally develop emotional intelligence, social intelligence, and life wisdom, similar to how humans grow through social lives.
+
+\subsection{Life Reward}
+\label{sec:life_reward}
+
+At the end of each simulated year, life reward is calculated for every agent.
+Grounded in Maslow's hierarchy of needs~\citep{maslow1943theory}, life reward in \method is defined with three dimensions: social, subjective, and economy.
+Social reward measures an agent's social standing based on perception from other agents.
+Subjective reward measures an agent's fulfillment over the past year.
+Economy reward measures an agent's yearly financial gain.
+The three dimensions are determined or estimated by the external environment, rather than self-reported by agents.
+
+\paragraph{Social Reward}
+Social reward is computed from how others in an agent's social circle perceive them.
+Based on the Warmth-Competence model~\citep{fiske2007universal}, we consider two dimensions of perception: \textit{affection} and \textit{respect}, corresponding to warmth and competence respectively.
+Each agent is asked to independently score every person in their social circle on both dimensions, using a 0 to 100 scale.
+Agents are told that these ratings are private and will not be revealed to others, preventing agents from giving dishonest ratings due to social pressure.
+Then, these scores are sorted and rescaled to 0 to 100 based on the ranking (first place receives 100, last place receives 0), eliminating differences in scoring scales across agents.
+Based on the scores, we construct two weighted directed graphs for affection and respect respectively, where the scores serve as edge weights.
+
+We apply Weighted PageRank~\citep{page1999pagerank} to compute each agent $i$'s social standing score $S_i$ on each graph.
+Inspired by Sociometer Theory~\citep{leary2012sociometer}, we add a Mutual Affection Bonus after PageRank convergence to obtain the final score:
+\begin{equation}
+S_i' = \sum_{j \in \mathcal{N}_{in}(i)} w_{ji} \cdot (1 + \alpha \cdot w_{ij}) \cdot S_j
+\end{equation}
+where $S_j$ is agent $j$'s raw PageRank score, $\mathcal{N}_{in}(i)$ means the set of agents who know $i$, $w_{ji}$ denotes the normalized edge weight from $j$ to $i$, and $\alpha$ is the mutual affection coefficient.
+This mechanism models the psychological effect that \dq{being valued by those I value} matters more, amplifying the contribution from reciprocated relationships.
+
+We denote the scores for affection and respect as $S_{\text{aff}}'$ and $S_{\text{resp}}'$ respectively, and take their average as the social reward:
+$r_{\text{social}} = \frac{1}{2}S_{\text{aff}}' + \frac{1}{2}S_{\text{resp}}'$.
+
+\paragraph{Subjective Reward}
+Subjective reward is computed from an agent's fulfillment history over the past year.
+It is primarily measured across four fulfillment dimensions: mood, material, social, and esteem.
+Additionally, a penalty mechanism is introduced to penalize agents with excessively low fulfillment or vitality.
+Specifically, for each fulfillment dimension, the 25th percentile across all agents in each week serves as the threshold.
+Agents falling below this threshold receive a penalty.
+Similarly, vitality below its threshold is penalized independently.
+The final subjective reward is:
+\begin{equation}
+r_{\text{subj}} = \frac{\sum_{w=1}^{n_w} \sum_{d=1}^{D} f_{w,d} - n_p \cdot \lambda_p}{n_w \cdot D}
+\end{equation}
+where $n_w$ is the number of weeks in each year, $D$ is the number of fulfillment dimensions,
+$f_{w,d}$ is the fulfillment value for week $w$ and dimension $d$,
+$n_p$ is the total number of penalty instances over the year,
+and $\lambda_p$ is the penalty weight.
+
+\paragraph{Economy Reward}
+Economy reward measures an agent's objective financial gain over the past year,
+computed as $r_{\text{econ}} = \text{deposit}_{\text{end}} - \text{deposit}_{\text{start}}$, capturing both earning ability and spending wisdom.
+
+\paragraph{Total Reward}
+Total reward combines the three reward dimensions.
+Since the three dimensions have different scales, we apply z-score normalization to each independently, and compute total reward $r$ as a weighted sum of the normalized scores:
+\begin{equation}
+r = \lambda_{\text{social}} \cdot z_{\text{social}} + \lambda_{\text{subj}} \cdot z_{\text{subj}} + \lambda_{\text{econ}} \cdot z_{\text{econ}}
+\end{equation}
+where $\lambda_{\text{social}}$, $\lambda_{\text{subj}}$, and $\lambda_{\text{econ}}$ are the weights for the three rewards.
+
+
+\subsection{Life Reward Training}
+\label{sec:training_data}
+
+To optimize LLMs towards improved well-being in social life simulation, we propose life reward training, a rejection-sampling-based optimization method.
+The challenge lies in the extremely long-horizon nature of social simulation, which makes end-to-end algorithms like PPO~\citep{schulman2017proximal} infeasible in this setting.
+Each agent's trajectory involves hundreds of LLM calls per simulated year, and a full simulation spans tens of such years.
+Therefore, we adopt a rejection-sampling approach that selects high-advantage trajectories based on life reward (\S~\ref{sec:life_reward}).
+
+\paragraph{Estimating Returns and Advantages}
+Given the life reward defined in \S~\ref{sec:life_reward}, we estimate returns and advantages for each agent at each time step \(t\) (\ie, a simulated year). For agent \(i\), the return is defined as the discounted sum of future rewards:
+\[
+G_{i,t} = \sum_{k=0}^{T-t} \gamma^k r_{i,t+k},
+\]
+where \(\gamma\) is the discount factor and \(T\) is the final time step.
+
+Estimating advantages requires a baseline. In our life simulation setting, it is difficult to learn a critic as in PPO~\citep{schulman2017proximal} or to estimate a baseline by averaging over multiple rollouts as in GRPO~\citep{guo2025deepseek}, since each agent produces a single life trajectory. We therefore use each agent's own previous return as a self-referential baseline.
+
+Before computing advantages, we normalize returns across time steps to make them more comparable, as raw returns may have different effective horizons and distributions; details are provided in \S~\ref{sec:appendix_sft}. Let \(G^{norm}_{i,t}\) denote the normalized return. We define the advantage as:
+\[
+A_{i,t} = G^{norm}_{i,t} - G^{norm}_{i,t-1}.
+\]
+This formulation measures whether an agent's expected future life reward improves relative to its own past, rather than comparing absolute performance across agents.
+The advantage measures each agent's improvement relative to its own past, rather than cross-agent comparison.
+It therefore reduces the tendency to favor agents with inherently better initial conditions, whose high absolute returns may reflect design-time advantages rather than behavioral quality.
+
+
+\paragraph{Trajectory Selection}
+Within each reward period, we select the top 25\% of agents by advantage, \ie, those who improved the most over the past year.
+Once an agent is selected, all of its trajectories within that period are included as training data.
+Since advantage measures improvement relative to one's own past rather than absolute standing, the selected trajectories represent beneficial behaviors for diverse personas and backgrounds, rather than converging toward homogeneous behavioral patterns.
+
+\paragraph{Response Filtering}
+Response filtering is applied as an additional quality filter to exclude low-quality responses from training data.
+Agent responses with malformed actions or invalid parameters (\eg, referencing a non-existent character) are filtered out.
+Also, agent responses in joint and encounter activities are checked against a set of 16 roleplay principles (Table~\ref{tab:principles}) covering anthropomorphism, character fidelity and reasonableness, with violating responses filtered out. %
+
+To prevent catastrophic forgetting, we employ self-distillation~\citep{lu2025onpolicy}.
+We sample the model's own responses to general-purpose instructions from the Tulu 3 dataset~\citep{lambert2024tulu}, and mix them with \method trajectories at a 50:50 ratio, which are measured by output tokens.
+Detailed training settings are provided in \S\ref{sec:appendix_sft}.

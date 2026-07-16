@@ -17,3 +17,9 @@ build/
 
 # OS
 .DS_Store
+
+# Agentopia simulation outputs
+data/*_*
+rft_data/
+logs/
+config.json

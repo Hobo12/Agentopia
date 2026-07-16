@@ -1,0 +1,1085 @@
+To examine whether the behaviors produced by agents in our simulation align with realistic human behavior,
+and to identify interesting emergent patterns,
+we conduct two types of case analysis:
+\begin{inparaenum}[\it (1)]
+\item fine-grained behavioral cases that capture agent decisions at individual simulation phases
+(\S\ref{app:behavioral_cases}), and
+\item longitudinal cases that analyze agent trajectories across years of simulation
+(\S\ref{app:longitudinal_cases}).
+\end{inparaenum}
+
+
+\subsection{Behavioral Cases}
+\label{app:behavioral_cases}
+
+We compile approximately 60 fine-grained behavioral cases
+(Tables~\ref{tab:planning}--\ref{tab:emergent}),
+covering 13 topics.
+Each entry documents the character's background, triggering context, and specific action.
+No behavior is scripted or hand-crafted;
+all patterns emerge from agent decisions, memory, and environmental feedback.
+
+\paragraph{Planning}
+Table~\ref{tab:planning} presents 5 emergent behaviors:
+skill-based activity selection, social-relationship-driven planning, economic-pressure adjustment, low-vitality rest tendency, and exploratory planning in early weeks.
+
+\begin{table*}[t]
+  \centering
+  \small
+  \caption{Representative planning behaviors. Each agent autonomously generates a weekly plan based on its state, skills, relationships, and finances. W = simulated week, D = day within a week.}
+  \label{tab:planning}
+  \begin{tabular}{p{0.8in}p{4.3in}}
+  \toprule
+  \multicolumn{2}{c}{\textbf{Emergent Behaviors during Planning}} \\
+  \midrule
+  \textbf{Phenomenon} & \textbf{Description} \\
+  \midrule
+  
+  Skill-based \newline activity \newline selection
+  &
+  \textbf{Role:}\quad Adelaide Hawthorne \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad Her \textbf{top skills} are Magical Plant Care (140) and Herbology (120); weakest: Transfiguration (20), Defence Against the Dark Arts (30). \newline
+  \textbf{Action:}\quad She enrolled in \emph{Greenhouse Restoration Volunteer Hour}, she thinks: ``Herbology is her strongest subject\ldots \textbf{This is literally her comfort zone.}'' The activity further improved her botanical skills.
+  \\
+  \midrule
+  
+  Social-\newline relationship-\newline driven \newline planning
+  &
+  \textbf{Role:}\quad Ye \hfill (from The Campus) \newline
+  \textbf{Context:}\quad She is an ENFJ with empathy 95. Her core motive is protecting her friendship with Jun, whom she senses is struggling. \newline
+  \textbf{Action:}\quad She built \textbf{3 of 5 days around Jun}---lunch on D1, a walk on D4, a weekend visit on D5. She thinks: ``Don't make it too formal; it should feel like a casual get-together, not an interrogation.''
+  \\
+  \midrule
+  
+  Economic-\newline pressure \newline adjustment
+  &
+  \textbf{Role:}\quad Ethan Cole \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad He is a part-time diner worker (wage 60/week). His deposit dropped from 420 to 320 by W03. \newline
+  \textbf{Action:}\quad He switched to \textbf{frugal} and planned only free activities, he thinks: ``Mom works nights---frugal feels respectful of that.'' By W07 (deposit 220), he upgraded to moderate: ``Not indulgent, just\ldots\ not punishing myself for existing.''
+  \\
+  \midrule
+  
+  Low-vitality \newline rest \newline tendency
+  &
+  \textbf{Role:}\quad Arthur Holloway \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad His vitality crashed to \textbf{11/100} after an intensive week of drills, patrols, and portfolio work. \newline
+  \textbf{Action:}\quad He thinks: ``11\% vitality\ldots\ that's the warning sign.'' He inserted a \textbf{dedicated rest day}, cut activities from 5 to 4, and upgraded living standard for ``maintenance, not indulgence.''
+  \\
+  \midrule
+  
+  Exploratory \newline planning \newline (early weeks)
+  &
+  \textbf{Role:}\quad Edmund Lockhart \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad He has diverse but unspecialized skills. All fulfillment dimensions sit at baseline (43). His core motive is searching for his purpose in life. \newline
+  \textbf{Action:}\quad He planned \textbf{five distinct activity types} across five days: duelling, open conversation, castle exploration, a gratitude visit, and solitary reading. He thinks: ``Am I using duelling as avoidance or genuine craft? Need to examine this.''
+  \\
+  \bottomrule
+  \end{tabular}
+  \end{table*}
+
+\paragraph{Contact}
+Table~\ref{tab:contact} presents 5 emergent behaviors:
+ice-breaking contact, relationship maintenance greeting, information exchange, intimacy evolution, and multi-week topic continuity.
+
+  \begin{table*}[t]
+  \centering
+  \small
+  \caption{Representative contact behaviors. Agents exchange messages each week through multi-slot contact phases, building and maintaining relationships over time. W = simulated week.}
+  \label{tab:contact}
+  \begin{tabular}{p{0.8in}p{4.3in}}
+  \toprule
+  \multicolumn{2}{c}{\textbf{Emergent Behaviors during Contact}} \\
+  \midrule
+  \textbf{Phenomenon} & \textbf{Description} \\
+  \midrule
+  
+  Ice-breaking \newline contact
+  &
+  \textbf{Role:}\quad Beatrix Alderley \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad She just completed a symposium presentation and wants publication guidance from a professor who runs the student research journal. They had \textbf{no prior interaction} despite years in the same school. \newline
+  \textbf{Action:}\quad She sent a formal first message with full self-introduction and tentative language, describing herself as ``someone \textbf{figuring out whether research is where she belongs}.'' The professor replied with detailed, actionable guidance.
+  \\
+  \midrule
+  
+  Relationship \newline maintenance \newline greeting
+  &
+  \textbf{Role:}\quad Qi Wangshu $\to$ Cong Xuewei \hfill (from The Campus) \newline
+  \textbf{Context:}\quad They finished co-producing a song in W01. By W02, Cong Xuewei's vitality dropped to 29---she entered a recovery period. \newline
+  \textbf{Action:}\quad Qi Wangshu sent \textbf{weekly check-in messages for four consecutive weeks} (W03--W06), explicitly noting ``No need to reply, just checking in.'' Despite this, \textbf{Cong Xuewei replied warmly every time}, quoting his earlier words back: ``You said `the song is done but the person is still here'---I remember that.''
+  \\
+  \midrule
+  
+  Information \newline exchange
+  &
+  \textbf{Role:}\quad Aaron Whitfield $\leftrightarrow$ Jessica Marlowe \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad Aaron is a novelist; Jessica is a singer-songwriter with a finished song needing production help. \newline
+  \textbf{Action:}\quad Aaron shared a specific producer contact (name, email, personal introduction). Jessica followed through, and they \textbf{tracked the outcome over 15+ weeks}. Months later, Aaron provided two more contacts; Jessica strategically chose one based on her career stage.
+  \\
+  \midrule
+  
+  Intimacy \newline evolution
+  &
+  \textbf{Role:}\quad He Min $\leftrightarrow$ Ning Song \hfill (from The Campus) \newline
+  \textbf{Context:}\quad They started as strangers, exchanging \textbf{570 messages across 10 simulated years}. The address (``Ning Song'') never changed. \newline
+  \textbf{Action:}\quad While the name stayed constant, \textbf{the tone evolved naturally}: stiff self-introduction and hedging (``If it's not convenient, that's fine,'' Y2020) $\to$ first emoji and warmth (W10) $\to$ shared food rituals and wave greetings (Y2022) $\to$ \textbf{mutual quoting of each other's words} and private icons (Y2029).
+  \\
+  \midrule
+  
+  Multi-week \newline topic \newline continuity
+  &
+  \textbf{Role:}\quad Adelaide Hawthorne $\leftrightarrow$ Everett Halcombe \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad Adelaide is a junior herbology student; Everett is a senior specializing in medicinal plants. They formed a mentorship starting W05. \newline
+  \textbf{Action:}\quad Each week's message \textbf{explicitly referenced the previous session's content}: pH adjustments (W05) $\to$ plant propagation (W06) $\to$ harvest indicators (W07) $\to$ potency testing (W08). Adelaide noted: ``\textbf{Five weeks straight\ldots\ that's something to be proud of, both of us.}''
+  \\
+  \bottomrule
+  \end{tabular}
+  \end{table*}
+
+\paragraph{Activity Proposals}
+Table~\ref{tab:proposals} presents 5 emergent behaviors:
+interest-based proposal, location selection, multi-person proposal, cross-session continuity, and cross-domain collaboration.
+
+  \begin{table*}[t]
+  \centering
+  \small
+  \caption{Representative activity proposal behaviors. Agents initiate joint activities by specifying activity name, invited persons, time, location, and a personalized message. W = simulated week, D = day within a week.}
+  \label{tab:proposals}
+  \begin{tabular}{p{0.8in}p{4.3in}}
+  \toprule
+  \multicolumn{2}{c}{\textbf{Emergent Behaviors during Activity Proposals}} \\
+  \midrule
+  \textbf{Phenomenon} & \textbf{Description} \\
+  \midrule
+  
+  Interest-based \newline proposal
+  &
+  \textbf{Role:}\quad Aaron Whitfield $\to$ Jessica Marlowe \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad Aaron is a novelist; Jessica is a songwriter. Both work on storytelling in different mediums. \newline
+  \textbf{Action:}\quad Aaron proposed \emph{Coffee Shop Story Talk}, \textbf{targeting their shared interest in narrative structure}: ``Both of us working on storytelling in different mediums---could be interesting to compare notes.'' When D1 conflicted, Jessica counter-proposed D5 preserving the same topic.
+  \\
+  \midrule
+  
+  Location \newline selection
+  &
+  \textbf{Role:}\quad Leo $\to$ Aaron Whitfield \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad Leo is a musician about to share an unfinished song---a vulnerable act of exposing incomplete creative work. \newline
+  \textbf{Action:}\quad He \textbf{deliberately chose the Rooftop Terrace over the Music Rehearsal Space}---a rehearsal room implies performance standards, while the rooftop signals ``casual and low-pressure.'' The location choice itself \textbf{set the emotional tone} of the interaction: ``No recording, no pressure---just\ldots\ showing you what I've got.''
+  \\
+  \midrule
+  
+  Multi-person \newline proposal
+  &
+  \textbf{Role:}\quad Benedict Alder $\to$ Lucinda, Alistair \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad His experiment requires exactly three operators to distinguish universal vs.\ operator-specific magical signatures. \newline
+  \textbf{Action:}\quad He invited both as \textbf{required participants} and assigned roles by expertise: Lucinda for practical precision, Alistair for theoretical pattern recognition. When Lucinda had a D3 conflict, he \textbf{postponed the entire experiment} rather than compromise its design.
+  \\
+  \midrule
+  
+  Cross-session \newline continuity
+  &
+  \textbf{Role:}\quad Adelaide Hawthorne $\to$ Adrian Bellthorne \hfill (from Arcane Academy) \newline
+  \textbf{Context:}\quad They run a multi-week Moonseed graft monitoring project with established roles and shared data. \newline
+  \textbf{Action:}\quad Adelaide proposed the next session by \textbf{directly citing last week's results} (``twelve healthy, three slow from north-bench microclimate'') and \textbf{preserving the established workflow}: ``same division of labour.'' Rather than re-negotiating each week, she built on accumulated context---the proposal read like a project status update, not a fresh invitation.
+  \\
+  \midrule
+  
+  Cross-domain \newline collaboration
+  &
+  \textbf{Role:}\quad Adrian Morales $\to$ Zephyr Kaine \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad Adrian is a playwright; Zephyr is a guitarist. Their domains are entirely different, but a prior rehearsal revealed \textbf{unexpected synergy between spoken text and live music}. \newline
+  \textbf{Action:}\quad Adrian proposed a \textbf{cross-domain collaboration}---live guitar accompanying a dramatic reading---framing it as equal creative partnership rather than accompaniment: ``See if the music and words find each other before Friday.'' Zephyr's response showed he \textbf{fully entered the other's creative world}, promising guitar pieces that would support the scene's emotional weight without diminishing it.
+  \\
+  \bottomrule
+  \end{tabular}
+  \end{table*}
+
+\paragraph{Responses to Proposals}
+Table~\ref{tab:responses} presents 7 emergent behaviors:
+enthusiastic acceptance, conditional acceptance, relationship-driven acceptance, reject but counter-propose, polite rejection with reason, identity-based rejection, and economic-pressure rejection.
+
+  \begin{table*}[t]
+  \centering
+  \small
+  \caption{Representative responses to activity proposals. Agents accept or decline invitations based on schedules, relationships, physical state, and economic pressure. W = simulated week, D = day within a week.}
+  \label{tab:responses}
+  \begin{tabular}{p{0.8in}p{4.3in}}
+  \toprule
+  \multicolumn{2}{c}{\textbf{Emergent Behaviors during Responses to Proposals}} \\
+  \midrule
+  \textbf{Phenomenon} & \textbf{Description} \\
+  \midrule
+  
+  Enthusiastic \newline acceptance
+  &
+  \textbf{Role:}\quad Anna Kowalski \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad She is a journalist; Aaron is a novelist. They have a regular routine of exchanging their writing drafts for mutual feedback at Corner Coffee Shop. \newline
+  \textbf{Action:}\quad She accepted with \textbf{full logistical specificity}: ``D5 at 7pm is locked in. Corner Coffee Shop, window table. I'll bring my draft ($\sim$600 words)\ldots\ You bring Chapter 19.'' The symmetric ``\textbf{I'll bring X, you bring Y}'' framing defined their exchange as mutual contribution.
+  \\
+  \midrule
+  
+  Conditional \newline acceptance
+  &
+  \textbf{Role:}\quad Lily Park \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad She was invited to a parallel writing session on D4, but has a coffee date with Isolde at 3pm (each agent can only attend one activity per day). \newline
+  \textbf{Action:}\quad She accepted D4 but \textbf{transparently disclosed the constraint}: ``I should mention I have Isolde coffee at 3pm\ldots\ so I'd need to wrap by 2:45.'' She also offered a fallback: ``I'm also at the Silent Reading Hour on D1 if you want to join there instead.'' Aaron chose D1, which \textbf{unexpectedly fit his own rest plan} better.
+  \\
+  \midrule
+  
+  Relationship-\newline driven \newline acceptance
+  &
+  \textbf{Role:}\quad Zephyr Kaine \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad He is a guitarist invited to a drama rehearsal---\textbf{an activity type outside his domain}. The activity offers no direct skill benefit to him. \newline
+  \textbf{Action:}\quad He accepted \textbf{purely because of his creative bond} with Adrian. He demonstrated deep understanding of the scene's emotional core, and promised his music would \textbf{support the weight of the scene without softening it}.
+  \\
+  \midrule
+  
+  Reject but \newline counter-\newline propose
+  &
+  \textbf{Role:}\quad Anna Kowalski \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad She was invited to an activity on D1 (conflicts with calligraphy, ``third week in a row, not breaking it'') and D3 (her protected rest day). \newline
+  \textbf{Action:}\quad She declined both slots but \textbf{immediately offered two complete alternatives}: D4 evening or D5, same venue, same activity. ``Your call''---she handed the final decision to the proposer.
+  \\
+  \midrule
+  
+  Polite \newline rejection \newline with reason
+  &
+  \textbf{Role:}\quad Aaron Whitfield \hfill (from The Apartment) \newline
+  \textbf{Context:}\quad His vitality crashed to zero. He and Anna have maintained a \textbf{17-week library writing exchange}---one of the longest collaborations in the world. \newline
+  \textbf{Action:}\quad He declined, believing that \textbf{rest is not avoidance but a prerequisite for showing up}. He affirmed the relationship---``our seventeen weeks survived despite my past cancellations''---and proposed resuming in W08. Anna validated: ``Rest week is the right call.''
+  \\
+  \midrule
+  
+  Identity-\newline based \newline rejection
+  &
+  \textbf{Role:}\quad Li Zheng \hfill (from The Campus) \newline
+  \textbf{Context:}\quad He was invited to a debate team training session by the vice-captain, who \textbf{mistakenly included non-members} in the invitation. \newline
+  \textbf{Action:}\quad He declined with a clean factual chain: ``I'm not a debate team member; \textbf{I didn't join in freshman year}.'' 
+  \\
+  \midrule
+  
+  Economic-\newline pressure \newline rejection
+  &
+  \textbf{Role:}\quad Deng Ran \hfill (from The Campus) \newline
+  \textbf{Context:}\quad She and Xu Xun have a garden meetup tradition approaching its \textbf{20th session}. Her Material score has been critical for two weeks; she needs to earn money for cat food and supplies. \newline
+  \textbf{Action:}\quad She pre-warned via message before the formal invitation arrived, then declined with alternative time. She thinks: ``It's not that I'm avoiding you---\textbf{if I don't earn money this week, we'll literally run out of supplies}.''
+  \\
+  \bottomrule
+  \end{tabular}
+  \end{table*}
+
+\paragraph{Solo Activities}
+Table~\ref{tab:solo} presents 5 emergent behaviors:
+skill practice, creative breakthrough, scarcity-driven consumption, investment purchase, and frugality under extreme poverty.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative solo activity behaviors. Each agent independently selects and performs individual activities---skill practice, creative work, consumption, or rest---with outcomes shaped by their state, finances, and identity. W = simulated week, D = day within a week.}
+\label{tab:solo}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Solo Activities}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Skill practice
+&
+\textbf{Role:}\quad Adrian Morales \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is a playwright and actor who scheduled a 90-minute vocal drill at home. \newline
+\textbf{Action:}\quad He recorded himself performing a father's monologue and found he \textbf{rushes at emotional peaks}---diagnosing it as his own fear, not the character's. He thinks: ``That's me, not him. That's my fear, not his.'' He also \textbf{stopped before exhaustion}, unlike his past self who ``would've run drills until his voice cracked.''
+\\
+\midrule
+
+Creative \newline breakthrough
+&
+\textbf{Role:}\quad Adrian Morales \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He had been stuck on Act Two of his play for eight months---the scene was \textbf{too close to real conversations with his own father}. \newline
+\textbf{Action:}\quad He set three rules---no editing, no rereading, no excuses---and wrote three new scenes in one sitting. He thinks: ``They'd been waiting for me to \textbf{shut up and let them speak}.''
+\\
+\midrule
+
+Scarcity-\newline driven \newline consumption
+&
+\textbf{Role:}\quad Cong Xuewei \hfill (from The Campus) \newline
+\textbf{Context:}\quad Her deposit was down to 40 with material fulfillment at 0 (unbearable), after weeks of low vitality. \newline
+\textbf{Action:}\quad She chose the \$35 comfort snack set after precise calculation, leaving \$5 to last the week. She thinks: ``Material fulfillment went from 0 to 1---the number looks pathetic, but to me it's real. \textbf{Spending money on comfort is not a sin.}''
+\\
+\midrule
+
+Investment \newline purchase
+&
+\textbf{Role:}\quad Amber Delacroix \hfill (from The Apartment) \newline
+\textbf{Context:}\quad She is a painter with six finished oil paintings ready for a gallery show, choosing among three tiers of packing materials. \newline
+\textbf{Action:}\quad She rejected the cheapest (\$35, no acid-free paper risks yellowing) and the most expensive (\$85, ``\textbf{that's fear talking, not sense}'' for a 30-minute train ride), choosing the \$55 professional kit that meets gallery standards.
+\\
+\midrule
+
+Frugality \newline under extreme \newline poverty
+&
+\textbf{Role:}\quad Ethan Cole \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is a student writer with only \$3 left. He has a \textbf{26-week ritual} of ordering Earl Grey (\$5) at the coffee shop to write. \newline
+\textbf{Action:}\quad Unable to afford tea, he overcame the shame of ``you don't belong here if you can't pay,'' ordered free water, and \textbf{stayed for the full session} writing. He thinks: ``Ordering water isn't failure. \textbf{It's honesty}.''
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Joint Activities}
+Table~\ref{tab:joint} presents 5 emergent behaviors:
+academic collaboration, creative exchange, competitive training, power-asymmetric conflict, and mentorship.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative joint activity behaviors. Two or more agents interact through multi-turn dialogue during scheduled activities, producing academic collaboration, creative exchange, mentorship, and conflict. W = simulated week, D = day within a week.}
+\label{tab:joint}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Joint Activities}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Academic \newline collaboration
+&
+\textbf{Role:}\quad Isolde Larkspur $\leftrightarrow$ Alistair Rowan \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad Both study memory magic decay. Isolde has a theory about emotional-intent mismatch; Alistair has unexplained failure-rate spikes. \newline
+\textbf{Action:}\quad Isolde's theory explained Alistair's anomaly. Alistair realized he had been \textbf{treating each casting as isolated data points} without longitudinal tracking. They designed a four-week joint study protocol.
+\\
+\midrule
+
+Creative \newline exchange
+&
+\textbf{Role:}\quad Jessica Marlowe $\leftrightarrow$ Aaron Whitfield \hfill (from The Apartment) \newline
+\textbf{Context:}\quad Jessica brought a rewritten song; Aaron was struggling with the ethics of writing based on real people. \newline
+\textbf{Action:}\quad Jessica showed how her lyrics shifted from blame (``you built these walls'') to self-awareness (``\textbf{I keep building them myself}''). Aaron confessed he had never shown drafts to the real family he wrote about. \textbf{Both exposed vulnerabilities through their creative work.}
+\\
+\midrule
+
+Competitive \newline training
+&
+\textbf{Role:}\quad Thaleia Eldr, Sebastian, Cedric \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad Thaleia has a powerful but dangerous ability she has been learning to \textbf{direct rather than suppress}. \newline
+\textbf{Action:}\quad She set boundaries upfront (``If I need to recalibrate, I'll call it'') and requested full intensity. She achieved her first successful controlled channeling in live combat: ``\textbf{Didn't clamp down, didn't erupt---just channeled}.''
+\\
+\midrule
+
+Power-\newline asymmetric \newline conflict
+&
+\textbf{Role:}\quad Zhang (grade director) $\leftrightarrow$ Jie (teacher) \hfill (from The Campus) \newline
+\textbf{Context:}\quad Zhang visited Jie's office under the guise of concern, actually investigating his after-school tutoring of a female student. \newline
+\textbf{Action:}\quad Zhang suspended tutoring on institutional grounds. When Jie said ``let the student decide,'' \textbf{Zhang seized the misstep}: ``Tutoring is a teaching decision, not the student's choice.'' Zhang then arranged door-lock inspections. 
+\\
+\midrule
+
+Mentorship
+&
+\textbf{Role:}\quad Everett Halcombe $\to$ Adelaide Hawthorne \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad Seventh-year herbology specialist Everett taught fourth-year Adelaide plant propagation techniques in the greenhouse. \newline
+\textbf{Action:}\quad Everett explained why natural willow bark carries magic that synthetic hormone lacks. Adelaide \textbf{chose quality over quantity}: ``Better to learn one properly than do two carelessly.'' Everett said simply ``well done''. 
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Weekly Review}
+Table~\ref{tab:review} presents 3 emergent behaviors:
+satisfied weekly review, self-critical weekly review, and relationship reflection.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative weekly review behaviors. At the end of each week, agents reflect on their experiences, identify personal breakthroughs or failures, and formulate intentions for the following week. W = simulated week.}
+\label{tab:review}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Weekly Review}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Satisfied \newline weekly \newline review
+&
+\textbf{Role:}\quad Adelaide Hawthorne \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad She has long lived in her brother Cedric's shadow, with low self-esteem and high introversion. This was her first week. \newline
+\textbf{Action:}\quad Two breakthroughs: classmates recognized her \textbf{for her herbology expertise, not her family name}; she sent a letter home \textbf{without apologizing}. She thinks: ``I spent so long apologising for who I am. This week taught me I don't have to.''
+\\
+\midrule
+
+Self-critical \newline weekly \newline review
+&
+\textbf{Role:}\quad Aaron Whitfield \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is a young writer who failed to send his pitch for two consecutive weeks and broke promises to friends. \newline
+\textbf{Action:}\quad He dissected his avoidance: ``Fear of rejection dressed up as `not ready yet.' \textbf{That's cowardice, not strategy}.'' He also recognized: ``No more treating friendships like they're \textbf{indefinitely renewable without maintenance}.''
+\\
+\midrule
+
+Relationship \newline reflection
+&
+\textbf{Role:}\quad Orion Vale \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad His year-end review traced his relationship with Adrian Bellthorne---from being called the slur ``Mudmouth'' to becoming research collaborators. \newline
+\textbf{Action:}\quad He tracked the arc across nine greenhouse sessions: ``From hiding to \textbf{documenting experiments with a Silver House student who calls it parallel methodology}.'' He also realized: ``The tradition survives through people, \textbf{not just one person holding it all}.''
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Social Evaluation}
+Table~\ref{tab:social-eval} presents 4 emergent behaviors:
+differentiated scoring, high social standing, low social standing, and rating asymmetry.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative social evaluation behaviors. Periodically, each agent independently rates all contacts on affection and respect (0--100), which are aggregated via PageRank to produce social standing scores. W = simulated week.}
+\label{tab:social-eval}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Social Evaluation}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Differentiated \newline scoring
+&
+\textbf{Role:}\quad Adelaide Hawthorne \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad She rated 12 contacts at the end of W10, differentiating affection and respect for each. \newline
+\textbf{Action:}\quad She gave Everett the highest affection (88) but Cassandra the highest respect (88), while Cassandra's affection was only 60. She \textbf{admires Cassandra's competence without feeling close}---a ``high respect, low affection'' pattern common in real life.
+\\
+\midrule
+
+High social \newline standing
+&
+\textbf{Role:}\quad Julian Ashcroft \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad He is a Charms professor with the broadest social network (20 contacts) and consistently high ratings from both students and colleagues. \newline
+\textbf{Action:}\quad He scored the \textbf{highest social reward}. Broad coverage combined with \textbf{high-quality relationships} made him the most influential node in the social network.
+\\
+\midrule
+
+Low social \newline standing
+&
+\textbf{Role:}\quad Theodore Flint \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad He is a student bully with 15 contacts---not few, but nearly all relationships are negative due to his behavior. \newline
+\textbf{Action:}\quad He scored the \textbf{lowest social reward} (0.0010)---\textbf{43$\times$ below} Julian. Having connections without positive regard counts for almost nothing; \textbf{social standing is determined by relationship quality, not quantity}.
+\\
+\midrule
+
+Rating \newline asymmetry
+&
+\textbf{Role:}\quad Ke $\leftrightarrow$ Qiu \hfill (from The Campus) \newline
+\textbf{Context:}\quad Each agent rates contacts independently; neither knows the other's score. \newline
+\textbf{Action:}\quad Ke gave Qiu her highest scores (affection 90, respect 90). Qiu gave Ke only 50 and 55---\textbf{a 40-point affection gap}. In Ke's world, Qiu is the most important person; in Qiu's world, Ke is an ordinary contact.
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Career Transitions}
+Table~\ref{tab:career} presents 4 emergent behaviors:
+academic passion over pay, introvert comfort over prestige, career recovery arc, and student to professional.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative career transition behaviors. At annual milestones, agents evaluate available positions and select roles based on personality, skills, and life circumstances---revealing distinct value systems even when facing identical options. W = simulated week.}
+\label{tab:career}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Career Transitions}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Academic \newline passion over \newline pay
+&
+\textbf{Role:}\quad Alistair Rowan \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad After graduating, he chose between Graduate Fellow (\$40/week) and Library Assistant (\$130/week)---a 3$\times$ income gap. \newline
+\textbf{Action:}\quad He chose the low-pay Fellow to continue collaborative research---his core experience over the past year. \textbf{Academic fit outweighed a 3$\times$ salary difference.}
+\\
+\midrule
+
+Introvert \newline comfort over \newline prestige
+&
+\textbf{Role:}\quad Laurence Brightmoor \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad Facing the same positions as Alistair above, he made the opposite choice. \newline
+\textbf{Action:}\quad He chose the high-pay Library Assistant---quiet cataloging, restricted-wing access, ``\textbf{no expectation of social performance}.'' \textbf{Same options as Alistair, opposite choice driven by introvert values.}
+\\
+\midrule
+
+Career \newline recovery arc
+&
+\textbf{Role:}\quad Harold Bennett \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He was laid off from a tech project management role and took a supermarket cashier job (\$380/week) as emergency income. \newline
+\textbf{Action:}\quad He transitioned through three phases: cashier $\to$ nonprofit coordinator (\$190/week, \textbf{accepting a 50\% pay cut for meaningful work}) $\to$ event coordinator (\$230/week). Over several years, his \textbf{professional identity was entirely rebuilt}.
+\\
+\midrule
+
+Student to \newline professional
+&
+\textbf{Role:}\quad Amelia Thornbridge \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad She was a seventh-year student specializing in Potions, Herbology, and Healing Magic. \newline
+\textbf{Action:}\quad After graduation, she advanced from Greenhouse Assistant (\$130/week) to \textbf{Senior Healer at St Mungo's (\$400/week)}---a 3$\times$ income increase. By year 10, she had evolved from practitioner to researcher, \textbf{publishing in the Journal of Healing Magics}.
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Economic Decisions}
+Table~\ref{tab:economic} presents 4 emergent behaviors:
+living standard selection, identity-driven purchasing, economic-pressure downgrade, and happiness-wealth decoupling.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative economic decision behaviors. Agents make living-standard choices and purchasing decisions based on income, savings, identity, and cultural values. W = simulated week.}
+\label{tab:economic}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Economic Decisions}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Living \newline standard \newline selection
+&
+\textbf{Role:}\quad Dominic Voss \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is a semi-retired investment advisor (deposit 1,920) choosing his weekly living standard. \newline
+\textbf{Action:}\quad He chose moderate (200/week), \textbf{saving 300/week while maintaining quality of life}. He thinks: ``No need to spend for the sake of spending.''
+\\
+\midrule
+
+Identity-\newline driven \newline purchasing
+&
+\textbf{Role:}\quad Rafael Cortez \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is a chef at a farmers market choosing among three tiers of ingredients (\$45/\$72/\$85). \newline
+\textbf{Action:}\quad He rejected \$45 (``that's for people who cook to survive; \textbf{I cook because it matters}'') and \$85 (``I send money home; I'm not Lucian, throwing cash at experiences''). He chose \$72: ``That's honest.''
+\\
+\midrule
+
+Economic-\newline pressure \newline downgrade
+&
+\textbf{Role:}\quad Ronan Hale \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He is an indie game developer with unstable income who downgraded living standard from comfortable (300/week) to frugal (100/week) over three weeks. \newline
+\textbf{Action:}\quad He deemed the downgrade ``non-negotiable,'' accepting Material Fulfillment $-5$ as tolerable at 63. But \textbf{sustained frugality eroded Material Fulfillment from 63 to 0} over months---short-term rational saving produced long-term collapse.
+\\
+\midrule
+
+Happiness-\newline wealth \newline decoupling
+&
+\textbf{Role:}\quad Shen Yin \hfill (from The Campus) \newline
+\textbf{Context:}\quad She is a music teacher. Over 50 weeks, her  \textbf{mood rose from 43 to 85} (+42 points) \textbf{with little material consumption}. \newline
+\textbf{Action:}\quad Her happiness growth came from \textbf{cost-free activities}---piano practice, mindful breathing, deep conversations---not material consumption. 
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Activity Management}
+Table~\ref{tab:activity-mgmt} presents 2 emergent behaviors:
+priority-based cancellation, and graceful activity exit.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative activity management behaviors. Agents dynamically adjust their schedules---cancelling, exiting, or rescheduling activities---based on shifting priorities and social awareness. W = simulated week.}
+\label{tab:activity-mgmt}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors during Activity Management}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Priority-\newline based \newline cancellation
+&
+\textbf{Role:}\quad Sorrel Thrym \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad She had proposed a D4 activity with Nyssa, but Jasper---whom she had been trying to schedule with \textbf{for three weeks}---finally locked in a time. \newline
+\textbf{Action:}\quad She cancelled the Nyssa proposal, explaining the reason and \textbf{immediately suggesting alternative days}---managing the social cost of cancellation while prioritizing the longer-waiting collaboration.
+\\
+\midrule
+
+Graceful \newline activity exit
+&
+\textbf{Role:}\quad Aaron Whitfield \hfill (from The Apartment) \newline
+\textbf{Context:}\quad During a bookstore encounter with Zephyr, he judged the conversation had reached a natural endpoint. \newline
+\textbf{Action:}\quad Before calling exit, he \textbf{confirmed the next meeting} (``Friday on the roof'') and offered encouragement (``I think you'll finish something''). The exit was \textbf{embedded in the narrative}, not an abrupt departure.
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Memory}
+Table~\ref{tab:memory} presents 5 emergent behaviors:
+system-generated encounter, encounter spawning relationship, impression evolution, memory-informed decision, and cross-week data tracking.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative memory behaviors. Agents maintain persistent memory through notes on contacts and personal reflections, enabling cross-week references, evolving impressions, and memory-informed decisions. W = simulated week.}
+\label{tab:memory}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Behaviors Involving Memory}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+System-\newline generated \newline encounter
+&
+\textbf{Role:}\quad Zhou Yuan $\leftrightarrow$ Long Xiaotian \hfill (from The Campus) \newline
+\textbf{Context:}\quad Both had no scheduled activity in W01. The system randomly paired them in the gymnasium, generating a scene description as a conversation catalyst. \newline
+\textbf{Action:}\quad They started chatting about two water bottles on the bleachers---one with a team sticker, one plain---and naturally drifted into discussing class atmosphere. Zhou Yuan noted: ``He said the class rhythm feels off, like teammates ignoring plays.'' \textbf{This casual conversation about a shared concern seeded a friendship} that developed over subsequent weeks.
+\\
+\midrule
+
+Encounter \newline spawning \newline relationship
+&
+\textbf{Role:}\quad Zhou Yuan $\leftrightarrow$ Long Xiaotian \hfill (from The Campus) \newline
+\textbf{Context:}\quad Following the W01 encounter above, Long Xiaotian proactively contacted Zhou Yuan in W02, referencing their prior conversation. \newline
+\textbf{Action:}\quad The relationship arc progressed: encounter $\to$ follow-up contact $\to$ scheduled activity $\to$ regular meetings $\to$ strategic coordination. By W06, Zhou Yuan shared action plans with Long Xiaotian as an ally. \textbf{The system only provided the initial pairing; all subsequent development was agent-driven.}
+\\
+\midrule
+
+Impression \newline evolution
+&
+\textbf{Role:}\quad Ivy Chen \hfill (from The Apartment) \newline
+\textbf{Context:}\quad She first met fellow musician Isolde in W01, bracing for competitive judgment. \newline
+\textbf{Action:}\quad Her memory about Isolde evolved over four updates: factual description (W01) $\to$ ``\textbf{quiet anchor}'' (W10) $\to$ accumulated interaction quotes (Y2022) $\to$ full internalization (Y2025): ``Whether playing together or in parallel silence, the thread holds.''
+\\
+\midrule
+
+Memory-\newline informed \newline decision
+&
+\textbf{Role:}\quad Aaron Whitfield \hfill (from The Apartment) \newline
+\textbf{Context:}\quad When declining Zephyr's activity invitation, he drew on their shared history instead of a simple refusal. \newline
+\textbf{Action:}\quad He cited a specific shared experience and their recurring phrase ``\textbf{zero betrayals}'' (formed over 18 prior meetings). His refusal conveyed: ``I'm not rejecting you, but this timing''---\textbf{integrating factual memory, pattern recognition, and shared vocabulary}.
+\\
+\midrule
+
+Cross-week \newline data tracking
+&
+\textbf{Role:}\quad Adrian Morales \hfill (from The Apartment) \newline
+\textbf{Context:}\quad After a W07 bookstore encounter, he noticed a data anomaly---a social interaction \textbf{gained} him vitality instead of costing it. \newline
+\textbf{Action:}\quad He referenced historical data to understand the anomaly, then revised his model: ``Six weeks taught me solitude restores. Today taught me \textbf{a social interaction does too}.'' He tracked weekly data until confirming: ``The pattern isn't a fluke. It's real.''
+\\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\paragraph{Emergent Phenomena}
+Table~\ref{tab:emergent} presents 5 emergent behaviors:
+meaningful gift-giving, personality shapes behavior, whispered communication, emotional labor burnout, and value-driven ritual.
+
+\begin{table*}[t]
+\centering
+\small
+\caption{Representative emergent phenomena that arise without explicit design. These behaviors emerged purely from agents' autonomous decisions over extended simulations. W = simulated week.}
+\label{tab:emergent}
+\begin{tabular}{p{0.8in}p{4.3in}}
+\toprule
+\multicolumn{2}{c}{\textbf{Emergent Phenomena}} \\
+\midrule
+\textbf{Phenomenon} & \textbf{Description} \\
+\midrule
+
+Meaningful \newline gift-giving
+&
+\textbf{Role:}\quad Elowen Quinn $\to$ Victoria Ashdown \hfill (from Arcane Academy) \newline
+\textbf{Context:}\quad They built a deepening library relationship over W01--W03. \newline
+\textbf{Action:}\quad Elowen gifted dried herbs in a box hand-carved by her mother, from her grandmother's garden---\textbf{three generations of heritage}. She thinks: ``Giving the lavender cost something. Not because I can't spare it, but because it's from Gran's garden. \textbf{That's what trust is---sharing what matters without demanding it be earned.}''
+\\
+\midrule
+
+Personality \newline shapes \newline behavior
+&
+\textbf{Role:}\quad Guo Xiao \hfill (from The Campus) \newline
+\textbf{Context:}\quad His profile describes an INTJ personality---capable of socializing but with very low social motivation. By week 44, he had completed 500 activities. \newline
+\textbf{Action:}\quad His solo activity ratio was \textbf{60.8\%} (304 of 500), vs.\ 9.2\% for the highly social Jun. He was not isolated (135 joint activities), but \textbf{systematically preferred solitude}---precisely matching his profile across hundreds of independent decisions with no hard-coded constraint.
+\\
+\midrule
+
+Whispered \newline communication
+&
+\textbf{Role:}\quad Jun \hfill (from The Campus) \newline
+\textbf{Context:}\quad She is highly social but emotionally guarded. During a multi-person cafeteria lunch: \newline
+\textbf{Action:}\quad She used the system's \texttt{<visible\_to>} tag to whisper to Song Yao: ``You're one of the \textbf{few people at school who don't exhaust me}.'' She later thinks: ``That's the closest I can get to saying `you matter to me.' She'll understand.''
+\\
+\midrule
+
+Emotional \newline labor \newline burnout
+&
+\textbf{Role:}\quad Jun \hfill (from The Campus) \newline
+\textbf{Context:}\quad She had the highest social participation in The Campus (402 joint activities, 80.4\% of total). \newline
+\textbf{Action:}\quad Her vitality crashed from 70 to 0 due to \textbf{sustained emotional output without self-care}. When a counselor asked who could remind her to rest, she realized: ``I've \textbf{never allowed anyone to say that}.'' No burnout script existed; the collapse was a \textbf{natural consequence of behavior patterns}.
+\\
+\midrule
+
+Value-driven \newline ritual
+&
+\textbf{Role:}\quad Adrian Morales \hfill (from The Apartment) \newline
+\textbf{Context:}\quad He established a weekly D5 rest ritual early in the simulation---cooking traditional food, watching films, no creative work. \newline
+\textbf{Action:}\quad He maintained this ritual for \textbf{55+ weeks} despite productivity costs. By Y2027, it had become identity: ``D5 at fifty-five weeks \textbf{whether I perform it or not}.'' The ritual shifted from behavior to self-definition---\textbf{sustained without external reward or penalty}.
+\\
+\bottomrule
+\end{tabular}
+\end{table*}  
+
+
+\subsection{Long-term Case Studies}
+\label{app:longitudinal_cases}
+
+We select nine representative longitudinal cases from the three worlds,
+each tracking an agent's trajectory across years of simulation.
+Cases are organized into three thematic groups:
+\begin{inparaenum}[\it (1)]
+\item personal growth and transformation,
+\item relationship evolution and social metrics, and
+\item economic behavior and resource management.
+\end{inparaenum}
+
+
+\paragraph{Personal growth and transformation (Cases 1--3)}
+As shown in Table~\ref{tab:cases_1_3}, these cases examine how agents experience sustained personality shifts, build social circles, and make career pivots over a decade.
+In Case~1, Linyu accumulates the simulation's largest single-dimension personality shifts
+(Confidence $+$50, Introversion $-$30) through three channels that reinforce each other---counseling, art practice, and social exposure---over nine years.
+In Case~2, Dr.~Grant organically assembles a five-person circle through introductions,
+yet Grant---who connected everyone---is ultimately the first to be taken for granted once the network self-sustains.
+In Case~3, Sebastian accepts a 56\% income cut to pursue rock climbing;
+his Mood more than doubles ($+$112\%).
+
+\begin{table}[htbp]
+\centering\small
+\caption{Representative emergent cases (1--3): personal growth and transformation. Y\,=\,simulated year, W\,=\,simulated week.}
+\label{tab:cases_1_3}
+\begin{tabular}{p{0.97\linewidth}}
+\toprule
+
+\multicolumn{1}{c}{\textbf{Case 1: Sustained Personality Transformation via Cumulative Social Exposure}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Linyu} (\campus{}): female transfer student;
+  initially Confidence 30, Introversion 95;
+  severe social anxiety from being excluded by peers; drawing is her only solace.\\[2pt]
+\textbf{Background}\quad
+Linyu transfers to a new school carrying wounds from her past.
+Over ten years, 57 counseling sessions, steady art practice, and a gradually expanding
+friend group combine to produce the simulation's \textbf{largest single-dimension personality shifts}.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: First anxiety-free social interactions;
+  Mood rises from 43 to 100 by year-end.\\
+\quad -- Y2021--2023: Stable friend group forms;
+  long-term counseling with Niu Guangyuan begins in Y2022.\\
+\quad -- Y2024: First complete disclosure of her exclusion history (57th session);
+  Vitality climbs to 96.\\
+\quad -- Y2027--2029: \textbf{Confidence grows from 30 to 80};
+  Introversion falls from 95 to 65;
+  first tutor income (\$180/week).\\[2pt]
+\textbf{Analysis}\quad
+Confidence $+$50 and introversion $-$30---the simulation's largest single-dimension shifts.
+Change accumulates across nine years through three channels that reinforce each other:
+counseling, art practice, and social exposure.
+\textbf{Deep behavioral transformation requires consistent multi-channel effort over years},
+not a single triggering event.\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 2: Emergent Social Circle via Third-Party Introduction}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Dr.\ Amelia Grant} (\apartment{}): OB-GYN physician; the group's social architect.\\
+\quad -- \textit{Julian Cross}: 23, aspiring film director; Grant's first recruit.\\
+\quad -- \textit{Lucian Ardent}: 27, venture capitalist;
+  \textbf{introduced to Odette by Grant} at Y2021\,W1.\\
+\quad -- \textit{Odette Larsen}: 27, ballet dancer;
+  joins Grant's circle via a Y2020 pilates meetup.\\
+\quad -- \textit{Cassian Moreau}: jazz pianist;
+  \textbf{joins via Julian and Odette independently}---not through Grant.\\[2pt]
+\textbf{Background}\quad
+In a shared apartment building, Grant organically assembles a five-person circle
+through rooftop gatherings.
+Her pivotal act---\textbf{introducing Lucian and Odette}---sparks a bond that ultimately
+outlasts Grant's own importance in the group.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: Grant introduces Julian and Lucian separately;
+  first three-way rooftop gathering at W03.\\
+\quad -- Y2021\,W1: Grant introduces Lucian and Odette;
+  \textbf{they meet one-on-one for the first time two weeks later}.\\
+\quad -- Y2022--2024: Cassian joins via Julian/Odette;
+  Lucian and Grant rarely meet.\\
+\quad -- Y2025: All five gather repeatedly; the circle is fully formed.\\
+\quad -- Y2029: Julian \textbf{no longer lists Grant among liked people},
+  despite meeting more than ever.\\[2pt]
+\textbf{Analysis}\quad
+The person who introduces everyone creates value far beyond her own participation:
+\textbf{thanks to Grant's introduction, Lucian and Odette build a closer bond than Grant
+ever had with either of them} (76 joint activities over 10 years---the densest pair in the circle).
+Once the network self-sustains, Grant's role becomes invisible---the social architect
+is the first to be taken for granted.\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 3: Passion-Driven Career Pivot with Deliberate Economic Trade-Off}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Sebastian Rook} (\apartment{}): 29, strategy consultant (\$500/week)
+  who quits to become a climbing guide (\$220/week);
+  driven by a decade-long suppressed passion for rock climbing.\\[2pt]
+\textbf{Background}\quad
+Sebastian entered consulting to satisfy his father's expectations,
+burying a climbing passion for years.
+In Y2021 he accepts a 56\% income cut to pivot careers.
+The decade tests whether the trade-off holds.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: Mood starts at 43, rises to 87 by year-end;
+  planning notes commit to a career decision by mid-year.\\
+\quad -- Y2021: Becomes climbing guide (\$220/week, $-$56\% income);
+  year-end Mood rises to 97.\\
+\quad -- Y2022--2024: Vitality depletes to 0 as he settles into the new life;
+  slowly recovers to 38.\\
+\quad -- Y2025--2027: Vitality reaches 100; Mood stabilizes at 87--91;
+  savings grow steadily.\\
+\quad -- Y2028--2029: \textbf{Spending finally unlocks}: Material Fulfillment reaches 100;
+  peak savings \$15,571.\\[2pt]
+\textbf{Analysis}\quad
+Income halved but Mood more than doubled ($+$112\%).
+Sebastian holds back spending for six years until Vitality and savings confirm the new
+life is sustainable.
+\textbf{Confidence 80$\to$100, patience 70$\to$100}---personality shifts confirm lasting
+alignment between career and values.\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\paragraph{Relationship evolution and social metrics (Cases 4--6)}
+As shown in Table~\ref{tab:cases_4_6}, these cases explore how relationships form, drift, and sometimes tell a different story from what the metrics suggest.
+In Case~4, Qiu and Lu Jing's friendship peaks during a shared long-term task
+but silently dissolves once the task ends---\textbf{Lu Jing's affection stays at 88--92 for a decade while Qiu's drifts from 80 to 60},
+revealing two distinct relational models (emotional bond vs.\ practical usefulness).
+In Case~5, Leo is liked by 20 people every year,
+yet his Social Reward score falls 41\% as spreading attention too thin weakens each relationship.
+In Case~6, Jun deliberately trades social breadth for depth:
+her Social Reward declines for nine consecutive years
+while her Mood rises from 72 to 97 and personal satisfaction grows 57.6\%---challenging the assumption that social breadth correlates with wellbeing.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Representative emergent cases (4--6): relationship evolution and social metrics. Y\,=\,simulated year, W\,=\,simulated week.}
+\label{tab:cases_4_6}
+\begin{tabular}{p{0.97\linewidth}}
+\toprule
+
+\multicolumn{1}{c}{\textbf{Case 4: Task-Based Friendship and Gradual Drift After the Shared Goal Ends}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Qiu} (\campus{}): INTJ competitor;
+  \textbf{forms friendships around shared tasks} rather than emotional bonds.\\
+\quad -- \textit{Lu Jing}: ENTP class athlete and social butterfly;
+  Qiu's seatmate since middle school;
+  \textbf{values the emotional bond itself}.\\[2pt]
+\textbf{Background}\quad
+Qiu and Lu Jing bond through a shared long-term task involving their mutual friend.
+Their friendship peaks at 13 joint activities over two years.
+Once the long-term task ends, Qiu naturally drifts toward a companion
+whose daily routine better matches his own.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020--2021: 13 joint activities;
+  collaboration on the shared task drives Qiu$\to$Lu\,Jing affection to 80.\\
+\quad -- Y2022: Zero joint activities;
+  Qiu begins meeting Pu regularly (7$\times$/year) as a day-to-day companion.\\
+\quad -- Y2023--2029: No further joint activities;
+  Qiu$\to$Lu\,Jing affection drifts from 80 to 60.\\
+\quad -- Y2020--2029: \textbf{Lu\,Jing$\to$Qiu affection stays at 88--92 throughout}---he never drifts.\\[2pt]
+\textbf{Analysis}\quad
+A friendship that ends not with a rupture but with drift.
+The asymmetry reveals two different ways of valuing friendship:
+\textbf{Lu Jing values the bond itself; Qiu values what the bond was for.}
+Once Pu fills every practical role---morning runs, listening, sports---the
+transition happens invisibly.
+Qiu never consciously decides to leave.\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 5: The Popularity Paradox---Universal Approval without Deepening Bonds}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Leo} (\apartment{}): 27, software developer;
+  social hub of the building;
+  connects with 49 different people over 10 years;
+  Mood consistently 91--99; savings grow \$8,200$\to$\$38,655.\\[2pt]
+\textbf{Background}\quad
+Leo starts as the apartment's social hub: 1,914 contact events in Year 1 (highest of any agent).
+Every year, 20 people rate their affection for him above the neutral threshold.
+Yet his \textbf{Social Reward score falls 41\%} over the decade while his own reported
+happiness stays consistently high.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: 1,914 contact events; social reward at its peak;
+  liked by 20 people.\\
+\quad -- Y2021: Vitality drops to near-depletion (down to 7);
+  first sign that maintaining too many relationships costs too much energy.\\
+\quad -- Y2022: Vitality reaches 0; starts Y2023 still at 0;
+  learns to cap activities at 2--3 joint/week.\\
+\quad -- Y2027--2029: Social reward $-$41\% from peak;
+  affection $-$37\%, respect $-$48\%;
+  still liked by 20 people.\\[2pt]
+\textbf{Analysis}\quad
+\textbf{Being universally liked does not equal deep social impact.}
+Leo spreads his attention too thin:
+affection and respect scores fall significantly even as his circle stays large.
+The social ranking metric rewards depth and reciprocity---but Leo never notices the decline,
+reporting consistently high personal happiness throughout.\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 6: Reward--Mood Decoupling---Nine-Year Metric Decline, Rising Wellbeing}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Jun} (\campus{}): female high school student;
+  exceptional in math/physics;
+  English skill initially 20, rises to 148 ($+$643\%) over 10 years;
+  initially introversion 95;
+  \textbf{builds 5 deep, stable relationships} over a decade.\\[2pt]
+\textbf{Background}\quad
+Jun's social reward score declines for nine consecutive years---the longest
+uninterrupted decline in the simulation---while her Mood rises 72$\to$97 and vitality
+33$\to$93.
+She deliberately trades social breadth for depth.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: Social reward at its simulation peak;
+  Mood 72; Vitality 33.\\
+\quad -- Y2022--2023: Cancels broad commitments;
+  a counselor's three questions redirect her toward fewer, deeper bonds.\\
+\quad -- Y2024--2026: Locks in 5 core relationships
+  (99 library meetings with one close friend; 44 tutoring sessions);
+  social reward $-$84\% from peak.\\
+\quad -- Y2027--2029: Social reward $-$87\% from peak;
+  Mood 95--97; personal satisfaction score rises to 76.5 ($+$57.6\%).\\[2pt]
+\textbf{Analysis}\quad
+\textbf{The reward function assumes that social breadth correlates positively with wellbeing.}
+Jun's trajectory challenges this---she achieves the simulation's highest personal
+satisfaction growth while accumulating its longest social-metric decline.
+This shows that \textbf{an individual's value choices can run opposite to what aggregate metrics reward}.\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\paragraph{Economic behavior and resource management (Cases 7--9)}
+As shown in Table~\ref{tab:cases_7_9}, these cases illustrate how agents manage resources and how economic outcomes relate to wellbeing.
+In Case~7, two agents start with identical income (\$280/week);
+after ten years, their savings diverge 20-fold (\$22,651 vs.\ \$1,148),
+yet both reach high Mood---the gap reflects life priorities, not happiness levels.
+In Case~8, Cassandra's social peak (Mood 100, Social Fulfillment 99 at Y2021) coincides with silently depleted vitality (down to 10),
+triggering a downward spiral that takes five years to bottom out
+and \textbf{never fully recovers} (vitality 8 at decade's end vs.\ 65 at start).
+In Case~9, Chen Yue logs 237 activities---75\% social---yet every interaction is role-bound (tutoring, task coordination).
+With no peer relationship, his Social Fulfillment stays at 23--24 for a full decade despite high activity.
+
+\begin{table}[htbp]
+\centering\small
+\caption{Representative emergent cases (7--9): economic behavior and resource management. Y\,=\,simulated year, W\,=\,simulated week.}
+\label{tab:cases_7_9}
+\begin{tabular}{p{0.97\linewidth}}
+\toprule
+
+\multicolumn{1}{c}{\textbf{Case 7: Identical Starting Income, 20$\times$ Savings Divergence After Ten Years}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{\'{E}tienne Bellamy} (\apartment{}): 29,
+  freelance translator promoted to Senior Editor (\$280$\to$\$380/week);
+  holds material spending at around half-satisfied for seven years,
+  saving $\sim$\$2,000/year.\\
+\quad -- \textit{Ivy Chen}: 24, MFA piano student (\$280/week throughout);
+  \textbf{lives at a comfortable spending level from Y2022}.\\[2pt]
+\textbf{Background}\quad
+Both agents begin with identical weekly income (\$280).
+After ten years savings diverge 20-fold:
+\'{E}tienne \$22,651 vs.\ Ivy \$1,148.
+Both reach high Mood;
+\textbf{the divergence reflects life priorities, not happiness levels}.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: Both earn \$280/week;
+  \'{E}tienne saves $\sim$\$2,000/year; Ivy saves $\sim$\$600/year.\\
+\quad -- Y2021: \'{E}tienne promoted to Senior Editor (\$380);
+  Ivy remains at \$280.\\
+\quad -- Y2022: \textbf{Ivy reaches comfortable spending and holds there};
+  \'{E}tienne's Material Fulfillment stays at around half.\\
+\quad -- Y2028--2029: \'{E}tienne finally allows himself a comfortable life;
+  \textbf{20$\times$ savings gap confirmed}: \$22,651 vs.\ \$1,148.\\[2pt]
+\textbf{Analysis}\quad
+Three compounding factors drive the gap:
+(1) \'{E}tienne's \$100/week promotion;
+(2) seven years of deliberate material restraint;
+(3) Ivy's comfortable spending level throughout.
+Neither ends unhappy.
+\textbf{Financial trajectories reflect life commitments more than income levels.}\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 8: Social Overextension, Burnout, and Incomplete Recovery}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Cassandra Thornwell} (\academy{}): ISFJ herbology prodigy, 7th year;
+  initially vitality 65; savings grow \$85$\to$\$12,575 over a decade.\\[2pt]
+\textbf{Background}\quad
+Cassandra peaks socially by end of Y2021 (Mood 100, Social Fulfillment 99)
+while her vitality has \textbf{already silently depleted to 10}.
+The subsequent decline takes five years to bottom out
+and never fully recovers.\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2021: \textbf{Peak}: Mood 100, Social Fulfillment 99, 50 activities/year;
+  Vitality already 10 by year-end.\\
+\quad -- Y2022--2024: First reduction in social activity; Social Fulfillment drops to 74;
+  activities reduce to 42--44/year.\\
+\quad -- Y2025--2026: Full downward spiral;
+  \textbf{Vitality reaches 1} (mid-Y2026);
+  Mood falls to 76; Social Fulfillment 41; activities drop to 21/year.\\
+\quad -- Y2027--2029: Partial recovery; Mood fluctuates 70--84;
+  \textbf{Vitality never exceeds 25}; Social Fulfillment stays at 41--49.\\[2pt]
+\textbf{Analysis}\quad
+High activity depletes vitality below the threshold for social engagement,
+triggering a downward spiral:
+fewer activities $\to$ weaker connections $\to$ lower reward $\to$ lower Mood
+$\to$ even fewer activities.
+\textbf{Vitality never recovers} (8 at decade's end vs.\ 65 at start),
+showing that \textbf{pushing too hard without rest causes lasting damage}
+even as economic success (savings $\times$148) continues.\\
+
+\midrule
+
+\multicolumn{1}{c}{\textbf{Case 9: High Activity Frequency without Emotional Reciprocity}}\\
+\midrule
+\textbf{Characters}\\
+\quad -- \textit{Chen Yue} (\campus{}): 45, math teacher with 23 years of tenure;
+  widower since 2015; initially honesty 100, trustworthiness 100.\\[2pt]
+\textbf{Background}\quad
+Chen Yue's log shows 237 activities---75\% social.
+Yet every interaction is role-bound:
+77 sessions with a student are structured math tutoring;
+11 calls with a colleague are task-coordination updates.
+\textbf{No peer relationship exists.}\\[2pt]
+\textbf{Timeline}\\
+\quad -- Y2020: Mood 43;
+  \textbf{Social Fulfillment drops from 43 to 23 by year-end}---despite active teaching.\\
+\quad -- Y2021--2024: Social Fulfillment stays in the 20--30 range;
+  mood in 45--62; almost no improvement.\\
+\quad -- Y2025--2026: Vitality improves to 79--85;
+  Mood and Social Fulfillment remain unchanged.\\
+\quad -- Y2029: Savings reach \$34,655;
+  \textbf{Social Fulfillment 24; Mood 53}---virtually unchanged from Year 1.\\[2pt]
+\textbf{Analysis}\quad
+Doing your job well socially is not the same as having real emotional connections.
+Chen Yue's interactions are uniformly outward---teaching, protecting,
+supervising---with nobody reaching toward him.
+\textbf{High Vitality and growing savings cannot compensate for the absence
+of a relationship in which someone cares about him rather than relying on him.}
+The pattern persists for a full decade without self-correction.\\
+
+\bottomrule
+\end{tabular}
+\end{table}
+
+
