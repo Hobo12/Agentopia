@@ -223,6 +223,16 @@ def main() -> None:
                 raw_config["world"]["time"]["n_year"] = args.years
             if args.weeks is not None:
                 raw_config["world"]["time"]["n_week"] = args.weeks
+                reward_cfg = raw_config["world"]["reward"]
+                if reward_cfg["period_weeks"] > args.weeks:
+                    reward_cfg["period_weeks"] = args.weeks
+            n_week = raw_config["world"]["time"]["n_week"]
+            period_weeks = raw_config["world"]["reward"]["period_weeks"]
+            if n_week % period_weeks != 0:
+                parser.error(
+                    f"reward period_weeks ({period_weeks}) must divide "
+                    f"n_week ({n_week}) evenly"
+                )
             raw_config["world"]["name"] = base_world_name
             raw_config["world"]["data_dir"] = data_dir
             save_run_config(data_dir, raw_config)

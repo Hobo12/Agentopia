@@ -1107,7 +1107,12 @@ def generate_with_fc(
 
             # Allow environment variables to override URL and API key
             base_url = os.getenv("OPENAI_BASE_URL", model_cfg["url"])
-            api_key = os.getenv("OPENAI_API_KEY", model_cfg["api_key"])
+            api_key_env = model_cfg.get("api_key_env", "OPENAI_API_KEY")
+            api_key = os.getenv(api_key_env, model_cfg.get("api_key", ""))
+            if not api_key:
+                raise ValueError(
+                    f"API key for model '{model}' is not configured; set {api_key_env}"
+                )
             client = OpenAI(base_url=base_url, api_key=api_key)
 
             # Set per-request timeout on the client instance

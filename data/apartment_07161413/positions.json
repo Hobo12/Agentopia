@@ -1,0 +1,219 @@
+{
+  "version": 1,
+  "positions": [
+    {
+      "name": "Bremer Apartment Building/Night Shift Super Assistant",
+      "organization": "Bremer Apartment Building",
+      "role": "Night Shift Super Assistant",
+      "type": "work",
+      "description": "Supports the aging super during evening hours: responding to leak reports, managing package logins, calming disputes over noise/music, and knowing which floor has spare keys.",
+      "weekly_income": 195,
+      "weekly_delta_skills": {
+        "problem_solving": 4,
+        "conflict_resolution": 3,
+        "building_maintenance": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 19,
+      "created_year": 2020
+    },
+    {
+      "name": "Brooklyn Music Conservatory Extension/Community Ensemble Coordinator",
+      "organization": "Brooklyn Music Conservatory Extension",
+      "role": "Community Ensemble Coordinator",
+      "type": "work",
+      "description": "Organizes the monthly 'Bremer Basement Jam' — booking local musicians, scheduling sound checks, securing permits for acoustic sets, and managing rotating open-mic sign-ups.",
+      "weekly_income": 310,
+      "weekly_delta_skills": {
+        "event_coordination": 5,
+        "music_industry_knowledge": 4,
+        "negotiation": 3
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 24,
+      "min_skills": {
+        "music": 150,
+        "organization": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "Café Sonrisa (Bilingual After-School Program)/Mentor-Tutor",
+      "organization": "Café Sonrisa (Bilingual After-School Program)",
+      "role": "Mentor-Tutor",
+      "type": "work",
+      "description": "Provides homework help and cultural mentorship to immigrant teens after school — often meeting them at the Corner Coffee Shop or in Bremer’s common lounge.",
+      "weekly_income": 165,
+      "weekly_delta_skills": {
+        "bilingual_communication": 5,
+        "youth_mentoring": 4,
+        "patience": 3
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 22,
+      "min_skills": {
+        "spanish": 100,
+        "teaching": 40
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "Corner Coffee Shop/Barista",
+      "organization": "Corner Coffee Shop",
+      "role": "Barista",
+      "type": "work",
+      "description": "Prepares espresso drinks, manages register, and fosters the shop’s warm, communal atmosphere — often remembering regulars’ orders and listening to their stories.",
+      "weekly_income": 180,
+      "weekly_delta_skills": {
+        "customer_service": 4,
+        "multitasking": 3,
+        "coffee_craft": 5
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 18,
+      "created_year": 2020
+    },
+    {
+      "name": "Greenwich Village Community Garden Co-op/Steward",
+      "organization": "Greenwich Village Community Garden Co-op",
+      "role": "Steward",
+      "type": "work",
+      "description": "Manages shared plots on the rooftop-accessible garden terrace (adjacent to Bremer’s fire escape); coordinates seasonal planting, composting, and neighbor-led workshops.",
+      "weekly_income": 220,
+      "weekly_delta_skills": {
+        "horticulture": 5,
+        "community_organizing": 4,
+        "sustainability_practice": 3
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 21,
+      "min_skills": {
+        "communication": 40
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "NYU Tisch School of the Arts/Undergraduate Acting Student",
+      "organization": "NYU Tisch School of the Arts",
+      "role": "Undergraduate Acting Student",
+      "type": "non-work",
+      "description": "Immersed in conservatory-style training: scene study, voice, movement, and collaborative creation; balances auditions, rehearsals, and late-night script analysis in Bremer’s thin-walled apartments.",
+      "weekly_income": 120,
+      "weekly_delta_skills": {
+        "acting": 5,
+        "improvisation": 4,
+        "emotional_resilience": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 18,
+      "max_age": 24,
+      "min_skills": {
+        "communication": 30
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "New York Public Library – Greenwich Branch/Digital Literacy Volunteer Trainer",
+      "organization": "New York Public Library – Greenwich Branch",
+      "role": "Digital Literacy Volunteer Trainer",
+      "type": "non-work",
+      "description": "Leads weekly workshops helping elderly tenants and new immigrants navigate online services — library portals, rent stabilization forms, telehealth platforms, and video-calling with faraway family.",
+      "weekly_income": 95,
+      "weekly_delta_skills": {
+        "teaching": 3,
+        "empathy": 5,
+        "technology_literacy": 4
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 18,
+      "max_age": 80,
+      "created_year": 2020
+    },
+    {
+      "name": "Rooftop Water Tower Restoration Project/Historic Preservation Apprentice",
+      "organization": "Rooftop Water Tower Restoration Project",
+      "role": "Historic Preservation Apprentice",
+      "type": "work",
+      "description": "Assists licensed preservationists in documenting and maintaining the landmark 1920s water tower; learns masonry repair, archival photo logging, and NYC Landmarks Commission protocols.",
+      "weekly_income": 233,
+      "weekly_delta_skills": {
+        "historic_preservation": 5,
+        "attention_to_detail": 4,
+        "construction_safety": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 20,
+      "min_skills": {
+        "research": 70
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "Self-employed (contributes to The Atlantic, New York Magazine, various outlets)/Freelance journalist and novelist",
+      "organization": "Self-employed (contributes to The Atlantic, New York Magazine, various outlets)",
+      "role": "Freelance journalist and novelist",
+      "type": "work",
+      "description": "Freelance writer earning income from magazine features, copywriting for a tech firm, and occasional journalism workshops he teaches at The New School.",
+      "weekly_income": 350,
+      "weekly_delta_skills": {
+        "creative_writing": 0.5,
+        "journalism": 0.3
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "created_year": -1
+    },
+    {
+      "name": "The Atlantic / New York Magazine Freelance Network/Editorial Research Fellow",
+      "organization": "The Atlantic / New York Magazine Freelance Network",
+      "role": "Editorial Research Fellow",
+      "type": "work",
+      "description": "Contracts with Aaron Whitfield and other freelancers to fact-check narratives, source archival material, verify immigrant community references, and cross-reference neighborhood history for long-form pieces.",
+      "weekly_income": 420,
+      "weekly_delta_skills": {
+        "research": 5,
+        "journalism": 4,
+        "source_verification": 5
+      },
+      "capacity": 1,
+      "occupied_by": [
+        "Aaron Whitfield"
+      ],
+      "min_age": 26,
+      "min_skills": {
+        "research": 220,
+        "journalism": 180
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "The Bremer Tenant Association/Building Archivist",
+      "organization": "The Bremer Tenant Association",
+      "role": "Building Archivist",
+      "type": "work",
+      "description": "Documents oral histories, repairs the aging lobby bulletin board archive, digitizes tenant-submitted photos/stories, and curates the annual 'Bremer Memory Wall' installation.",
+      "weekly_income": 200,
+      "weekly_delta_skills": {
+        "research": 4,
+        "storytelling": 5,
+        "digital_archiving": 3
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 25,
+      "min_skills": {
+        "research": 120,
+        "writing": 90
+      },
+      "created_year": 2020
+    }
+  ]
+}

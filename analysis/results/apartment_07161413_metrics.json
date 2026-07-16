@@ -1,0 +1,600 @@
+{
+  "data_dir": "apartment_07161413",
+  "config": {
+    "n_day": 5,
+    "n_week": 1,
+    "start_year": 2020
+  },
+  "last_complete_year": null,
+  "innate": {
+    "Aaron Whitfield": {
+      "weekly_income": 350,
+      "init_deposit": 1800,
+      "init_relationship_count": 9
+    },
+    "Adrian Morales": {
+      "weekly_income": 350,
+      "init_deposit": 900,
+      "init_relationship_count": 1
+    },
+    "Adrian Vale": {
+      "weekly_income": 220,
+      "init_deposit": 1800,
+      "init_relationship_count": 7
+    },
+    "Alaric Voss": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 3
+    },
+    "Alessandro Vieri": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 10
+    },
+    "Alex Medina": {
+      "weekly_income": 360,
+      "init_deposit": 1200,
+      "init_relationship_count": 3
+    },
+    "Alice Whitfield": {
+      "weekly_income": 250,
+      "init_deposit": 2800,
+      "init_relationship_count": 3
+    },
+    "Amara Okafor": {
+      "weekly_income": 380,
+      "init_deposit": 900,
+      "init_relationship_count": 4
+    },
+    "Amber Delacroix": {
+      "weekly_income": 320,
+      "init_deposit": 1200,
+      "init_relationship_count": 2
+    },
+    "Anna Kowalski": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Aria Fontaine": {
+      "weekly_income": 500,
+      "init_deposit": 3840,
+      "init_relationship_count": 5
+    },
+    "Arlo Kessler": {
+      "weekly_income": 500,
+      "init_deposit": 8200,
+      "init_relationship_count": 2
+    },
+    "Brandon Calloway": {
+      "weekly_income": 440,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Caius Ferraro": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Camille Laurent": {
+      "weekly_income": 500,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Cassian Moreau": {
+      "weekly_income": 320,
+      "init_deposit": 1200,
+      "init_relationship_count": 6
+    },
+    "Chen Guoliang": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 7
+    },
+    "Chloe Marchand": {
+      "weekly_income": 230,
+      "init_deposit": 1200,
+      "init_relationship_count": 4
+    },
+    "Claire Donovan": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 6
+    },
+    "Clara Whitlock": {
+      "weekly_income": 440,
+      "init_deposit": 1800,
+      "init_relationship_count": 4
+    },
+    "Claudia Liu": {
+      "weekly_income": 500,
+      "init_deposit": 1200,
+      "init_relationship_count": 3
+    },
+    "Daisy Kowalski": {
+      "weekly_income": 320,
+      "init_deposit": 1100,
+      "init_relationship_count": 9
+    },
+    "Dave Okafor": {
+      "weekly_income": 280,
+      "init_deposit": 620,
+      "init_relationship_count": 4
+    },
+    "Dominic Voss": {
+      "weekly_income": 500,
+      "init_deposit": 1420,
+      "init_relationship_count": 5
+    },
+    "Dorian Valey": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 4
+    },
+    "Dr. Amelia Grant": {
+      "weekly_income": 500,
+      "init_deposit": 5560,
+      "init_relationship_count": 2
+    },
+    "Dr. Thaddeus Pelagios": {
+      "weekly_income": 500,
+      "init_deposit": 7140,
+      "init_relationship_count": 10
+    },
+    "Dylan Cross": {
+      "weekly_income": 500,
+      "init_deposit": 4800,
+      "init_relationship_count": 8
+    },
+    "Dylan Parker": {
+      "weekly_income": 350,
+      "init_deposit": 3000,
+      "init_relationship_count": 7
+    },
+    "Elara Straub": {
+      "weekly_income": 380,
+      "init_deposit": 2200,
+      "init_relationship_count": 2
+    },
+    "Elio Maren": {
+      "weekly_income": 500,
+      "init_deposit": 2800,
+      "init_relationship_count": 3
+    },
+    "Elliot Park": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 4
+    },
+    "Elowen Maris": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 1
+    },
+    "Emily Tsai": {
+      "weekly_income": 360,
+      "init_deposit": 1100,
+      "init_relationship_count": 6
+    },
+    "Ethan Caldwell": {
+      "weekly_income": 500,
+      "init_deposit": 7140,
+      "init_relationship_count": 2
+    },
+    "Ethan Cole": {
+      "weekly_income": 100,
+      "init_deposit": 320,
+      "init_relationship_count": 5
+    },
+    "Eulalia Mendes": {
+      "weekly_income": 500,
+      "init_deposit": 1200,
+      "init_relationship_count": 4
+    },
+    "Finnian Calloway": {
+      "weekly_income": 500,
+      "init_deposit": 8500,
+      "init_relationship_count": 2
+    },
+    "Gemma Chen": {
+      "weekly_income": 500,
+      "init_deposit": 6200,
+      "init_relationship_count": 5
+    },
+    "Harold Bennett": {
+      "weekly_income": 380,
+      "init_deposit": 2800,
+      "init_relationship_count": 3
+    },
+    "Helena Kruger": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 3
+    },
+    "Indigo Harlan": {
+      "weekly_income": 420,
+      "init_deposit": 2200,
+      "init_relationship_count": 1
+    },
+    "Isabella Vale": {
+      "weekly_income": 380,
+      "init_deposit": 7600,
+      "init_relationship_count": 3
+    },
+    "Isolde Krause": {
+      "weekly_income": 500,
+      "init_deposit": 3200,
+      "init_relationship_count": 1
+    },
+    "Ivy Chen": {
+      "weekly_income": 280,
+      "init_deposit": 600,
+      "init_relationship_count": 1
+    },
+    "Jamal Osei": {
+      "weekly_income": 200,
+      "init_deposit": 1800,
+      "init_relationship_count": 10
+    },
+    "Jasper Whitfield": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 3
+    },
+    "Jessica Marlowe": {
+      "weekly_income": 360,
+      "init_deposit": 620,
+      "init_relationship_count": 5
+    },
+    "Joe Orlov": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 5
+    },
+    "Julian Cross": {
+      "weekly_income": 380,
+      "init_deposit": 340,
+      "init_relationship_count": 7
+    },
+    "Julian Reyes": {
+      "weekly_income": 430,
+      "init_deposit": 1200,
+      "init_relationship_count": 14
+    },
+    "Juniper Liang": {
+      "weekly_income": 440,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Kairo Osei": {
+      "weekly_income": 380,
+      "init_deposit": 1200,
+      "init_relationship_count": 1
+    },
+    "Leah Moreno": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 4
+    },
+    "Leo": {
+      "weekly_income": 500,
+      "init_deposit": 8200,
+      "init_relationship_count": 43
+    },
+    "Leonidas Argyros": {
+      "weekly_income": 360,
+      "init_deposit": 1200,
+      "init_relationship_count": 5
+    },
+    "Lily Park": {
+      "weekly_income": 210,
+      "init_deposit": 1800,
+      "init_relationship_count": 2
+    },
+    "Lite Arévalo": {
+      "weekly_income": 400,
+      "init_deposit": 900,
+      "init_relationship_count": 2
+    },
+    "Lucas Andrade": {
+      "weekly_income": 280,
+      "init_deposit": 620,
+      "init_relationship_count": 5
+    },
+    "Lucas Herrera": {
+      "weekly_income": 500,
+      "init_deposit": 2400,
+      "init_relationship_count": 0
+    },
+    "Lucian Ardent": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 7
+    },
+    "Lydia Moreau": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 4
+    },
+    "Lyric Dawson": {
+      "weekly_income": 440,
+      "init_deposit": 1200,
+      "init_relationship_count": 2
+    },
+    "Maddox Keller": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 6
+    },
+    "Marcus Calder": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 4
+    },
+    "Marcus Okafor": {
+      "weekly_income": 500,
+      "init_deposit": 7140,
+      "init_relationship_count": 4
+    },
+    "Marina Solari": {
+      "weekly_income": 440,
+      "init_deposit": 1200,
+      "init_relationship_count": 4
+    },
+    "Marta Kovacs": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 4
+    },
+    "Maya Delgado": {
+      "weekly_income": 270,
+      "init_deposit": 600,
+      "init_relationship_count": 6
+    },
+    "Megan Shaw": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 7
+    },
+    "Mike Callahan": {
+      "weekly_income": 500,
+      "init_deposit": 1800,
+      "init_relationship_count": 4
+    },
+    "Natalie Russo": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 4
+    },
+    "Nico Vale": {
+      "weekly_income": 150,
+      "init_deposit": 900,
+      "init_relationship_count": 2
+    },
+    "Nina Alvarez": {
+      "weekly_income": 320,
+      "init_deposit": 580,
+      "init_relationship_count": 3
+    },
+    "Nina Oliveira": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 8
+    },
+    "Odette Larsen": {
+      "weekly_income": 400,
+      "init_deposit": 1800,
+      "init_relationship_count": 2
+    },
+    "Oliver Brennan": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 4
+    },
+    "Oliver Grant": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 7
+    },
+    "Orion Hale": {
+      "weekly_income": 500,
+      "init_deposit": 2800,
+      "init_relationship_count": 3
+    },
+    "Owen Calder": {
+      "weekly_income": 420,
+      "init_deposit": 620,
+      "init_relationship_count": 4
+    },
+    "Paige Whitfield": {
+      "weekly_income": 280,
+      "init_deposit": 1200,
+      "init_relationship_count": 10
+    },
+    "Rachel Kovacs": {
+      "weekly_income": 500,
+      "init_deposit": 2200,
+      "init_relationship_count": 6
+    },
+    "Rafael Cortez": {
+      "weekly_income": 500,
+      "init_deposit": 2800,
+      "init_relationship_count": 6
+    },
+    "Rafael Duarte": {
+      "weekly_income": 500,
+      "init_deposit": 3200,
+      "init_relationship_count": 4
+    },
+    "Ronan Hale": {
+      "weekly_income": 380,
+      "init_deposit": 620,
+      "init_relationship_count": 2
+    },
+    "Ryan Mercer": {
+      "weekly_income": 500,
+      "init_deposit": 2800,
+      "init_relationship_count": 4
+    },
+    "Samuel Whitaker": {
+      "weekly_income": 500,
+      "init_deposit": 8200,
+      "init_relationship_count": 7
+    },
+    "Sebastian Rook": {
+      "weekly_income": 500,
+      "init_deposit": 8400,
+      "init_relationship_count": 3
+    },
+    "Selene Papadimitriou": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 2
+    },
+    "Simon Delacroix": {
+      "weekly_income": 500,
+      "init_deposit": 4200,
+      "init_relationship_count": 15
+    },
+    "Solstice Reyes": {
+      "weekly_income": 320,
+      "init_deposit": 1400,
+      "init_relationship_count": 4
+    },
+    "Sophia Lin": {
+      "weekly_income": 500,
+      "init_deposit": 9100,
+      "init_relationship_count": 6
+    },
+    "Soren Lindqvist": {
+      "weekly_income": 500,
+      "init_deposit": 8200,
+      "init_relationship_count": 3
+    },
+    "Takumi Sato": {
+      "weekly_income": 500,
+      "init_deposit": 6200,
+      "init_relationship_count": 5
+    },
+    "Vera Nocturne": {
+      "weekly_income": 350,
+      "init_deposit": 3400,
+      "init_relationship_count": 4
+    },
+    "Vesper Caldwell": {
+      "weekly_income": 500,
+      "init_deposit": 1200,
+      "init_relationship_count": 4
+    },
+    "Victor Langford": {
+      "weekly_income": 500,
+      "init_deposit": 10000,
+      "init_relationship_count": 4
+    },
+    "Victor Sorrento": {
+      "weekly_income": 450,
+      "init_deposit": 7000,
+      "init_relationship_count": 4
+    },
+    "Zephyr Kaine": {
+      "weekly_income": 380,
+      "init_deposit": 800,
+      "init_relationship_count": 1
+    },
+    "Étienne Bellamy": {
+      "weekly_income": 280,
+      "init_deposit": 2200,
+      "init_relationship_count": 5
+    }
+  },
+  "by_week": {
+    "Aaron Whitfield": {
+      "Y2020-W01": {
+        "input_tokens": 332219,
+        "output_tokens": 9937,
+        "function_call_count": 0,
+        "active_contacts": 8,
+        "passive_contacts": 0,
+        "joint_proposed": 0,
+        "joint_participated": 0,
+        "public_participated": 1,
+        "solo_count": 4,
+        "total_spending_amount": 100,
+        "activity_consumption_count": 0,
+        "extra_earning_count": 0,
+        "skill_improvement_count": 3,
+        "total_skills": 1008.5,
+        "deposit": 2050,
+        "deposit_diff": 250,
+        "fulfillment_mood": 57,
+        "fulfillment_material": 45,
+        "fulfillment_social": 45,
+        "fulfillment_esteem": 47.5,
+        "likes_count": 9,
+        "respects_count": 9,
+        "liked_by_count": 0,
+        "respected_by_count": 0,
+        "subjective_n_penalties": 0
+      },
+      "Y2020-W00": {
+        "joint_proposed": 0,
+        "joint_participated": 0,
+        "public_participated": 0,
+        "solo_count": 5,
+        "total_spending_amount": 0,
+        "activity_consumption_count": 0,
+        "extra_earning_count": 0,
+        "skill_improvement_count": 0,
+        "total_skills": 1000,
+        "deposit": 1800,
+        "deposit_diff": 0,
+        "fulfillment_mood": 50,
+        "fulfillment_material": 50,
+        "fulfillment_social": 50,
+        "fulfillment_esteem": 50,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "function_call_count": 0,
+        "active_contacts": 0,
+        "passive_contacts": 0,
+        "liked_by_count": 0,
+        "respected_by_count": 0,
+        "likes_count": 0,
+        "respects_count": 0,
+        "subjective_n_penalties": 0
+      }
+    }
+  },
+  "by_year": {
+    "Aaron Whitfield": {
+      "Y2020": {
+        "joint_participated": 0,
+        "public_participated": 1,
+        "extra_earning_count": 0,
+        "passive_contacts": 0,
+        "active_contacts": 8,
+        "function_call_count": 0,
+        "total_spending_amount": 100,
+        "deposit_diff": 250,
+        "output_tokens": 9937,
+        "activity_consumption_count": 0,
+        "solo_count": 9,
+        "subjective_n_penalties": 0,
+        "skill_improvement_count": 3,
+        "joint_proposed": 0,
+        "input_tokens": 332219,
+        "deposit": 2050,
+        "total_skills": 1008.5,
+        "liked_by_count": 0,
+        "fulfillment_social": 45,
+        "fulfillment_esteem": 47.5,
+        "fulfillment_material": 45,
+        "respects_count": 9,
+        "likes_count": 9,
+        "respected_by_count": 0,
+        "fulfillment_mood": 57
+      }
+    }
+  }
+}

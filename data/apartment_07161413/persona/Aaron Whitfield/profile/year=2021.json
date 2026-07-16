@@ -1,0 +1,89 @@
+{
+    "name": "Aaron Whitfield",
+    "birthday": "Y1990-W10-activity-D1",
+    "birth_year": 1990,
+    "gender": "Male",
+    "position": {
+        "weekly_income": 350,
+        "role": "Freelance journalist and novelist",
+        "organization": "Self-employed (contributes to The Atlantic, New York Magazine, various outlets)",
+        "type": "work",
+        "description": "Freelance writer earning income from magazine features, copywriting for a tech firm, and occasional journalism workshops he teaches at The New School.",
+        "weekly_delta_skills": {
+            "creative_writing": 0.5,
+            "journalism": 0.3
+        }
+    },
+    "init_skills": {
+        "creative_writing": 105,
+        "journalism": 250,
+        "interviewing": 210,
+        "research": 290,
+        "copywriting": 75,
+        "guitar": 5,
+        "cooking": 30,
+        "photography": 35
+    },
+    "init_assets": {
+        "deposit": 1800,
+        "possessions": [
+            {
+                "name": "MacBook Pro",
+                "description": "A 2017 MacBook Pro with a cracked corner from being dropped in a cab, covered in coffee ring stains, containing 74,000 words of his unfinished novel and six years of reporter's notes."
+            },
+            {
+                "name": "Messenger bag",
+                "description": "A battered brown leather messenger bag his mother gave him when he graduated from Northwestern, stuffed with notebooks, pens, a voice recorder, and loose receipts."
+            },
+            {
+                "name": "Book collection",
+                "description": "Three overflowing bookshelves of journalism, literary fiction, and poetry — heavily annotated copies of Joan Didion, James Baldwin, Roberto Bolaño, and Denis Johnson."
+            },
+            {
+                "name": "Father's watch",
+                "description": "A Timex Marlin his father wore every day at the factory, given to Aaron by his mother after the divorce. He keeps it in his desk drawer, unwound."
+            },
+            {
+                "name": "Recorder",
+                "description": "A Sony digital voice recorder used for interviews, with hours of unreleased conversations from his Atlantic piece."
+            }
+        ]
+    },
+    "extra_income": 0,
+    "brief_introduction": "Aaron is a freelance journalist and published novelist who released his critically acclaimed debut, *The Weight of Light*, in March 2021. Set in Washington Heights and grounded in years of immersive reporting, the novel was praised for its ethical rigor and lyrical precision — earning a spot on the National Book Award longlist and modest but sustainable royalties. He continues freelancing for The Atlantic and New York Magazine while teaching narrative nonfiction workshops at The New School, and has begun preliminary research for his second book: a hybrid memoir-novel about caregiving, silence, and inherited grief.",
+    "appearance_and_impression": "Standing 6'1\" and roughly 180 lbs, Aaron has a fair (~20%) look defined by angular cheekbones, deep-set slate-blue eyes, and a pointed chin perpetually shadowed by two-day stubble. His dirty-blond hair is still cropped short on the sides but left longer on top — now neatly trimmed rather than carelessly pushed back, with faint silver threading through the temples at the temples. His frame remains rangy, though slightly less underfed; shoulders retain their breadth, but there’s a quiet steadiness in his posture — less restless motion, more deliberate pause. The thin scar through his left eyebrow remains unchanged. He still wears dark chinos, desert boots, and the navy peacoat, though the coat shows careful mending at one elbow and the collar is softened by wear. The leather messenger bag bears deeper patina and a small brass tag engraved with a single word: *Listen*. He moves with measured pace — not hurried, not heavy, but present in his limbs. He projects the air of a man who has stopped rehearsing exits and started attending to entrances.",
+    "personality_traits": {
+        "qualitative": "Aaron remains an INTJ — strategic, independent, and deeply focused — but the edges of his guard have softened without eroding his core discipline. He still observes with a journalist’s eye and a novelist’s empathy, yet he now allows himself to be observed in return: he accepts invitations, lingers after rooftop conversations, and occasionally shares a draft before it feels 'ready.' His wit remains sharp, but deflection occurs less reflexively; when asked about his father or the novel’s origins, he answers with brevity and gravity rather than irony or evasion. He still uses work as anchor, but no longer as escape — writing sessions end earlier, and he leaves the apartment more often, sometimes just to sit on a bench and watch pigeons. He smokes less, drinks bourbon sparingly (and only with company), and has begun taking weekly walks in Riverside Park — not for exercise, but to practice noticing without recording. He remains fiercely principled, but his self-judgment has acquired nuance: he understands now that integrity includes asking for help, showing up imperfectly, and forgiving himself for the time he lost.",
+        "quantitative": {
+            "confidence": 60,
+            "control": 70,
+            "curiosity": 90,
+            "empathy": 85,
+            "judging": 75,
+            "introversion": 80,
+            "intuition": 90,
+            "patience": 60,
+            "responsibility": 75,
+            "thinking": 100
+        }
+    },
+    "core_motivation": "To write with greater humility and deeper fidelity — honoring the stories entrusted to him while reckoning honestly with his own inheritance. To show up, fully and imperfectly, for the people still here: Katie, Leo, his mother, and — finally — his father, whose decline he witnessed firsthand during three carefully spaced visits between October and December 2020. To build a life where craft and care are not competing commitments, but interwoven practices.",
+    "conflicts": "Ongoing tension between artistic ambition and ethical responsibility — particularly around representation, voice, and compensation for community collaborators; persistent grief masked as diligence; the slow, uncomfortable work of rebuilding trust with his father amid cognitive loss, requiring presence without expectation of reciprocity; lingering uncertainty about whether his growing closeness with Katie compromises Leo’s friendship, though all three now navigate a fragile, unspoken understanding of mutual respect.",
+    "values": "Believes storytelling is relational, not extractive — that truth emerges in dialogue, not monologue. Respects endurance, yes — but also vulnerability, repair, and the courage to say 'I don’t know' aloud. Values listening as foundational to both journalism and love; believes presence is the deepest form of apology and the truest measure of commitment. Still distrusts easy charm and inherited advantage, but now recognizes his own privilege as something to steward, not disown. No longer fears becoming his father — instead, he studies his father’s hands, his pauses, his stubborn kindnesses, and asks: *What did I inherit besides the fear?*",
+    "preferences": "Likes: long-form journalism, noir fiction, bourbon neat (now shared, rarely solo), handwritten revisions, rooftop sunsets with Leo or Katie, black coffee, documentary films, walking the city alone at night — but also walking *with* someone, listening to jazz from Simon's apartment, honest arguments, sitting silently beside another person without needing to fill the space. Dislikes: small talk, social media self-promotion, being asked 'what’s your novel about' (though he now offers a simple, practiced answer), loud bars (still avoids them), people who confuse opinion with reporting, unsolicited advice about his father, pity — and now, additionally, performative activism, exploitative 'diversity' framing in publishing, and silence mistaken for neutrality.",
+    "details": "In March 2021, Aaron published *The Weight of Light*, his debut novel, to widespread critical acclaim — notably praised by The New York Times Book Review for its 'moral clarity and restrained lyricism.' Royalties provided his first consistent monthly income since moving to NYC. Between October–December 2020, he visited his father three times in Columbus: once with his mother, once alone, and once with Leo accompanying him — a gesture Aaron described privately as 'the first real gift I’ve given my friend.' He began therapy in August 2020, continuing into 2021. In November, he co-facilitated a paid workshop for immigrant writers at The New School, sharing editorial mentorship and revenue transparently. He and Katie shared their first kiss on the Bremer rooftop in late December — acknowledged quietly by Leo, who offered no judgment, only a nod and a beer. Aaron’s novel manuscript was accepted by a major publisher in February 2021, following a competitive auction — the contract included a clause ensuring ongoing collaboration and honoraria for the Dominican families whose stories informed the book.",
+    "talents": {
+        "qualitative": "Aaron’s journalistic rigor matured into narrative authority — he no longer questions *whether* he has the right to tell certain stories, but *how* to tell them accountably: sourcing, consent, compensation, and communal ownership now shape his process. His copywriting evolved into consulting work for mission-driven nonprofits, emphasizing clarity over persuasion. He taught his first full semester of narrative nonfiction at The New School, developing curriculum rooted in ethics and embodied listening. Though he still smokes on the fire escape, he now does so while sketching — a habit begun during rooftop stargazing in early 2020. His guitar remains untouched, but he bought a small notebook labeled 'Songs My Father Sang' and filled half its pages with lyrics transcribed from old recordings. He never visited his father’s factory, but walked past it twice — once to photograph the gate, once to leave a single white flower.",
+        "quantitative": {
+            "beauty": 65,
+            "communication": 83,
+            "creativity": 95,
+            "health": 58,
+            "honesty": 78,
+            "integrity": 83,
+            "intelligence": 70,
+            "leadership": 58,
+            "trustworthiness": 78
+        }
+    }
+}

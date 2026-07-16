@@ -1,0 +1,397 @@
+{
+  "public": {
+    "Art Supply Cart (Lobby)": {
+      "display_name": "Art Supply Cart (Lobby)",
+      "size": "small",
+      "description": "A wheeled metal cart parked near the front desk, stocked with donated supplies: watercolor pans, sketchbooks bound in cloth, charcoal sticks wrapped in paper, and jars of brushes standing bristle-up like tiny soldiers. A chalkboard sign reads 'Draw Your Day — Take What You Need', and fresh drawings—sketches of fire escapes, portraits of neighbors, abstract swirls—pinch the sides with magnets. It’s messy, generous, and quietly essential.",
+      "objects": [
+        "rolling art supply cart",
+        "watercolor palette set",
+        "cloth-bound sketchbooks",
+        "charcoal stick bundles",
+        "brush jar with magnetized lid",
+        "chalkboard sign with message"
+      ]
+    },
+    "Basement Bike Storage": {
+      "display_name": "Basement Bike Storage",
+      "size": "medium",
+      "description": "A low-ceilinged concrete chamber lit by bare bulbs dangling from wires, smelling of rubber, chain oil, and damp earth. Twenty bike frames lean against cinderblock walls, secured by U-locks and thick cables anchored to steel posts embedded in the floor. Tools hang on pegboard—wrenches, tire levers, puncture kits—and a grease-stained workbench holds an air pump and spare inner tubes. Chains rattle occasionally when doors open, and graffiti tags bloom in corners like stubborn weeds.",
+      "objects": [
+        "U-lock rack system",
+        "floor-standing bicycle pump",
+        "pegboard tool organizer",
+        "grease-stained rag roll",
+        "spare brake pads in plastic sleeve",
+        "bike helmet mounted on hook"
+      ]
+    },
+    "Boiler Room Viewing Window": {
+      "display_name": "Boiler Room Viewing Window",
+      "size": "small",
+      "description": "A reinforced glass portal inset into the basement corridor wall, offering a glimpse into the cavernous boiler room beyond: towering copper pipes coil like sleeping serpents, gauges blink steadily, and steam pulses rhythmically through insulated valves. Condensation beads on the glass, blurring the orange glow of pilot lights. No one enters the boiler room—but many pause here, pressing palms to cool glass, feeling the building’s heartbeat vibrate up their arms.",
+      "objects": [
+        "reinforced viewing window",
+        "condensation-beaded glass",
+        "visible copper pipe coils",
+        "blinking pressure gauge",
+        "steam vent with rhythmic pulse",
+        "warning decal on glass frame"
+      ]
+    },
+    "Book Exchange Shelf": {
+      "display_name": "Book Exchange Shelf",
+      "size": "small",
+      "description": "A freestanding pine shelf installed near the elevator bank, its top tier labeled 'TAKE ONE / LEAVE ONE' in hand-cut lettering. Paperbacks slump sideways beside hardcovers with cracked spines; sticky notes flutter from pages marking favorite passages. A small chalkboard lists recent swaps (“The Midnight Library → 3 copies!”) and gentle reminders (“Please don’t take poetry unless you leave poetry”). Dust gathers lightly on covers, undisturbed except by curious fingers.",
+      "objects": [
+        "pine book exchange shelf",
+        "chalkboard with swap updates",
+        "sticky-note bookmarks",
+        "paperback with highlighted passage",
+        "hardcover with coffee-ring stain",
+        "library stamp pad and ink blotter"
+      ]
+    },
+    "Building Entrance Vestibule": {
+      "display_name": "Building Entrance Vestibule",
+      "size": "medium",
+      "description": "A narrow, double-door antechamber with stained-glass sidelights casting jewel-toned patterns on marble flooring. Brass doorknobs gleam despite frequent use, and a small radiator hisses gently beneath a shelf holding umbrellas, a lost glove, and a potted spider plant. Wind whistles faintly through imperfect seals, rattling the inner door’s glass pane. Residents pause here to shake rain off boots, check reflections, or inhale deeply before stepping into the wider city beyond.",
+      "objects": [
+        "stained-glass sidelight panels",
+        "marble vestibule floor",
+        "brass door handles",
+        "umbrella stand with wet drips",
+        "spider plant in clay pot",
+        "radiator with ticking valve"
+      ]
+    },
+    "Community Garden Plot (Rear Yard)": {
+      "display_name": "Community Garden Plot (Rear Yard)",
+      "size": "medium",
+      "description": "A fenced rectangle of raised beds tucked behind the building, bordered by crumbling brick and shaded by a lone ailanthus tree. Ten plots—each labeled with painted stones—are tended by rotating residents: tomatoes vine wildly beside kale, marigolds crowd carrot rows, and bean poles lean precariously. A rain barrel collects runoff from the fire escape, and gardening tools hang from hooks nailed into fence posts. On weekends, children chase ladybugs while elders swap compost tips over lukewarm lemonade.",
+      "objects": [
+        "raised cedar garden bed",
+        "galvanized rain barrel",
+        "hook-mounted trowel set",
+        "stone-labeled plot markers",
+        "straw mulch bale",
+        "canvas harvest tote bag"
+      ]
+    },
+    "Corner Coffee Shop": {
+      "display_name": "Corner Coffee Shop",
+      "size": "medium",
+      "description": "A compact storefront with wide front windows fogged slightly at the edges, its interior warmed by espresso steam and low jazz. Wooden booths line one wall, stools cluster around a scarred walnut counter, and chalkboard menus hang above the barista station. Steam rises from ceramic mugs as patrons linger over notebooks, laptops, or quiet conversations—some regulars have unofficial ‘their’ seats marked by habitual placement of tote bags or reading glasses. The floorboards groan sympathetically under every step, and the bell above the door jingles like punctuation.",
+      "objects": [
+        "cast-iron espresso machine",
+        "reclaimed-wood countertop",
+        "chalkboard menu board",
+        "mismatched ceramic mugs",
+        "leather-bound guest journal",
+        "potted snake plant on sill"
+      ]
+    },
+    "Courtyard Bench Circle": {
+      "display_name": "Courtyard Bench Circle",
+      "size": "medium",
+      "description": "Five curved concrete benches arranged in a loose semicircle around a central magnolia tree, its roots buckling the pavement in graceful arcs. Vines climb trellises overhead, dappling light across weathered cushions and scattered newspapers. In spring, petals drift down like snow; in autumn, leaves pile in gold heaps beside discarded earbuds and half-eaten apples. Conversation flows easily here—no agenda, no rush—just the shared gravity of being momentarily still.",
+      "objects": [
+        "curved concrete benches",
+        "magnolia tree with spreading canopy",
+        "trellis with climbing vines",
+        "discarded apple core",
+        "folded newspaper",
+        "earbud case with broken hinge"
+      ]
+    },
+    "Elevator Lobby": {
+      "display_name": "Elevator Lobby",
+      "size": "small",
+      "description": "A tight vestibule flanked by mirrored panels and the elevator’s brushed-steel doors, its floor tiled in alternating charcoal and cream squares. A bench upholstered in cracked vinyl sits opposite the control panel, where buttons glow amber—even when the elevator is stuck between floors. An antique clock ticks audibly above the call button, and a faint hum vibrates up through the soles of shoes. People stand shoulder-to-shoulder here, eyes fixed ahead or downward, sharing silence thicker than the humid summer air.",
+      "objects": [
+        "vinyl-upholstered waiting bench",
+        "illuminated elevator call panel",
+        "antique wall clock",
+        "mirrored elevator lobby wall",
+        "metal waste bin with lid",
+        "emergency phone receiver bracket"
+      ]
+    },
+    "Emergency Exit Corridor (Basement)": {
+      "display_name": "Emergency Exit Corridor (Basement)",
+      "size": "medium",
+      "description": "A stark, brightly lit concrete tunnel leading from the boiler room to the rear alley exit, its walls lined with reflective EXIT signage and fire extinguishers mounted at precise intervals. Red arrows point relentlessly forward; ventilation grilles exhale warm, metallic air. Though rarely traversed, its presence calms—the certainty of egress, of safety measured in meters and seconds. Footsteps echo cleanly here, stripped of all ornamentation.",
+      "objects": [
+        "reflective exit signage",
+        "mounted fire extinguisher",
+        "ventilation grille",
+        "concrete corridor walls",
+        "red directional arrow decals",
+        "emergency lighting fixtures"
+      ]
+    },
+    "Fire Escape Platform (Fourth Floor)": {
+      "display_name": "Fire Escape Platform (Fourth Floor)",
+      "size": "small",
+      "description": "A narrow iron landing bolted to the building’s side, accessible only via Apartment 4C’s kitchen window. Rust blooms along welded joints; wind-chimes made of bottle caps clink softly in breezes. A single folding chair faces east, offering a sliver view of fire escapes cascading down neighboring buildings like ladder rungs frozen mid-descent. Cigarette butts nestle in a dented tin can, and a fraying rope hammock sling hangs coiled nearby. It’s rarely used—but always known, always available.",
+      "objects": [
+        "foldable aluminum chair",
+        "tin ash can",
+        "bottle-cap wind chime",
+        "coiled nylon hammock strap",
+        "sun-faded paperback spine",
+        "graffiti-scribbled railing plaque"
+      ]
+    },
+    "Fire Escape Staircase (Front Facade)": {
+      "display_name": "Fire Escape Staircase (Front Facade)",
+      "size": "small",
+      "description": "An ornate iron spiral descending from the fifth floor, its steps slick with dew each morning and its banister etched with initials and dates dating back to the 1940s. Passersby on the sidewalk crane their necks to see who emerges—sometimes a musician tuning a guitar, sometimes a couple arguing softly, sometimes just someone needing air. Pigeons roost in the curled brackets beneath landings, scattering when movement shakes the structure. It’s illegal to use except in emergencies—but everyone uses it anyway.",
+      "objects": [
+        "riveted iron spiral staircase",
+        "initials scratched into banister",
+        "pigeon feather caught in grate",
+        "rust-flaked step tread",
+        "wind-chime attached to support beam",
+        "broken-off piece of plaster from facade"
+      ]
+    },
+    "Ground-Floor Lounge": {
+      "display_name": "Ground-Floor Lounge",
+      "size": "large",
+      "description": "A former superintendent’s office converted into a dim, cozy common area with sagging couches, a bookshelf overflowing with donated paperbacks, and a coffee table scarred by rings and candle wax. One wall displays framed black-and-white photos of the building circa 1928; another hosts a whiteboard scribbled with movie night votes and potluck assignments. Low lamps cast amber halos over chess sets mid-game and blankets draped over armrests. Conversations rise and fall like tide—sometimes loud, sometimes barely whispered.",
+      "objects": [
+        "sectional sofa with floral slipcover",
+        "overstuffed bookshelf",
+        "whiteboard with marker smudges",
+        "vintage floor lamp",
+        "chessboard with missing pawn",
+        "knit blanket draped over chair back"
+      ]
+    },
+    "Hallway Mirror (Fifth Floor)": {
+      "display_name": "Hallway Mirror (Fifth Floor)",
+      "size": "small",
+      "description": "A full-length oval mirror hung crookedly on the fifth-floor hallway wall, its silvering tarnished at the edges. Framed in dark wood, it reflects passing silhouettes, flickering overhead lights, and the slow drip of a leaky faucet from Apartment 5D’s bathroom. Notes stick to its surface—birthday wishes, apology slips, a doodle of a rocket ship—and lipstick smudges ghost the glass near eye level. You glance, adjust your collar, check your hair, then keep walking—as if the mirror were a silent confidant who never answers back.",
+      "objects": [
+        "oval-framed hallway mirror",
+        "post-it note with heart drawing",
+        "lipstick-smudged edge",
+        "blue pen doodle of rocket",
+        "tiny scuff mark near base",
+        "mirror-mounting bracket screws"
+      ]
+    },
+    "Laundry Room": {
+      "display_name": "Laundry Room",
+      "size": "small",
+      "description": "Tucked between the third and fourth floors, this narrow basement-accessible room smells of warm detergent and damp cotton. Two industrial washers and three dryers line the left wall beneath flickering fluorescent light; a chipped Formica counter holds lint traps, folded quarters, and a perpetually half-filled basket of stray socks. Graffiti-style notes cling to the mirror above the sink—\"Take your clothes!\", \"Socks = soul currency\", \"Dryer #2 eats quarters but gives hope\". A single window high on the rear wall filters gray afternoon light onto peeling linoleum.",
+      "objects": [
+        "coin-operated washer",
+        "folding laundry basket",
+        "wall-mounted ironing board",
+        "sticky-note reminder pad",
+        "plastic detergent jug",
+        "rubber dryer vent hose"
+      ]
+    },
+    "Lobby Bulletin Board": {
+      "display_name": "Lobby Bulletin Board",
+      "size": "small",
+      "description": "A corkboard mounted beside the front entrance, layered with decades of announcements: yellowed flyers for vanished bands, laminated pet-sitting offers, and bold-print notices about pipe repairs. Thumbtacks hold recent additions—a zine launch poster, a call for volunteers at the neighborhood food pantry, and a hand-scrawled note asking if anyone saw a black-and-white cat named Mochi. Light from the streetlamp outside casts shifting shadows across torn edges and overlapping tape.",
+      "objects": [
+        "cork bulletin board",
+        "assortment of colored thumbtacks",
+        "laminated community event flyer",
+        "paperclip-chain of lost-and-found notes",
+        "tape dispenser with dried glue residue",
+        "crayon-drawn 'Free Hugs' sticker"
+      ]
+    },
+    "Mailroom Nook": {
+      "display_name": "Mailroom Nook",
+      "size": "small",
+      "description": "A recessed alcove off the ground-floor foyer housing thirty numbered pigeonholes behind smudged glass doors. A narrow shelf below holds unclaimed packages wrapped in brown paper and twine, stacked haphazardly beside a communal clipboard for package pickups. A ceiling fan spins lazily overhead, stirring papers and loose flyers advertising piano lessons or roommate searches. The air carries the dry tang of ink, cardboard, and old carpet, and a handwritten sign taped crookedly to the frame reads \"Keys lost? Check drawer — no judgment.\"",
+      "objects": [
+        "glass-fronted mailbox slots",
+        "clipboard with lined pickup log",
+        "stack of padded envelopes",
+        "brass key ring holder",
+        "dust-covered address book",
+        "rubber band–bound bundle of junk mail"
+      ]
+    },
+    "Music Practice Nook": {
+      "display_name": "Music Practice Nook",
+      "size": "small",
+      "description": "A sound-dampened closet retrofitted near the stairwell on the fourth floor, its walls lined with acoustic foam tiles and a single LED bulb glowing warmly. Inside rests a well-used upright piano whose keys bear faint pencil marks indicating finger positions, plus a metronome, sheet music binder, and a pair of headphones draped over the music stand. Piano notes seep through the door like smoke—sometimes hesitant, sometimes soaring—while footsteps pause briefly outside, listening without intrusion.",
+      "objects": [
+        "upright piano with pencil-marked keys",
+        "digital metronome",
+        "sheet music binder",
+        "studio headphones",
+        "acoustic foam tile",
+        "music stand with bent leg"
+      ]
+    },
+    "Pet-Walking Path (Side Alley)": {
+      "display_name": "Pet-Walking Path (Side Alley)",
+      "size": "medium",
+      "description": "A narrow cobblestone alley running parallel to the building, edged with ivy spilling from rooftop gutters and tagged with paw-print stencils. Dog leashes coil neatly on a wrought-iron hook beside the gate; a small bench bears scratches and a carved 'M + J 7/2021'. Morning light catches mist rising from damp bricks, and the air smells of wet stone, dog shampoo, and yesterday’s takeout. Leash tugs echo off close walls, followed by cheerful greetings and tail thumps.",
+      "objects": [
+        "cobblestone alley path",
+        "wrought-iron leash hook",
+        "carved wooden bench",
+        "paw-print stencil on brick",
+        "dog-waste bag dispenser",
+        "ivy-draped gutter overflow"
+      ]
+    },
+    "Public Payphone Booth": {
+      "display_name": "Public Payphone Booth",
+      "size": "small",
+      "description": "A solitary crimson booth wedged between the building’s front stoop and the coffee shop awning, its glass panes cloudy and its rotary dial stiff with age. A coin return slot glints emptily; a laminated list of emergency numbers is taped inside the handset cradle. Teenagers pose for selfies here; elders make rare calls home; poets whisper monologues into the mouthpiece like incantations. It hasn’t worked in years—but no one removes it.",
+      "objects": [
+        "crimson payphone booth",
+        "rotary dial telephone",
+        "cloudy glass panes",
+        "laminate emergency number list",
+        "coin return slot",
+        "selfie stick propped beside booth"
+      ]
+    },
+    "Recycling & Compost Station": {
+      "display_name": "Recycling & Compost Station",
+      "size": "small",
+      "description": "A trio of lidded bins tucked beside the service entrance—blue for recyclables, green for compost, grey for landfill—all stamped with faded municipal symbols. A laminated chart taped to the wall explains what goes where, annotated with sticky notes correcting errors ('No pizza boxes! Grease ruins compost'). Fruit flies hover near the compost bin’s air vent, and banana peels glisten in morning light filtering through the loading dock’s high window. Someone always forgets the lid.",
+      "objects": [
+        "three-color sorting bin set",
+        "laminated recycling guide",
+        "banana peel on compost lid",
+        "fruit fly swarm near vent",
+        "duct-taped bin label",
+        "compost aerator tool leaning nearby"
+      ]
+    },
+    "Roof Access Doorway": {
+      "display_name": "Roof Access Doorway",
+      "size": "small",
+      "description": "A heavy metal door stenciled with 'ROOF ACCESS – ALARM ACTIVATED' leads up to the sixth floor. Its threshold is littered with fallen leaves, cigarette butts, and a permanent smear of green paint from countless bumped buckets. A rusted push-bar handle squeaks loudly, and sunlight spills through the crack before full entry—casting sharp rectangles across cracked cement stairs. This doorway marks both boundary and invitation: the last physical threshold before sky and shared solitude.",
+      "objects": [
+        "aluminum push-bar handle",
+        "peeling warning stencil",
+        "discarded matchbook",
+        "green paint smear on threshold",
+        "loose hinge screw",
+        "roof access alarm sensor box"
+      ]
+    },
+    "Rooftop Garden": {
+      "display_name": "Rooftop Garden",
+      "size": "medium",
+      "description": "A sun-dappled corner of the sixth-floor roof enclosed by low brick parapets and strung with weathered string lights. Potted herbs, tomato vines, and resilient geraniums line repurposed wooden crates; a few mismatched benches and two rust-speckled metal chairs face west toward the Hudson. The air hums faintly with bees and distant sirens, and laundry lines crisscross overhead like delicate aerial bridges. At dusk, shadows stretch long across cracked concrete, and the scent of basil mingles with exhaust and rain-warmed brick.",
+      "objects": [
+        "clay herb pots",
+        "woven garden gloves",
+        "galvanized watering can",
+        "foldable canvas stool",
+        "frayed burlap sack",
+        "hand-painted 'Grow Here' sign"
+      ]
+    },
+    "Shared Balcony (Second Floor)": {
+      "display_name": "Shared Balcony (Second Floor)",
+      "size": "small",
+      "description": "A wrought-iron balcony extending just six feet out from Apartments 2A and 2B, accessed through either unit’s sliding door. Its railings are draped with drying dish towels and miniature succulents in tin cans; a tiny table holds a shared sugar bowl and two chipped teacups. From here, you hear snippets of arguments, laughter, and practice piano scales drifting upward from lower floors. Rainwater pools in hollows of the pitted tile floor, reflecting clouds that drift past the fire escape next door.",
+      "objects": [
+        "collapsible bistro table",
+        "two mismatched porcelain cups",
+        "ceramic sugar bowl",
+        "tin-can planter with sedum",
+        "hanging wire basket",
+        "weather-beaten paperback spine"
+      ]
+    },
+    "Stairwell Landing (Third Floor)": {
+      "display_name": "Stairwell Landing (Third Floor)",
+      "size": "small",
+      "description": "A shallow square platform where the main staircase bends sharply, its worn oak treads creaking softly underfoot. Faded blue paint peels near the handrail, revealing layers of older coats; a brass mail slot glints beside Apartment 3B’s doorframe. Sunlight slants through a grimy transom window, illuminating dust motes dancing above a battered wicker chair someone left behind years ago. Residents pause here to catch breath, exchange quick hellos, or lean against the cool brick wall while scrolling phones.",
+      "objects": [
+        "worn wicker armchair",
+        "chipped ceramic mug",
+        "torn paperback novel",
+        "keychain with faded enamel charm",
+        "scuffed leather satchel",
+        "stairwell light switch plate"
+      ]
+    },
+    "Sunroom Reading Nook": {
+      "display_name": "Sunroom Reading Nook",
+      "size": "medium",
+      "description": "A glass-enclosed porch added to the building’s south side in the 1950s, now filled with secondhand armchairs, floor pillows, and shelves built into original brick columns. Afternoon light floods in, warming wool throws and catching dust motes swirling above open books. A vintage radio plays soft jazz at low volume, and the hum of traffic fades beneath birdsong from the courtyard maple. It feels less like architecture and more like suspended time.",
+      "objects": [
+        "sun-faded velvet armchair",
+        "brick-column bookshelves",
+        "wool throw blanket",
+        "vintage tube radio",
+        "floor pillow stack",
+        "maple leaf pressed in library card"
+      ]
+    },
+    "Tenant Meeting Room": {
+      "display_name": "Tenant Meeting Room",
+      "size": "medium",
+      "description": "A plain rectangular space on the basement level with drop-ceiling tiles, folding chairs arranged in a circle, and a dry-erase board still bearing remnants of last month’s budget discussion. A coffee urn steams quietly on a utility cart, and a woven rug muffles footfalls on cold linoleum. Windows look out onto the boiler room’s copper pipes, and the thermostat clicks rhythmically during pauses in conversation. Decisions get made here—not grand ones, but vital ones: noise complaints, repair priorities, who takes the trash out on Sundays.",
+      "objects": [
+        "folding conference chairs",
+        "dry-erase board with partial notes",
+        "percolating coffee urn",
+        "thermostat mounted on wall",
+        "woven floor rug",
+        "utility cart with extension cord"
+      ]
+    },
+    "Utility Closet Hallway": {
+      "display_name": "Utility Closet Hallway",
+      "size": "small",
+      "description": "A short, dim corridor connecting the laundry room to the basement storage, lined with four identical steel utility closets marked 'ELEC', 'PLUMB', 'HVAC', and 'MAINT'. Pipes bulge behind exposed conduits; emergency exit signs glow red at either end. A dripping faucet echoes intermittently, and the smell shifts from bleach to ozone to mildew within ten feet. Residents walk quickly here—not because it’s dangerous, but because it feels like crossing backstage, unseen and purposeful.",
+      "objects": [
+        "four steel utility closet doors",
+        "exposed copper piping",
+        "glowing red exit sign",
+        "dripping faucet fixture",
+        "maintenance log clipboard",
+        "pipe insulation wrap scraps"
+      ]
+    },
+    "Window Seat Nook (First Floor)": {
+      "display_name": "Window Seat Nook (First Floor)",
+      "size": "small",
+      "description": "A deep-set bay window in the lobby corridor transformed into a cushioned perch, its seat upholstered in faded indigo fabric and backed by embroidered pillows. Outside, passersby blur into streaks of motion; inside, daylight pools golden on floorboards and warms the spine of whatever book lies open. A small tray holds tea bags and a chipped mug, and a hanging macramé plant holder sways gently with building vibrations. It’s where people go to watch the world—or disappear into theirs.",
+      "objects": [
+        "indigo-cushioned window seat",
+        "embroidered throw pillows",
+        "macramé plant hanger",
+        "chipped ceramic mug",
+        "tea bag sampler box",
+        "sunlit hardwood floor"
+      ]
+    }
+  },
+  "private": {
+    "home/Aaron Whitfield": {
+      "owner": "Aaron Whitfield",
+      "display_name": "Aaron Whitfield's Home",
+      "size": "small",
+      "description": "Aaron’s bedroom is a compact, lived-in space marked by quiet intensity—soft light filters through slightly rumpled linen curtains, illuminating worn hardwood floors and walls dotted with taped-up research notes, faded subway maps of Upper Manhattan, and a single framed black-and-white photo of his father from the late ’90s. The air smells faintly of bergamot tea and old paper, and every surface balances utility and hesitation: nothing feels fully settled, as if he’s both rooted here and perpetually preparing to revise—or leave. A secondhand desk dominates the room, cluttered but purposeful, anchoring the space where most of his emotional labor unfolds.",
+      "objects": [
+        "a dented aluminum thermos filled with cold brew",
+        "a dog-eared copy of Junot Díaz’s *The Brief Wondrous Life of Oscar Wao* with margin notes in blue ink",
+        "a voice memo recorder labeled 'Washington Heights Interviews – Do Not Delete'",
+        "a chipped ceramic mug gifted by Katie that reads 'Plot Twist, Not Plot Hole'",
+        "a folded, unsigned postcard from Cincinnati mailed in November 2019",
+        "a small, unplugged analog clock stopped at 2:17 AM"
+      ]
+    }
+  }
+}
