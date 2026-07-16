@@ -1,0 +1,53 @@
+2026-07-16 14:48:40,776 - world - INFO - Resume point: Y2020-W01 (cleanup from Y2020-W01-begin)
+2026-07-16 14:48:40,877 - world - INFO - Assigned 5 agents to 1 model(s): qwen-plus=5
+2026-07-16 14:50:21,191 - world - INFO - [locations] generated map via LLM: 30 locations
+2026-07-16 14:50:21,192 - world - INFO - Generating 5 homes in parallel...
+2026-07-16 14:50:28,285 - world - INFO -   Generated home for 丛雪薇
+2026-07-16 14:50:31,806 - world - INFO -   Generated home for 刘铭
+2026-07-16 14:50:32,666 - world - INFO -   Generated home for 刘世刚
+2026-07-16 14:50:33,047 - world - INFO -   Generated home for 何敏
+2026-07-16 14:50:34,072 - world - INFO -   Generated home for 刘凡
+2026-07-16 14:50:34,073 - world - INFO - Generating positions for 5 agents...
+2026-07-16 14:50:57,790 - world - INFO - Generated 10 positions
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged from profile: 京海中学化学教研组/高中化学教师 (capacity=1, created_year=-1)
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged from profile: 京海中学后勤处/学校食堂负责人 (capacity=1, created_year=-1)
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二年级/高中生 (capacity=1, created_year=-1)
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二年级张老师班/高中生 (capacity=1, created_year=-1)
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二（6）班/高中生 (capacity=1, created_year=-1)
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Merged 5 positions from agent profiles
+2026-07-16 14:50:57,792 - world - INFO - [POSITIONS] Year 2020: initialized 15 positions
+2026-07-16 14:50:57,794 - world - INFO - 丛雪薇 received weekly_income 120, deposit: 200 -> 320
+2026-07-16 14:50:57,795 - world - INFO - 何敏 received weekly_income 120, deposit: 200 -> 320
+2026-07-16 14:50:57,795 - world - INFO - 刘世刚 received weekly_income 200, deposit: 4000 -> 4200
+2026-07-16 14:50:57,795 - world - INFO - 刘凡 received weekly_income 350, deposit: 10000 -> 10350
+2026-07-16 14:50:57,796 - world - INFO - 刘铭 received weekly_income 105, deposit: 150 -> 255
+2026-07-16 14:50:57,796 - world - INFO - == PLAN STAGE == year=2020 week=1
+2026-07-16 14:51:24,571 - world - INFO - == BEFORE_CONTACT STAGE == year=2020 week=1
+2026-07-16 14:51:37,230 - world - INFO - Public events this week: 6 total, 6 new
+2026-07-16 14:52:06,436 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=1
+2026-07-16 14:53:12,583 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=2
+2026-07-16 14:53:48,712 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=3
+2026-07-16 14:54:19,213 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=4
+2026-07-16 14:54:43,337 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=5
+2026-07-16 14:55:12,346 - world - INFO - == AFTER CONTACT STAGE == year=2020 week=1
+2026-07-16 14:55:34,552 - world - INFO - Generated 4 encounter events for this week
+2026-07-16 14:55:34,553 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=1 | joint=0 encounter=1 public=1 solo=2
+2026-07-16 15:02:54,558 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=2 | joint=0 encounter=1 public=1 solo=2
+2026-07-16 15:09:45,080 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=3 | joint=0 encounter=1 public=0 solo=3
+2026-07-16 15:16:06,250 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=4 | joint=0 encounter=1 public=1 solo=2
+2026-07-16 15:22:57,940 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=5 | joint=0 encounter=0 public=1 solo=4
+2026-07-16 15:23:30,218 - world - INFO - == REVIEW STAGE == year=2020 week=1
+2026-07-16 15:23:58,577 - world - INFO - == SETTLE STAGE == year=2020 week=1
+2026-07-16 15:23:58,579 - world - INFO - == PROFILE UPDATE == Y2020 → Y2021
+2026-07-16 15:24:30,985 - world - INFO - Profile updated: 刘凡 for Y2021
+2026-07-16 15:24:41,383 - world - INFO - Profile updated: 丛雪薇 for Y2021
+2026-07-16 15:24:42,359 - world - INFO - Profile updated: 刘世刚 for Y2021
+2026-07-16 15:24:44,686 - world - INFO - Profile updated: 何敏 for Y2021
+2026-07-16 15:24:51,348 - world - INFO - Profile updated: 刘铭 for Y2021
+2026-07-16 15:24:51,348 - world - INFO - == POSITION APPLICATION SEASON == year=2020 positions=15
+2026-07-16 15:25:15,364 - world - INFO - [POSITION_APPLICATION] Complete: 5 accepted, 0 unemployed
+2026-07-16 15:25:15,364 - world - INFO - == REWARD CALCULATION == year=2020 week=1
+2026-07-16 15:25:25,528 - world - INFO - Social reward: 5 agents
+2026-07-16 15:25:25,529 - world - INFO - Subjective reward: 5 agents, 0 misery penalties
+2026-07-16 15:25:25,531 - world - INFO - Economy reward: 5 agents
+2026-07-16 15:25:25,532 - world - INFO - Total reward: 5 agents

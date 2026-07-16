@@ -1,0 +1,85 @@
+
+\section{Related Work}
+\label{sec:related}
+
+
+\paragraph{Agent-based Social Simulation}
+Recent work has explored LLM-powered agents for social simulation.
+Generative Agents~\citep{park2023generative} pioneers this direction by simulating a society of 25 agents for two days,
+observing emergent social behaviors such as organizing a party.
+Humanoid Agents~\citep{wang2023humanoid} extends this by incorporating human needs inspired by Maslow's hierarchy of needs~\citep{maslow1943theory}.
+Project Sid~\citep{altera2024projectsid} grounds agents in an established digital game environment, \textit{Minecraft},
+showing emergent specialization, collective rule formation, and cultural transmission.
+BookWorld~\citep{ran-etal-2025-bookworld} constructs multi-agent systems from fictional works,
+enabling story generation through character interactions.
+Aivilization~\citep{fan2026aivilization} designs a game environment to simulate agents' production and economic behaviors.
+CAMEL~\citep{li2024camel} investigates role-playing multi-agent systems for collaborative problem-solving in mathematics and coding tasks.
+However, existing systems such as Aivilization face limitations in enabling long-term life simulation, where most LLM calls are spent on \textit{low-level operations}, \ie, \dq{physical} interactions within the virtual environment (\eg, picking up a bottle and moving between locations), rather than long-term social interactions between agents.
+Table~\ref{tab:simulation-comparison} provides a systematic comparison of these systems across key dimensions.
+
+
+
+\begin{table*}[h]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Comparison of \method and existing agent society systems.
+``Time Scale'' denotes the temporal scope of a simulation run.
+``Env.\ FB'' indicates whether environmental feedback is rule-based or LLM-generated.
+``Econ.\ Sys.'' denotes whether the system includes items and economic mechanisms.
+``Career Sys.'' refers to whether agents can choose and change occupations over time.
+``Group Interact'' means the system supports interactions among more than two agents.
+Project Sid's numbers are from Section 4.2 of its paper.
+}
+\label{tab:simulation-comparison}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{lcccccc}
+\toprule
+& \textbf{Gen.\ Agents} & \textbf{Humanoid} & \textbf{Project Sid} & \textbf{BookWorld} & \textbf{Aivilization} & \textbf{Agentopia} \\
+& \citep{park2023generative} & \citep{wang2023humanoid} & \citep{altera2024projectsid} & \citep{ran-etal-2025-bookworld} & \citep{fan2026aivilization} & (ours) \\
+\midrule
+Time Scale      & Days   & Days   & Days  & --- & Weeks  & Years  \\
+Num.\ Agents       & 25     & ---    & 50 & ---   & ${\sim}$10,000     & 100    \\
+Action Space    & Predefined & Predefined & Predefined & Free-form & Predefined & Free-form \\
+Env.\ FB        & Rule & Rule & Rule & LLM & Rule & LLM \\
+Memory          & Retrieval     & Retrieval & Retrieval & Retrieval  & Fixed Scratchpad & File-based \\
+Skill Growth    & \xmark & \xmark & \xmark & \xmark & \cmark & \cmark \\
+Econ.\ Sys.     & \xmark & \xmark & \cmark & \xmark & \cmark & \cmark \\
+Career Sys.     & \xmark & \xmark & \cmark & \xmark & \cmark & \cmark \\
+Group Interact  & \cmark & \xmark & \cmark & \cmark & \xmark & \cmark \\
+Reward  & \xmark & \xmark & \xmark & \xmark & \cmark & \cmark \\
+Training       & \xmark & \xmark & \xmark & \xmark & \xmark & \cmark \\
+\bottomrule
+\end{tabular}%
+}
+\end{table*}
+
+\paragraph{Persona Simulation and LLM Role-Playing}
+This line of research aims to improve LLMs' anthropomorphism and role-playing ability~\citep{chen2024from}.
+\citet{shanahan2023role} argue that LLMs are inherently role-playing,
+whether acting as general assistants or portraying specific characters.
+\citet{wang2025coser} propose that training on diverse characters enables LLMs to generalize anthropomorphic abilities,
+bridging persona simulation and role-playing research.
+Prior studies focus on data, evaluation, and optimization:
+For data,
+Character-LLM~\citep{shao2023character} and RoleLLM~\citep{wang2023rolellm} apply LLMs to synthesize character-specific question-answer data.
+CoSER~\citep{wang2025coser} extracts authentic character data from literary corpora,
+obtaining large-scale, high-quality role-playing datasets.
+For evaluation,
+previous studies primarily employ LLM judges~\citep{wang2023rolellm, tu2024charactereval}
+and introduce rubrics aligned with human preferences~\citep{wang2025coser, du2026her}.
+Additionally, RoleEval~\citep{shen2023roleeval}, InCharacter~\citep{wang2024incharacter},
+and LifeChoice~\citep{xu2024character}
+evaluate LLMs objectively from the perspectives of knowledge, personality, and decision-making, respectively.
+For optimization, 
+prior research applies supervised fine-tuning with human data~\citep{wang2025coser, zhou2023characterglm}
+or synthetic data~\citep{chan2024personahub, lu2024large}
+CogDual~\citep{liu-etal-2025-cogdual}, CPO~\citep{ye-etal-2025-cpo}, and HER~\citep{du2026her}
+explore reinforcement learning for role-playing,
+where obtaining high-quality, human-aligned reward signals remains a key challenge.
+Besides, Persona Vector~\citep{chen2025persona}, Assistant Axis~\citep{lu2026assistant},
+and Emotion Concepts~\citep{sofroniew2026emotion}
+explore the internal mechanisms of persona and emotion in LLMs,
+proposing methods for detection and manipulation.
+
+

@@ -1,0 +1,86 @@
+{
+    "name": "何敏",
+    "birthday": "Y2004-W8-activity-D6",
+    "birth_year": 2004,
+    "gender": "女",
+    "position": {
+        "weekly_income": 60,
+        "role": "权益联络员",
+        "organization": "京海中学学生会",
+        "type": "non-work",
+        "description": "高中在读学生，班级生活委员",
+        "weekly_delta_skills": {
+            "沟通表达": 3,
+            "组织协调": 2,
+            "文书写作": 2
+        }
+    },
+    "init_skills": {
+        "数学": 55,
+        "语文": 45,
+        "英语": 25,
+        "物理": 25,
+        "化学": 55,
+        "学习方法": 30,
+        "观察力": 160,
+        "家务整理": 155
+    },
+    "init_assets": {
+        "deposit": 200,
+        "possessions": [
+            {
+                "name": "日记本",
+                "description": "一本深蓝色硬壳笔记本，锁扣式，钥匙藏在铅笔盒最底层。 上一次写是初三毕业那天，最新一条写于上周五：\"我听到了一个声音。 我不知道那是谁。但如果那是她，我该怎么办？\""
+            },
+            {
+                "name": "外婆的红绳",
+                "description": "左手腕上一根已经褪色的红绳，外婆在她高中入学前系上的说\"保平安\"， 绳结打得很紧磨出了一小圈浅色的皮肤印记但她从未想过摘掉。"
+            },
+            {
+                "name": "生活委员工作记录本",
+                "description": "A5大小的方格笔记本，记录着每天教室卫生检查的结果—— 哪个垃圾桶满了、哪扇窗户没关好、谁的座位底下有纸屑。 字迹工整但从来没有人翻看过包括张老师。"
+            },
+            {
+                "name": "旧自行车",
+                "description": "父亲骑了五年淘汰下来的黑色永久牌自行车，车铃声很响但刹车有点松， 后座绑着一个用绳子固定的旧书包架。每天骑二十分钟上下学。"
+            }
+        ]
+    },
+    "extra_income": 120,
+    "brief_introduction": "何敏仍是张老师班上存在感极低的生活委员，但已悄然从‘被动观察者’转向‘intentional witness’——她 no longer just sits behind 君; she chooses to sit there with purpose. Her seat remains last row靠墙, yet her posture has shifted: shoulders slightly less rounded, gaze still soft but now holds a quiet steadiness when meeting eyes—even briefly. She and 赵敏 have established unspoken protocols: shared glances at certain times, synchronized pauses before speaking in the cafeteria, a mutual habit of checking the counseling room door during life committee rounds. Though still not friends with 君, she is now the only person who has ever stood silently outside that closed door at 4:17 p.m. on three separate Wednesdays—not listening, but *bearing witness*.",
+    "appearance_and_impression": "身高159cm，体重48kg，身材娇小单薄骨架窄但比例匀称，属于清淡素净的普通类型（average ~40%）， 椭圆脸轮廓柔和颧骨低平，眉毛细弯颜色偏淡像用极淡的铅笔随手描的两道弧线， 双眼不算大但黑白分明瞳仁深棕带着一种不急不躁的平静感——看人时不再是单纯等待你说完，而是带着一种温和的确认感，仿佛在说‘我在听，而且 I’m staying here while you speak’， 鼻梁低矮但鼻尖精巧，嘴唇薄而轮廓清晰唇色自然偏淡像洗了很多次的粉色棉布， 笑起来弧度仍浅但比去年稍展一点，像水面被微风轻轻推过，涟漪延展得更久些， 皮肤偏暖白底色依旧，但眼下青影变淡——睡眠质量小幅改善，每周有三个晚上睡前不再反复翻看日记本锁扣， 黑色头发细软服帖及肩长度每天用一根深棕色细橡皮筋在脑后扎成低马尾，发丝不多但打理得干净，左耳银色圆珠耳钉仍在，右耳仍空着，右手食指外侧茧痕略加深但边缘更光滑（书写频率增加），左手腕红绳褪色更甚，绳结处皮肤印记由浅粉转为柔韧的米白色，校服袖口依然盖住半截手掌，但她不再攥着袖口边缘；有时会松开一只手垂在身侧，指尖微微蜷起，像在练习‘不抓握’的姿态，书包仍是那只洗得发白的藏蓝色双肩包，侧袋插着透明水杯，枸杞红枣茶照常，但杯壁内侧开始出现一圈淡淡的、均匀的褐色茶渍环——是每日固定位置放置留下的痕迹，走路步子仍碎而匀，但节奏稍缓，偶有几秒会自然放长一步距，站定时双手不再交握胸前，而是松垂于身侧，掌心朝内，目光落点升至对方下颌线附近，仍不直视眼睛，但已能维持三秒以上的稳定注视。整体印象未失安静乖巧，却多了一种沉静的锚定感——像教室角落那只笔筒，裂缝早已被细细涂满清漆，表面温润，内部每支笔都削得更深、更准。",
+    "personality_traits": {
+        "qualitative": "何敏依然是ISFJ守护者，但‘守护’的边界正在重定义：从前守护的是秩序与不打扰，如今守护的是真实与临在。她的沉默 hasn’t vanished—it’s been repurposed. She no longer stays quiet because she believes nothing matters; she stays quiet because some truths require stillness to settle before they can be spoken. Her observation remains razor-sharp, but it’s now paired with deliberate attention—she documents not just ‘what changed’, but ‘when it first appeared’ and ‘how long it lasted’. She still avoids conflict, but no longer shrinks from discomfort; she’ll sit beside赵敏 in silence for twenty minutes just to hold space, or stand alone outside a closed door knowing presence itself is a kind of testimony. The phrase 'not my business' still rises in her throat—but now it’s immediately followed by another question: ‘What if it becomes mine *because I saw it?*’ That hesitation—the pause between instinct and action—is where her courage lives now: small, daily, uncelebrated, and utterly hers.",
+        "quantitative": {
+            "confidence": 20,
+            "control": 63,
+            "curiosity": 43,
+            "empathy": 87,
+            "judging": 67,
+            "introversion": 93,
+            "intuition": 67,
+            "patience": 82,
+            "responsibility": 73,
+            "thinking": 62
+        }
+    },
+    "core_motivation": "To translate witnessing into responsible action without violating her own boundaries—to find the form of intervention that fits her voice: not loud, not heroic, but precise, persistent, and rooted in observable fact; to deepen the trust with 赵敏 beyond silent acknowledgment into co-authored care—where ‘we both saw’ becomes ‘we both record, we both decide what to do next’; to honor her family’s ethic of quiet service not by disappearing, but by making her quietness *legible*: turning her life committee logs into discreet chronologies, her diary entries into dated evidence anchors, her bicycle route past the counseling wing into an act of routine vigilance; and above all, to live out外婆那句‘良心就是你知道该做的事你就去做不要等别人推你’—not as sudden rebellion, but as slow, daily alignment between what she sees, what she feels, and what she does.",
+    "conflicts": "She now carries two parallel tensions: (1) the practical dilemma of how to escalate concern without triggering backlash or misinterpretation—her records are meticulous but lack legal weight; her observations are consistent but remain circumstantial; she knows too much to stay silent, yet too little to speak definitively; (2) the identity tension between continuity and change—she fears losing herself if she speaks up too boldly, yet feels increasingly alienated when she defaults to old patterns of withdrawal; every time she refrains from knocking on the counseling room door, she wonders if she’s honoring patience or rehearsing abandonment. Most quietly painful is the growing dissonance between her parents’ lifelong virtue of ‘invisibility-as-excellence’ and her dawning conviction that sometimes excellence requires stepping just far enough into light to cast a shadow where help might fall.",
+    "values": "Still grounded in ‘not adding trouble’, but now qualified: ‘Not adding trouble means preventing harm before it needs naming.’ Still reveres quiet labor—but now distinguishes between *necessary invisibility* (like her father’s preventive medicine) and *complicit silence* (failing to signal distress when the pattern is clear). Still believes kindness should be offered gently—but adds: ‘and withdrawn just as gently if refused, never forced.’ Has begun integrating外婆’s ‘have conscience’ with her own emerging principle: ‘Conscience isn’t just knowing right from wrong—it’s knowing *which part of right you’re built to do*, and doing it exactly there.’ No longer equates ‘being unnoticed’ with ‘being good’; instead asks, ‘Was I present enough to matter?’ —a question that haunts and guides her equally.",
+    "preferences": "Now includes: sitting near windows during lunch (to watch sunlight move across the floor—grounding herself in neutral, measurable change), re-inking her red rope knot monthly (a ritual of renewal, not superstition), reviewing her life committee log *before* each entry (cross-referencing dates with observed behavioral shifts), cycling home via the east stairwell twice weekly (passing the counseling room door deliberately, noting its status: open/closed/ajar), writing one sentence per day in her diary—not about fear or doubt, but about *one concrete thing she did that aligned with her values* (e.g., ‘Today I held the door for Mrs. Lin carrying boxes. My hands didn’t shake.’). Still dislikes being suddenly called upon, but now tolerates—and occasionally initiates—brief exchanges with张老师 about classroom logistics (e.g., ‘Mr. Zhang, the third-floor window latch is loose again—I checked it yesterday’). Still avoids arguments, but no longer leaves group discussions mid-sentence; she waits until the end, then offers one calm, factual addition—if it serves clarity.",
+    "details": "Over Year 2020,何敏 transformed her observational role into disciplined documentation: she expanded her life committee notebook into a dual-column ledger—one side for official duties (trash emptied, lights off), the other labeled ‘Pattern Notes’ with timestamps, minimal descriptors (‘Weds 4:17pm—door ajar 12 sec’, ‘Fri 3:42pm—君 touched earlobe 3x while reading English text’), and zero speculation. She initiated three low-risk interventions: left a sealed envelope containing typed, anonymized timeline excerpts (with no names, only positional references like ‘student seated fifth row wall-side’) in 张老师’s mailbox on April 12th; arranged for赵敏 to ‘accidentally’ drop her notebook beside君’s desk once—containing only a single sticky note: ‘Your hair ribbon matches today’s sky. —someone who notices.’ (It was returned untouched, but君 adjusted it that afternoon); and began biking ten minutes earlier on Wednesdays to arrive at school at 3:55pm—giving her five minutes to walk the empty hallway past the counseling rooms, observing foot traffic, door sounds, and light patterns beneath thresholds. She also started keeping a second, smaller journal—unlocked, plain black cover—filled exclusively with verifiable facts: weather, bell times, textbook page numbers opened, water cup refills. This book sits openly on her desk; the blue diary remains locked, its key now kept not in the pencil box, but taped inside her bicycle’s handlebar grip—a small, physical reminder that movement and readiness belong together.",
+    "talents": {
+        "qualitative": "Her qualitative strength remains rooted in sustained attention and ethical restraint—but these are now actively cultivated rather than passively inherited. She has refined her ‘observation-to-record’ pipeline: filtering noise, anchoring impressions in sensory detail (sound duration, light quality, spatial relationships), and resisting narrative temptation. Her ‘quiet reliability’ has evolved into ‘structured dependability’: teachers now glance at her life committee log before parent-teacher conferences—not for content, but for consistency. She discovered an unexpected aptitude for temporal pattern recognition: noticing how 君’s behavior cycles align with academic deadlines, staff rotations, and even weather shifts—leading her to hypothesize (but not assert) environmental triggers. Crucially, she learned to distinguish between ‘knowing deeply’ and ‘acting prematurely’—a discernment that prevents burnout while preserving urgency. Her family’s legacy of invisible service is no longer just absorbed—it’s examined, adapted, and ethically calibrated.",
+        "quantitative": {
+            "beauty": 33,
+            "communication": 48,
+            "creativity": 67,
+            "health": 67,
+            "honesty": 86,
+            "integrity": 86,
+            "intelligence": 57,
+            "leadership": 12,
+            "trustworthiness": 81
+        }
+    }
+}

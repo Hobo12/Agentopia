@@ -1,0 +1,63 @@
+2026-07-16 14:51:24,571 [INFO] [VERIFY-PUBLIC] Loaded 0 active events from file
+2026-07-16 14:51:37,230 [INFO] [VERIFY-PUBLIC] Generated 6 new events: ['Calligraphy Practice Circle', 'Campus Greening Volunteer Shift', 'Chemistry Demonstration Lab Open Hour', 'Silent Film Screening Club', 'Morning Running Group (Non-Competitive)', 'Songwriting Workshop: Lyric Drafting']
+2026-07-16 14:51:55,696 [INFO] [VERIFY-PUBLIC] 丛雪薇: signed up for 1 events: ['public-Y2020-W01-activity-D2-Songwriting_Workshop_Lyric_Drafting']
+2026-07-16 14:51:58,367 [INFO] [VERIFY-PUBLIC] 刘凡: signed up for 2 events: ['public-Y2020-W01-activity-D1-Calligraphy_Practice_Circle', 'public-Y2020-W01-activity-D4-Silent_Film_Screening_Club']
+2026-07-16 14:51:58,876 [INFO] [VERIFY-PUBLIC] 刘世刚: signed up for 0 events: []
+2026-07-16 14:52:00,836 [INFO] [VERIFY-PUBLIC] 何敏: signed up for 0 events: []
+2026-07-16 14:52:06,435 [INFO] [VERIFY-PUBLIC] 刘铭: signed up for 1 events: ['public-Y2020-W01-activity-D5-Morning_Running_Group_Non-Competitive']
+2026-07-16 14:55:34,557 [INFO] [VERIFY-PUBLIC-ACT] ========== Starting public activity at Y2020-W01-activity-D1 ==========
+2026-07-16 14:55:34,557 [INFO] [VERIFY-PUBLIC-ACT] Activity: Calligraphy Practice Circle, Participants: ['刘凡'], parallel=True, internal_parallelism=1
+2026-07-16 14:55:34,559 [INFO] [VERIFY-PUBLIC-ACT-STEP1] ===== ENTER =====
+2026-07-16 14:55:34,571 [INFO] [VERIFY-PUBLIC-ACT-STEP2] ===== ACT (with function calling) =====
+2026-07-16 14:55:43,050 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 刘凡 participated, response length: 342
+2026-07-16 14:55:43,050 [INFO] [VERIFY-PUBLIC-ACT-STEP3] ===== EVALUATE =====
+2026-07-16 14:55:49,303 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 刘凡: delta_vitality=-1, delta_fulfillment={'mood': 4, 'social': 2, 'esteem': 1.5}, delta_skills={'calligraphy': 2}
+2026-07-16 14:55:49,303 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] ===== RECEIVE + APPLY =====
+2026-07-16 14:55:49,303 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 刘凡 received + applied: vitality_delta=-1
+2026-07-16 14:55:49,304 [INFO] [VERIFY-PUBLIC-ACT-STEP6] ===== EXIT =====
+2026-07-16 14:55:56,004 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 刘凡 EXIT, reflection length: 207
+2026-07-16 14:55:56,004 [INFO] [VERIFY-PUBLIC-ACT-STEP7] ===== RECORD =====
+2026-07-16 14:55:56,005 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 刘凡
+2026-07-16 14:55:56,005 [INFO] [VERIFY-PUBLIC-ACT] ========== Public activity completed ==========
+2026-07-16 15:02:54,559 [INFO] [VERIFY-PUBLIC-ACT] ========== Starting public activity at Y2020-W01-activity-D2 ==========
+2026-07-16 15:02:54,559 [INFO] [VERIFY-PUBLIC-ACT] Activity: Songwriting Workshop: Lyric Drafting, Participants: ['丛雪薇'], parallel=True, internal_parallelism=1
+2026-07-16 15:02:54,560 [INFO] [VERIFY-PUBLIC-ACT-STEP1] ===== ENTER =====
+2026-07-16 15:02:54,570 [INFO] [VERIFY-PUBLIC-ACT-STEP2] ===== ACT (with function calling) =====
+2026-07-16 15:03:04,784 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 丛雪薇 participated, response length: 424
+2026-07-16 15:03:04,785 [INFO] [VERIFY-PUBLIC-ACT-STEP3] ===== EVALUATE =====
+2026-07-16 15:03:08,153 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 丛雪薇: delta_vitality=1, delta_fulfillment={'mood': 4, 'social': 2, 'esteem': 1.5}, delta_skills={'歌词创作': 2}
+2026-07-16 15:03:08,153 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] ===== RECEIVE + APPLY =====
+2026-07-16 15:03:08,154 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 丛雪薇 received + applied: vitality_delta=1
+2026-07-16 15:03:08,154 [INFO] [VERIFY-PUBLIC-ACT-STEP6] ===== EXIT =====
+2026-07-16 15:03:14,306 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 丛雪薇 EXIT, reflection length: 204
+2026-07-16 15:03:14,306 [INFO] [VERIFY-PUBLIC-ACT-STEP7] ===== RECORD =====
+2026-07-16 15:03:14,306 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 丛雪薇
+2026-07-16 15:03:14,306 [INFO] [VERIFY-PUBLIC-ACT] ========== Public activity completed ==========
+2026-07-16 15:16:06,251 [INFO] [VERIFY-PUBLIC-ACT] ========== Starting public activity at Y2020-W01-activity-D4 ==========
+2026-07-16 15:16:06,251 [INFO] [VERIFY-PUBLIC-ACT] Activity: Silent Film Screening Club, Participants: ['刘凡'], parallel=True, internal_parallelism=1
+2026-07-16 15:16:06,252 [INFO] [VERIFY-PUBLIC-ACT-STEP1] ===== ENTER =====
+2026-07-16 15:16:06,267 [INFO] [VERIFY-PUBLIC-ACT-STEP2] ===== ACT (with function calling) =====
+2026-07-16 15:16:21,136 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 刘凡 participated, response length: 424
+2026-07-16 15:16:21,137 [INFO] [VERIFY-PUBLIC-ACT-STEP3] ===== EVALUATE =====
+2026-07-16 15:16:25,148 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 刘凡: delta_vitality=1, delta_fulfillment={'mood': 4, 'social': 2, 'esteem': 1}, delta_skills={}
+2026-07-16 15:16:25,148 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] ===== RECEIVE + APPLY =====
+2026-07-16 15:16:25,148 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 刘凡 received + applied: vitality_delta=1
+2026-07-16 15:16:25,148 [INFO] [VERIFY-PUBLIC-ACT-STEP6] ===== EXIT =====
+2026-07-16 15:16:36,850 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 刘凡 EXIT, reflection length: 245
+2026-07-16 15:16:36,850 [INFO] [VERIFY-PUBLIC-ACT-STEP7] ===== RECORD =====
+2026-07-16 15:16:36,851 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 刘凡
+2026-07-16 15:16:36,851 [INFO] [VERIFY-PUBLIC-ACT] ========== Public activity completed ==========
+2026-07-16 15:22:57,940 [INFO] [VERIFY-PUBLIC-ACT] ========== Starting public activity at Y2020-W01-activity-D5 ==========
+2026-07-16 15:22:57,940 [INFO] [VERIFY-PUBLIC-ACT] Activity: Morning Running Group (Non-Competitive), Participants: ['刘铭'], parallel=True, internal_parallelism=1
+2026-07-16 15:22:57,941 [INFO] [VERIFY-PUBLIC-ACT-STEP1] ===== ENTER =====
+2026-07-16 15:22:57,952 [INFO] [VERIFY-PUBLIC-ACT-STEP2] ===== ACT (with function calling) =====
+2026-07-16 15:23:08,509 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 刘铭 participated, response length: 432
+2026-07-16 15:23:08,510 [INFO] [VERIFY-PUBLIC-ACT-STEP3] ===== EVALUATE =====
+2026-07-16 15:23:13,065 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 刘铭: delta_vitality=-3, delta_fulfillment={'mood': 4, 'social': 1, 'esteem': 2}, delta_skills={}
+2026-07-16 15:23:13,065 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] ===== RECEIVE + APPLY =====
+2026-07-16 15:23:13,066 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 刘铭 received + applied: vitality_delta=-3
+2026-07-16 15:23:13,066 [INFO] [VERIFY-PUBLIC-ACT-STEP6] ===== EXIT =====
+2026-07-16 15:23:23,737 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 刘铭 EXIT, reflection length: 282
+2026-07-16 15:23:23,737 [INFO] [VERIFY-PUBLIC-ACT-STEP7] ===== RECORD =====
+2026-07-16 15:23:23,737 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 刘铭
+2026-07-16 15:23:23,737 [INFO] [VERIFY-PUBLIC-ACT] ========== Public activity completed ==========

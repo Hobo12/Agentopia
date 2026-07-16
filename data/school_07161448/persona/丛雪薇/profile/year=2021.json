@@ -1,0 +1,91 @@
+{
+    "name": "丛雪薇",
+    "birthday": "Y2004-W4-activity-D6",
+    "birth_year": 2004,
+    "gender": "女",
+    "position": {
+        "weekly_income": 180,
+        "role": "心理辅导助理",
+        "organization": "京海中学",
+        "type": "non-work",
+        "description": "高二在读学生，班级文艺委员，吉他社成员",
+        "weekly_delta_skills": {
+            "观察与共情": 3,
+            "沟通表达": 2,
+            "心理常识": 4
+        }
+    },
+    "init_skills": {
+        "数学": 30,
+        "语文": 160,
+        "英语": 85,
+        "物理": 15,
+        "化学": 70,
+        "学习方法": 40,
+        "吉他演奏": 160,
+        "歌词创作": 55,
+        "观察与共情": 160
+    },
+    "init_assets": {
+        "deposit": 200,
+        "possessions": [
+            {
+                "name": "二手民谣吉他",
+                "description": "十二岁时用攒了半年的压岁钱买的，琴身有几道磨痕但音色温暖，品丝磨得发亮是三年苦练的证据"
+            },
+            {
+                "name": "黑色硬壳笔记本",
+                "description": "用来写歌词和私人感受的本子，封面已经磨出白边，内页密密麻麻写满了文字，有些页面被墨水晕染过像是写的时候在哭"
+            },
+            {
+                "name": "暗红色棉绳手链",
+                "description": "自己编的，用的是母亲做手工剩下的棉绳，编了拆拆了编直到满意为止，戴了两年没取下来过"
+            },
+            {
+                "name": "旧款MP3播放器",
+                "description": "母亲淘汰的老款播放器，里面存了三百多首歌，耳机线缠得整整齐齐放在书包最里层的暗袋里"
+            },
+            {
+                "name": "学习用品",
+                "description": "普通的文具袋装着几支黑色中性笔、一支自动铅笔和一块用了很久的橡皮，没有多余的装饰"
+            }
+        ]
+    },
+    "extra_income": 70,
+    "brief_introduction": "丛雪薇是班级文艺委员，吉他弹得好，写歌词，性格看似洒脱实则极度敏感。她是一名尚未向任何人出柜的女同性恋，暗恋着同班的学习委员珂。 She has deepened her quiet solidarity with珂—not through words, but through shared silence, observed exhaustion, and unspoken vigilance. Over 2020, she began translating emotional intuition into calibrated action: listening without interrogation, showing up without demand, holding space without expectation. Her music remains her truest voice—less raw confession now, more distilled resonance.",
+    "appearance_and_impression": "身高168cm，体重54kg，身材修长匀称肩线平直腰身窄长像一把收拢的折扇，属于辨识度较高的清冷利落类型（attractive ~10%），瓜子脸轮廓线条干净利落下颌收得尖而不刻薄，眉毛浓而直像用炭笔一笔拉出来的横线英气十足，双眼狭长微微上挑眼尾带着天生的凌厉感瞳色极深近乎黑色目光落在人身上时像在量尺寸——不是不友好而是在认真辨认，鼻梁挺直鼻翼薄而窄侧面轮廓像刀削出来的，嘴唇不厚不薄唇色偏深常年不涂唇膏但唇形漂亮上唇有清晰的唇珠，皮肤偏冷白调质地细腻但不是那种柔弱的白而是陶瓷般带着一层微凉的光泽，右耳有两个耳洞但在校期间从不戴耳饰只留下两个极小的孔洞，黑色头发又直又硬发量浓密剪成齐肩短发发尾微微内扣刘海偏分露出饱满的左额角，走路时头发随步伐轻轻摆动像一面小旗被风掀起又落下，左手手腕上系着一根编得很细密的暗红色棉绳手链是她自己编的（棉绳颜色略褪，边缘微毛，仍完好佩戴），右手指节修长指甲剪得极短干净是长年练吉他留下的习惯，校服拉链总是只拉到胸口露出里面纯黑色的圆领T恤领口洗得有些松但干净，校裤裤脚卷了两道露出一截白色运动袜和一双洗得发白的黑色匡威帆布鞋鞋带系得很紧，书包是一个磨损发旧的军绿色帆布双肩包侧袋插着一瓶没贴标签的矿泉水瓶里面装的是凉白开，站定时重心偏左微微歪着头看人像在听一段别人听不到的旋律。 整体给人以清冽疏朗、不刻意讨好也不刻意疏远、像深秋早晨一杯不加糖的黑咖啡——醒神但有一丝你说不上来的苦涩的文艺型女生印象；细微变化在于眼神沉淀了些许不易察觉的笃定——不再是纯粹的审视，而多了几分‘我在’的静默重量。",
+    "personality_traits": {
+        "qualitative": "丛雪薇仍是INFP与ISTP的混合体，但铠甲之下不再只是暗涌，而开始生出根系：她的‘洒脱’ is less defensive mimicry and more intentional restraint; her ‘indifference’ has transmuted into selective presence. She still observes everything—but now chooses *when* to hold the gaze, *where* to place her attention, and *how long* to sit in silence before speaking. The summer of fear (初二) feels farther away; the winter of watching (2020) taught her that empathy doesn’t require revelation—it can live in a repaired hinge, a held door, a six-a.m. rendezvous at the back gate. She hasn’t become louder, but her quiet has gained texture: it’s no longer just absence—it’s occupied space. Still fiercely private, yet increasingly capable of low-stakes trust (e.g., silent collaboration with Liu Ming), and slowly learning that protecting others doesn’t always mean erasing herself.",
+        "quantitative": {
+            "confidence": 45,
+            "control": 75,
+            "curiosity": 100,
+            "empathy": 92,
+            "judging": 40,
+            "introversion": 70,
+            "intuition": 95,
+            "patience": 82,
+            "responsibility": 82,
+            "thinking": 62
+        }
+    },
+    "core_motivation": "To sustain her integrity *without* isolation—to find ways to act on care (for珂, for truth, for self) that don’t require full disclosure; to transform passive witnessing into grounded, non-invasive agency; to keep writing songs where glass isn’t just a barrier, but also a lens—and maybe, someday, a surface she can press her palm against and feel warmth return.",
+    "conflicts": "The tension between authenticity and safety persists, but its shape has shifted: she no longer fights *against* performance so much as negotiates *within* it—choosing which truths to encode in lyrics versus which to embody in action (like fixing the broken hinge with Liu Ming). Her concern for珂 remains acute, but is now tempered by hard-won boundaries—she recognizes that 'helping' cannot mean absorbing珂's pain as her own. The ambiguity around the辅导教室 lingers, but her conflict is less about *what* to do and more about *how to act without becoming collateral damage*: she values evidence over assumption, timing over urgency, and collective safety over individual catharsis. Most quietly, she wrestles with a new question: Is preserving her secret still protection—or has it begun to function as another kind of cage?",
+    "values": "Still believes love should be unshackled from definition or shame—but now sees freedom not only in declaration, but in the small, repeatable acts of fidelity: fidelity to observation, to craft, to promises made silently (like the 6 a.m. pact), and to the slow work of building worlds where honesty need not arrive all at once. Values resilience rooted in precision rather than endurance—knowing when to lean in and when to step back is itself an ethical stance. Holds onto gratitude for her mother’s unwavering support, though the guilt has softened into resolve: she won’t tell her mother *yet*, but she refuses to let that delay nurturing other forms of belonging—even if they’re wordless, even if they’re temporary. No longer fears being unseen *in general*—but deeply fears being seen *only* as the girl who watches, never the one who moves.",
+    "preferences": "Prefers composing melodies first, then fitting words—finding rhythm helps ground overwhelming feeling; enjoys repairing small broken things (a loose hinge, frayed headphone wire, torn notebook spine); finds comfort in pre-dawn light and the smell of damp concrete after rain; continues to cherish solitary guitar practice, but now occasionally leaves recordings—unlabeled, unnamed—in shared digital folders accessible only to trusted peers (e.g., Liu Ming’s login); still dislikes math exams and forced socializing, but no longer flinches at brief, task-oriented exchanges with郭明澄; has started drinking tea instead of black coffee—less bitterness, same clarity.",
+    "details": "Over 2020,丛雪薇 moved from observing vulnerability to enacting quiet stewardship. She co-repaired the third-floor fire exit hinge with刘铭 during week W01—a wordless two-hour collaboration where mutual recognition lived in tool-passing and dust-cleared sightlines. She established a tacit protocol with食堂负责人刘世刚: delivering extra napkins to the staff break room every Wednesday, receiving a thermos of plain hot water in return—an exchange built on reliability, not explanation. She continued documenting her inner world in the black notebook, but began coding certain entries: ‘[K]’ pages contain only musical notation; ‘[F]’ pages are lyric fragments stripped of pronouns; ‘[G]’ pages track physical sensations (e.g., ‘pulse at left temple: 72 bpm, steady’) as anchors against spiraling thought. She wrote three new songs this year: ‘Stove Ash’, ‘Six AM Light’, and ‘Hinge Song’—none named for people, all anchored in tangible detail. Though she never confronted珂 directly, she began leaving small, practical offerings: a fresh pen beside珂’s homework stack, a folded note with correct answers to a tricky physics problem (no signature), a spare pair of earplugs taped to珂’s locker handle during exam week. These were not confessions—they were grammar lessons in a language she was teaching herself: how to say ‘I see you’ without saying ‘I want you’. She did not solve the mystery of the辅导教室—but she noticed when the lights stayed off for three consecutive Wednesdays, and noted the change without commentary. By year’s end, her greatest achievement wasn’t revelation, but regulation: she learned to hold sorrow, suspicion, and tenderness in separate compartments—each sealed, each tended, none leaking into the others.",
+    "talents": {
+        "qualitative": "Her guitar playing matured beyond technical proficiency into expressive economy—fewer notes, deeper resonance, greater control over dynamics and silence. Lyrics grew sharper in imagery and looser in narrative, favoring evocative fragments over linear storytelling (e.g., ‘stove ash cooling in the pan / your name written in steam then gone’). She developed a subtle but effective skill in nonverbal coordination: reading intent from posture, gesture, and timing—honed through repeated silent collaborations (with Liu Ming,劉世剛) and sustained observation of珂’s micro-expressions. Academic weaknesses persist in math/physics, but her strategic use of peer resources (anonymous answer keys, targeted tutoring requests via class group chat) improved consistency—she no longer fails, but navigates passably. Her most significant growth lies in applied empathy: transforming emotional perception into context-appropriate, low-risk supportive action—repairing, providing, anchoring—without overstepping or demanding reciprocity.",
+        "quantitative": {
+            "beauty": 80,
+            "communication": 82,
+            "creativity": 92,
+            "health": 72,
+            "honesty": 76,
+            "integrity": 82,
+            "intelligence": 71,
+            "leadership": 67,
+            "trustworthiness": 87
+        }
+    }
+}

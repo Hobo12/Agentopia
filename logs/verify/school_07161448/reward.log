@@ -1,0 +1,35 @@
+2026-07-16 15:25:15,365 [INFO] [VERIFY-REWARD] 丛雪薇 judge_others: known_names=['刘世刚', '刘铭', '郭明澄', '秋', '珂']
+2026-07-16 15:25:15,365 [INFO] [VERIFY-REWARD] 刘世刚 judge_others: known_names=['江哲远', '杰', '宋慧平', '刘铭', '丛雪薇']
+2026-07-16 15:25:15,366 [INFO] [VERIFY-REWARD] 刘凡 judge_others: known_names=['何敏', '陈羲', '谌怀瑾', '程汐', '杰', '君']
+2026-07-16 15:25:15,366 [INFO] [VERIFY-REWARD] 何敏 judge_others: known_names=['刘凡', '陈玥', '陆弦', '郭明澄', '赵敏', '许正阳', '海', '杰', '李健', '张', '宁颂', '君', '叶']
+2026-07-16 15:25:15,367 [INFO] [VERIFY-REWARD] 刘铭 judge_others: known_names=['丛雪薇', '秋', '江哲远', '林屿', '刘世刚']
+2026-07-16 15:25:21,157 [INFO] [VERIFY-REWARD] 刘铭 judge_others OUTPUT: affection_scores={'丛雪薇': 65, '刘世刚': 85, '林屿': 60, '江哲远': 45, '秋': 40}, respect_scores={'丛雪薇': 75, '刘世刚': 90, '林屿': 70, '江哲远': 65, '秋': 75}
+2026-07-16 15:25:21,238 [INFO] [VERIFY-REWARD] 刘凡 judge_others OUTPUT: affection_scores={'何敏': 65, '君': 55, '杰': 40, '程汐': 70, '谌怀瑾': 45, '陈羲': 60}, respect_scores={'何敏': 60, '君': 75, '杰': 55, '程汐': 70, '谌怀瑾': 50, '陈羲': 80}
+2026-07-16 15:25:22,435 [INFO] [VERIFY-REWARD] 丛雪薇 judge_others OUTPUT: affection_scores={'刘世刚': 75, '刘铭': 80, '珂': 92, '秋': 45, '郭明澄': 60}, respect_scores={'刘世刚': 85, '刘铭': 88, '珂': 90, '秋': 70, '郭明澄': 78}
+2026-07-16 15:25:25,103 [INFO] [VERIFY-REWARD] 何敏 judge_others OUTPUT: affection_scores={'刘凡': 70, '叶': 60, '君': 55, '宁颂': 65, '张': 50, '李健': 45, '杰': 50, '海': 30, '许正阳': 55, '赵敏': 85, '郭明澄': 55, '陆弦': 50, '陈玥': 40}, respect_scores={'刘凡': 75, '叶': 65, '君': 80, '宁颂': 70, '张': 85, '李健': 60, '杰': 60, '海': 40, '许正阳': 65, '赵敏': 80, '郭明澄': 75, '陆弦': 55, '陈玥': 45}
+2026-07-16 15:25:25,525 [INFO] [VERIFY-REWARD] 刘世刚 judge_others OUTPUT: affection_scores={'丛雪薇': 65, '刘铭': 80, '宋慧平': 70, '杰': 55, '江哲远': 68}, respect_scores={'丛雪薇': 75, '刘铭': 85, '宋慧平': 80, '杰': 60, '江哲远': 78}
+2026-07-16 15:25:25,526 [INFO] [VERIFY-REWARD] calculate_social_rewards: affection_weight=0.5, damping=0.85, max_iter=100, mutual_alpha=2.0
+2026-07-16 15:25:25,527 [INFO] [VERIFY-REWARD] PageRank affection top5: [('刘铭', '0.071'), ('刘世刚', '0.061'), ('丛雪薇', '0.041'), ('珂', '0.021'), ('江哲远', '0.019')]
+2026-07-16 15:25:25,528 [INFO] [VERIFY-REWARD] PageRank respect top5: [('刘铭', '0.071'), ('刘世刚', '0.061'), ('丛雪薇', '0.041'), ('珂', '0.021'), ('宋慧平', '0.019')]
+2026-07-16 15:25:25,528 [INFO] [VERIFY-REWARD] compute_subjective_rewards: n_weeks=1, percentile=0.25, penalty=5
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] 丛雪薇 fulfillment_history: 1 entries
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] 何敏 fulfillment_history: 1 entries
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] 刘世刚 fulfillment_history: 1 entries
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] 刘凡 fulfillment_history: 1 entries
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] 刘铭 fulfillment_history: 1 entries
+2026-07-16 15:25:25,529 [INFO] [VERIFY-REWARD] misery thresholds: mood=49.00, material=45.00, social=48.00, esteem=47.50, vitality=56.00
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] === REWARD CALCULATION START === Y2020-W1
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] Config: period_weeks=1, n_agents=5
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] Social graphs: affection=34 edges, respect=34 edges
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] --- Per-Agent Details ---
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 丛雪薇 INPUT: affection_top5=[('珂', 92), ('刘铭', 80), ('刘世刚', 75), ('郭明澄', 60), ('秋', 45)], respect_top5=[('珂', 90), ('刘铭', 88), ('刘世刚', 85), ('郭明澄', 78), ('秋', 70)]
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 丛雪薇 OUTPUT: social(aff=0.041, resp=0.041, combined=0.041), subj(score=52.125, penalties=0), total=0.408
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 何敏 INPUT: affection_top5=[('赵敏', 85), ('刘凡', 70), ('宁颂', 65), ('叶', 60), ('君', 55)], respect_top5=[('张', 85), ('君', 80), ('赵敏', 80), ('刘凡', 75), ('郭明澄', 75)]
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 何敏 OUTPUT: social(aff=0.012, resp=0.006, combined=0.009), subj(score=49.000, penalties=0), total=-1.223
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘世刚 INPUT: affection_top5=[('刘铭', 80), ('宋慧平', 70), ('江哲远', 68), ('丛雪薇', 65), ('杰', 55)], respect_top5=[('刘铭', 85), ('宋慧平', 80), ('江哲远', 78), ('丛雪薇', 75), ('杰', 60)]
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘世刚 OUTPUT: social(aff=0.061, resp=0.061, combined=0.061), subj(score=51.000, penalties=0), total=0.394
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘凡 INPUT: affection_top5=[('程汐', 70), ('何敏', 65), ('陈羲', 60), ('君', 55), ('谌怀瑾', 45)], respect_top5=[('陈羲', 80), ('君', 75), ('程汐', 70), ('何敏', 60), ('杰', 55)]
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘凡 OUTPUT: social(aff=0.009, resp=0.005, combined=0.007), subj(score=52.125, penalties=0), total=0.317
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘铭 INPUT: affection_top5=[('刘世刚', 85), ('丛雪薇', 65), ('林屿', 60), ('江哲远', 45), ('秋', 40)], respect_top5=[('刘世刚', 90), ('丛雪薇', 75), ('秋', 75), ('林屿', 70), ('江哲远', 65)]
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] 刘铭 OUTPUT: social(aff=0.071, resp=0.071, combined=0.071), subj(score=49.500, penalties=0), total=0.105
+2026-07-16 15:25:25,533 [INFO] [VERIFY-REWARD] === REWARD CALCULATION COMPLETE === total_penalties=0

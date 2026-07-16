@@ -1,0 +1,238 @@
+\pdfoutput=1
+\documentclass[11pt, letterpaper, shortlabels, inline]{berkeley}
+
+
+\usepackage{color-edits}
+
+\newcommand{\eg}{\textit{e.g.}}
+\newcommand{\etc}{\textit{e.t.c.}}
+\newcommand{\ie}{\textit{i.e.}} 
+\newcommand{\vs}{\textit{v.s.}}
+
+\newcommand\numberthis{\addtocounter{equation}{1}\tag{\theequation}}
+\ifx\assumption\undefined
+\newtheorem{assumption}{Assumption}
+\fi
+
+\usepackage[capitalize,noabbrev]{cleveref}
+\makeatletter
+\def\adl@drawiv#1#2#3{%
+        \hskip.5\tabcolsep
+        \xleaders#3{#2.5\@tempdimb #1{1}#2.5\@tempdimb}%
+                #2\z@ plus1fil minus1fil\relax
+        \hskip.5\tabcolsep}
+\newcommand{\cdashlinelr}[1]{%
+  \noalign{\vskip\aboverulesep
+           \global\let\@dashdrawstore\adl@draw
+           \global\let\adl@draw\adl@drawiv}
+  \cdashline{#1}
+  \noalign{\global\let\adl@draw\@dashdrawstore
+           \vskip\belowrulesep}}
+\makeatother
+\newcommand{\method}{{Agentopia}\xspace}
+
+\usepackage{wrapfig}
+\captionsetup[figure]{font=small,skip=0pt}
+\setlength{\belowcaptionskip}{0pt}
+
+
+
+
+
+
+
+
+\title{\method: Long-Term Life Simulation and Learning in Agent Societies}
+
+\usepackage[all]{hypcap}
+
+\usepackage[authoryear, round]{natbib}
+
+\usepackage{hyperref}[citecolor=magenta,linkcolor=magenta]
+
+\hypersetup{
+    colorlinks = true,
+    citecolor = {magenta},
+}
+
+\usepackage{multirow, makecell, caption}\usepackage{microtype}
+\usepackage{graphicx}
+\usepackage{booktabs} %
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{url}
+\usepackage{amsfonts}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{pifont}
+
+
+
+\usepackage{mathrsfs}
+\usepackage{nicefrac}
+\usepackage{dsfont}
+\newenvironment{inparaenum}[1][]
+  {\begin{enumerate*}[#1]}
+  {\end{enumerate*}}
+\usepackage{ulem}
+\usepackage{arydshln}
+\setlength\parindent{0pt}
+
+\usepackage{xspace}
+\usepackage[capitalize,noabbrev]{cleveref}
+\bibliographystyle{plainnat}
+\usepackage{subcaption}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\usepackage{listings}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+\usepackage{bbm}
+
+\usepackage{algpseudocode}
+\usepackage{setspace}
+
+
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+
+\definecolor{mygray}{RGB}{226, 226, 226}
+\definecolor{myred}{RGB}{252, 142, 142}
+\definecolor{mygreen}{RGB}{147, 255, 143}
+\definecolor{myblue}{RGB}{144, 155, 255}
+\definecolor{myyellow}{RGB}{253, 253, 143}
+\definecolor{mypurple}{RGB}{255, 142, 250}
+
+\newcommand{\wxt}[1]{\textcolor{cyan}{{[Wxt: #1]}}}
+\newcommand{\add}[1]{{\color{teal} #1}}
+\newcommand{\wjw}[1]{\textcolor{green}{{[wjw: #1]}}}
+\newcommand{\del}[1]{\textcolor{red}{\sout{#1}}}
+
+\newcommand{\wo}{\textit{w/o}\xspace}
+\newcommand{\dq}[1]{``#1''}
+\newcommand{\sq}[1]{`#1'}
+\newcommand{\apartment}{\textbf{The Apartment}\xspace}
+\newcommand{\campus}{\textbf{The Campus}\xspace}
+\newcommand{\academy}{\textbf{Arcane Academy}\xspace}
+\newcommand{\cmark}{\ding{51}}
+\newcommand{\xmark}{\ding{55}}
+
+\newcommand{\huggingface}{\raisebox{-1.5pt}{\includegraphics[height=1.05em]{Figures/hf-logo.pdf}}\xspace}
+\newcommand{\github}{\raisebox{-1.5pt}{\includegraphics[height=1.05em]{Figures/github-logo.pdf}}\xspace}
+
+
+
+
+
+\usepackage[export]{adjustbox}
+
+
+\newcommand\pythonstyle{\lstset{
+basicstyle=\ttfamily\footnotesize,
+language=Python,
+morekeywords={self, clip, exp, mse_loss, uniform_sample, concatenate, logsumexp},              %
+keywordstyle=\color{deepblue},
+emph={MyClass,__init__},          %
+emphstyle=\color{deepred},    %
+stringstyle=\color{deepgreen},
+frame=single,                         %
+showstringspaces=false
+}}
+
+\lstnewenvironment{python}[1][]
+{
+\pythonstyle
+\lstset{#1}
+}
+{}
+
+\newcommand\pythonexternal[2][]{{
+\pythonstyle
+\lstinputlisting[#1]{#2}}}
+
+\newcommand\pythoninline[1]{{\pythonstyle\lstinline!#1!}}
+
+
+
+
+\makeatletter
+\def\mathcolor#1#{\@mathcolor{#1}}
+\def\@mathcolor#1#2#3{%
+  \protect\leavevmode
+  \begingroup
+    \color#1{#2}#3%
+  \endgroup
+}
+\makeatother
+
+
+
+\Crefformat{equation}{#2Eq.\;(#1)#3}
+
+\Crefformat{figure}{#2Figure #1#3}
+\Crefformat{assumption}{#2Assumption #1#3}
+\Crefname{assumption}{Assumption}{Assumptions}
+
+\usepackage{crossreftools}
+\pdfstringdefDisableCommands{%
+    \let\Cref\crtCref
+    \let\cref\crtcref
+}
+\newcommand{\creftitle}[1]{\crtcref{#1}}
+
+
+
+
+\title{Agentopia: Long-Term Life Simulation and Learning in Agent Societies}
+
+\author[1]{Xintao Wang}
+\author[2]{Sirui Zheng}
+\author[2]{Hongqiu Wu}
+\author[1]{Weiyuan Li}
+\author[3]{Jen-tse Huang}
+\author[2]{Minghao Zhu}
+\author[2]{Can Zu}
+\author[2]{Qi Deng}
+\author[4]{Jiawei Wang}
+\author[1]{Qianyu He}
+\author[2]{Heng Wang}
+\author[2]{Xiaojian Wu}
+\author[2]{Yunzhe Tao}
+
+\affil[1]{Fudan University}
+\affil[2]{Independent Researcher}
+\affil[3]{Johns Hopkins University}
+\affil[4]{University of Science and Technology of China}
+
+\correspondingauthor{Corresponding author: xtwang21@m.fudan.edu.cn}
+
+\begin{abstract}
+\textbf{Abstract:} \input{Sections/0_abstract}
+\end{abstract}
+
+\let\origunderscore\_
+\renewcommand{\_}{\origunderscore\allowbreak}
+
+\begin{document}
+
+\maketitle
+
+\input{Sections/1_intro}
+\input{Sections/2_related}
+\input{Sections/3_framework}
+\input{Sections/4_method}
+\input{Sections/5_experiments}
+\input{Sections/6_conclusion}
+
+
+\bibliography{main}
+
+\clearpage
+\appendix
+\input{Sections/appendix}
+
+\end{document}
