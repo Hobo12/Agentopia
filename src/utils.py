@@ -21,6 +21,48 @@ from src.config import get_config
 
 load_dotenv()
 
+
+SKILL_TRANSLATION_MAP = {
+    "zh": {
+        "observation_and_empathy": "观察与共情",
+        "observation": "观察力",
+        "creativity": "创造力",
+        "guitar_playing": "吉他演奏",
+        "lyrics_creation": "歌词创作",
+        "interpersonal_expression": "人际沟通",
+        "cooking": "烹饪",
+        "cooking_basics": "烹饪基础",
+        "manual_dexterity": "体力劳动",
+        "physics": "物理",
+        "chemistry": "化学",
+        "teaching": "教学",
+        "math": "数学",
+        "mathematics": "数学",
+    },
+    "en": {
+        "观察与共情": "observation_and_empathy",
+        "观察力": "observation",
+        "创造力": "creativity",
+        "吉他演奏": "guitar_playing",
+        "歌词创作": "lyrics_creation",
+        "人际沟通": "interpersonal_expression",
+        "烹饪": "cooking",
+        "烹饪基础": "cooking_basics",
+        "体力劳动": "manual_dexterity",
+        "物理": "physics",
+        "化学": "chemistry",
+        "教学": "teaching",
+        "数学": "mathematics",
+    },
+}
+
+
+def standardize_skill_key(key: str, language: str) -> str:
+    """Return a canonical skill key for the configured world language."""
+    language = "zh" if language in {"zh", "cn"} else language
+    normalized_key = key.strip().lower()
+    return SKILL_TRANSLATION_MAP.get(language, {}).get(normalized_key, key.strip())
+
 streaming = False
 # Deprecated mock switch (no-op). Mock paths removed to avoid divergence.
 _MOCK_MODE = False

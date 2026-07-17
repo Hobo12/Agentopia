@@ -14,7 +14,12 @@ from src.world.scheduling import Schedule
 from src.world.locations import get_location_store
 from src.world.position_application import Position
 from src.world.reward import FULFILLMENT_DIMS
-from src.utils import get_logger, clip_str, num_tokens_from_string
+from src.utils import (
+    get_logger,
+    clip_str,
+    num_tokens_from_string,
+    standardize_skill_key,
+)
 from src.agents.prompts import PERSONA_TEMPLATE
 from src.utils import get_config
 
@@ -876,6 +881,16 @@ class DataManager:
 
     def save_state(self, state: Dict[str, Any]) -> None:
         """Save full state dict to state.jsonl."""
+        skills = state.get("skills")
+        if skills is not None:
+            standardized_skills: Dict[str, int] = {}
+            language = config["world"].get("language", "en")
+            for key, value in skills.items():
+                standard_key = standardize_skill_key(key, language)
+                standardized_skills[standard_key] = (
+                    standardized_skills.get(standard_key, 0) + value
+                )
+            state["skills"] = standardized_skills
         self._append_jsonl(self.root / "state.jsonl", {"content": state})
 
     def get_fulfillment(self) -> Dict[str, int]:
@@ -2536,7 +2551,12 @@ class DataManager:
 
         # Skills
         for skill, delta in outcome.delta_skills.items():
-            current["skills"][skill] = max(0, current["skills"].get(skill, 0) + delta)
+            standard_key = standardize_skill_key(
+                skill, config["world"].get("language", "en")
+            )
+            current["skills"][standard_key] = max(
+                0, current["skills"].get(standard_key, 0) + delta
+            )
 
         # Money (Solo only)
         if hasattr(outcome, "delta_money"):

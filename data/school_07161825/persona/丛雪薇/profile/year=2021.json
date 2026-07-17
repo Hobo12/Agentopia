@@ -1,0 +1,91 @@
+{
+    "name": "丛雪薇",
+    "birthday": "Y2004-W4-activity-D6",
+    "birth_year": 2004,
+    "gender": "女",
+    "position": {
+        "weekly_income": 60,
+        "role": "权益联络员",
+        "organization": "京海中学学生会",
+        "type": "non-work",
+        "description": "高二在读学生，班级文艺委员，吉他社成员",
+        "weekly_delta_skills": {
+            "沟通表达": 3,
+            "组织协调": 2,
+            "文书写作": 2
+        }
+    },
+    "init_skills": {
+        "数学": 30,
+        "语文": 160,
+        "英语": 85,
+        "物理": 15,
+        "化学": 70,
+        "学习方法": 40,
+        "吉他演奏": 160,
+        "歌词创作": 55,
+        "观察与共情": 160
+    },
+    "init_assets": {
+        "deposit": 200,
+        "possessions": [
+            {
+                "name": "二手民谣吉他",
+                "description": "十二岁时用攒了半年的压岁钱买的，琴身有几道磨痕但音色温暖，品丝磨得发亮是三年苦练的证据"
+            },
+            {
+                "name": "黑色硬壳笔记本",
+                "description": "用来写歌词和私人感受的本子，封面已经磨出白边，内页密密麻麻写满了文字，有些页面被墨水晕染过像是写的时候在哭"
+            },
+            {
+                "name": "暗红色棉绳手链",
+                "description": "自己编的，用的是母亲做手工剩下的棉绳，编了拆拆了编直到满意为止，戴了两年没取下来过"
+            },
+            {
+                "name": "旧款MP3播放器",
+                "description": "母亲淘汰的老款播放器，里面存了三百多首歌，耳机线缠得整整齐齐放在书包最里层的暗袋里"
+            },
+            {
+                "name": "学习用品",
+                "description": "普通的文具袋装着几支黑色中性笔、一支自动铅笔和一块用了很久的橡皮，没有多余的装饰"
+            }
+        ]
+    },
+    "extra_income": 70,
+    "brief_introduction": "丛雪薇是班级文艺委员，吉他弹得好，写歌词，性格看似洒脱实则极度敏感。她是一名尚未向任何人出柜的女同性恋，暗恋着同班的学习委员珂。 She now holds a quiet, grounded awareness of her own emotional architecture — no longer just enduring the silence between herself and珂, but learning to inhabit it with intention. She still notices珂’s gaze lingering on秋, but the jealousy has softened into something more tender and shared: a mutual recognition of unspoken weight. This year, she began composing instrumental interludes for her lyrics — music that doesn’t need words to name what cannot yet be said.",
+    "appearance_and_impression": "身高168cm，体重54kg，身材修长匀称肩线平直腰身窄长像一把收拢的折扇，属于辨识度较高的清冷利落类型（attractive ~10%），瓜子脸轮廓线条干净利落下颌收得尖而不刻薄，眉毛浓而直像用炭笔一笔拉出来的横线英气十足，双眼狭长微微上挑眼尾带着天生的凌厉感瞳色极深近乎黑色目光落在人身上时像在量尺寸——不是不友好而是在认真辨认，鼻梁挺直鼻翼薄而窄侧面轮廓像刀削出来的，嘴唇不厚不薄唇色偏深常年不涂唇膏但唇形漂亮上唇有清晰的唇珠，皮肤偏冷白调质地细腻但不是那种柔弱的白而是陶瓷般带着一层微凉的光泽，右耳有两个耳洞但在校期间从不戴耳饰只留下两个极小的孔洞，黑色头发又直又硬发量浓密剪成齐肩短发发尾微微内扣刘海偏分露出饱满的左额角，走路时头发随步伐轻轻摆动像一面小旗被风掀起又落下，左手手腕上系着一根编得很细密的暗红色棉绳手链是她自己编的，右手指节修长指甲剪得极短干净是长年练吉他留下的习惯，校服拉链总是只拉到胸口露出里面纯黑色的圆领T恤领口洗得有些松但干净，校裤裤脚卷了两道露出一截白色运动袜和一双洗得发白的黑色匡威帆布鞋鞋带系得很紧，书包是一个磨损发旧的军绿色帆布双肩包侧袋插着一瓶没贴标签的矿泉水瓶里面装的是凉白开，站定时重心偏左微微歪着头看人像在听一段别人听不到的旋律。 整体给人以清冽疏朗、不刻意讨好也不刻意疏远、像深秋早晨一杯不加糖的黑咖啡——醒神但有一丝你说不上来的苦涩的文艺型女生印象。细微变化：发梢略长半厘米，额角左侧新添一道极淡的浅褐色晒斑（来自实验楼天台午后练习时未遮阳）；棉绳手链颜色比去年更深些，边缘泛出温润的棕红光泽，仿佛被体温与 time 共同浸染。",
+    "personality_traits": {
+        "qualitative": "丛雪薇依然是INFP型调停者与ISTP型鉴赏家的混合体，但‘调停’不再仅指向他人——这一年，她 began mediating *within* herself: holding space for both her longing and her restraint, her courage and her fear, her desire to speak and her wisdom to wait. The ‘swords-and-silence’ duality remains, but the blade is less sharp at the edges, the silence less like absence and more like resonance. She still observes relentlessly, but now sometimes catches herself *noticing her own noticing* — a metacognitive softness growing alongside her perceptiveness. Her rebellion is quieter, deeper: not against rules, but against reduction — refusing to let any single label (‘lesbian’, ‘artist’, ‘good student’) contain her whole self. The armor hasn’t vanished; it’s been lined with velvet.",
+        "quantitative": {
+            "confidence": 45,
+            "control": 72,
+            "curiosity": 100,
+            "empathy": 92,
+            "judging": 38,
+            "introversion": 70,
+            "intuition": 95,
+            "patience": 83,
+            "responsibility": 82,
+            "thinking": 62
+        }
+    },
+    "core_motivation": "To cultivate inner fidelity — aligning action with truth without demanding immediate external validation; to deepen her non-verbal language of care (through music, presence, small consistent gestures) so that even if she never names her love for珂, that love leaves real, gentle traces in珂’s world; to transform the glass缸 from a symbol of separation into one of clarity — seeing herself,珂, and秋 not as trapped figures in layered refractions, but as distinct points of light whose paths intersect meaningfully, even silently; to finish composing the full instrumental suite for《玻璃缸》, where every note carries the weight of unsaid things, and play it once — not for an audience, but as a ritual of self-witnessing.",
+    "conflicts": "The tension between authenticity and safety remains central, but its texture has shifted: it’s less about *whether* to hide and more about *how much breath* to leave inside the mask — enough to sustain her, not enough to suffocate. Her concern for珂 deepens as she witnesses珂’s quiet unraveling post-W01, yet her inability to intervene directly now feels less like failure and more like a painful, necessary discipline — she fears that rushing in could fracture the fragile trust they share, or worse, expose珂 to risks she can’t mitigate. The ambiguity around the辅导教室 persists, sharpened by her own heightened sensitivity: she no longer just hears laughter — she registers shifts in timing, duration, and tonal warmth that feel increasingly dissonant with professional boundaries. Yet reporting feels perilous — not only because of potential backlash, but because doing so might sever her last thread of proximity to珂, who seems entangled in the same orbit. Most quietly persistent is the conflict between her creative impulse (to write *about* all this) and her protective instinct (to shield those she writes about — especially珂 — from being named, even metaphorically).",
+    "values": "She still believes everyone deserves the right to be fully themselves — but now understands that 'being oneself' is often a slow, iterative practice, not a single declaration. She values *resonance* over resolution: the hum of shared silence, the vibration of a perfectly tuned string, the way a glance held two seconds too long can carry more honesty than ten sentences. Her definition of freedom has narrowed and deepened: it is no longer just the liberty to speak, but the capacity to hold complexity without collapsing — to love someone knowing they love another, to witness injustice while choosing her moment to act, to create art that contains contradiction without needing to resolve it. She still feels profound gratitude toward her mother, but the guilt has eased slightly — replaced by a quieter, more determined vow: when she does tell her, it won’t be as confession, but as offering — a gift of her wholeness, not an admission of flaw.",
+    "preferences": "Prefers composing instrumental passages late at night using only thumb and index finger (a self-imposed constraint to deepen tactile memory); values the specific acoustic quality of the empty physics lab after class — dry reverb, faint chalk-dust smell, cool linoleum under bare feet; finds unexpected comfort in routine maintenance tasks (restringing guitar, mending torn notebook pages, rewinding headphone cables); continues to cherish silent co-presence with珂 — though now occasionally initiates low-stakes shared activities (e.g., walking together to grab bubble tea after school, sitting side-by-side editing the class newsletter without speaking); dislikes sudden loud noises during focused work; avoids scrolling social media where curated perfection amplifies her sense of isolation; still loves mother’s tomato-egg noodles, but now sometimes cooks them for herself — a small, deliberate act of self-care.",
+    "details": "丛雪薇第一次意识到自己\"不一样\"是在初一。那时候班上的女生开始讨论喜欢哪个男生，她听着觉得索然无味，以为自己只是\"晚熟\"。直到初二那年运动会，隔壁班一个扎高马尾的女生跨过终点线时回头冲她笑了一下——阳光打在那个女生脸上的角度、汗水从鬓角滑下来的路径、那个笑容的弧度——她心跳漏了一拍，然后恐惧像冰水一样从头顶浇下来。她用了整整一个暑假去查资料、看帖子、在深夜反复搜索\"女生喜欢女生是不是正常的\"，最后得出了一个让她既释然又绝望的结论：她是同性恋。释然是因为终于有了一个名字来称呼自己的感受，绝望是因为她太清楚这个名字在她生活的环境里意味着什么。\n高中进入京海中学后她被分到这个班。开学第一周她就注意到了珂——不是因为珂多么引人注目，恰恰相反，是因为珂的\"不引人注目\"本身吸引了她。在一群急于表现自己的新生中间，珂像一滴落在宣纸上的淡墨，安静地洇开，不抢任何人的位置。她看到珂交作业时把每个人的本子按学号排好，看到珂在走廊上侧身让路时微微低头的动作，看到珂右手无名指上那枚银色细戒在日光灯下闪了一下。那些细节像小钩子一样勾住了她的注意力，然后再也没有松开。\n她很快发现了珂在看秋。这个发现像是在镜子前站定——珂看秋的方式和她看珂的方式如出一辙：小心翼翼的、计算过安全距离的、绝对不会被对方察觉的凝视。她在珂身上看到了自己的倒影，这让她对珂的感情变得更加复杂：一半是心疼，一半是嫉妒——心疼珂在做一件注定没有回报的事，嫉妒秋不费吹灰之力就得到了珂全部的目光。\n作为文艺委员她和班长郭明澄、学习委员珂在班委工作上有交集。她和郭明澄的配合是高效但疏离的——郭明澄分配任务，她执行，不多话也不打折扣。和珂的接触让她既期待又紧张：每次班委开小会时坐在珂旁边，她能闻到珂身上淡淡的洗衣液味道，那种味道干净得让她心疼。有一次珂帮她整理文艺汇演的节目单，两人肩并肩坐在教室最后一排，珂的手指在纸上划过时她盯着珂手腕内侧那块被袖口遮住的浅色疤痕看了两秒——珂察觉到了她的目光，下意识拉了拉袖子，她立刻移开眼假装在看窗外。那两秒钟的对视和回避被她在脑子里回放了一整个晚上。\n最近她察觉到了珂的状态不对。珂本来就话少，但这几周几乎是沉默的——收作业时动作机械，眼神涣散，有一次在走廊上差点撞到门框。她试探性地问过一次\"你还好吗\"，珂愣了一下然后说\"嗯没事就是有点累\"。那个\"愣\"让她确信珂不只是累——珂在承受什么东西但不知道跟谁说。她想成为那个\"可以说\"的人，但她连自己的秘密都不敢说出口，又怎么让珂对她打开？\n她也注意到了辅导教室的事。她每周三下午有吉他社活动，活动室在三楼，结束后下楼时会经过二楼走廊。连续几周她都看到辅导教室的灯亮着、门关着，有一次经过时隐约听到了笑声——不是师生之间正式的交流，更像是朋友甚至更亲密的人之间的那种放松的、带着私密感的笑。她没有停下来也没有刻意去听，但那个笑声的质地让她不舒服。后来她从珂越来越凝重的表情和秋越来越僵硬的状态中隐约拼凑出了一些东西，但她不确定自己拼的图是否正确。\n她把这些感受写进了歌词里。最近写的一首词叫《玻璃缸》，其中有一句：\"我隔着水看你，你隔着水看他，他隔着水看她，她隔着水看一扇关着的门。\"她自己都不确定这首词是关于暗恋还是关于那间辅导教室——也许都是。\nThis year, she composed four instrumental variations on《玻璃缸》— each exploring a different layer of distance: physical, emotional, temporal, and witnessed-but-unacknowledged. She practiced them exclusively on the experimental building rooftop, recording only the ambient sounds (wind, distant bells, her own breathing) to accompany the guitar. On W01-D3, her silent repair session with刘铭 became recurring — they now meet biweekly to calibrate classroom audio equipment, communicating almost entirely through gesture and shared focus. Evidently,刘世刚’s observation about her wrist cord resonated deeply; she began consciously loosening the knot before important interactions, letting the cotton rest more gently against her skin — a tiny, daily act of releasing control. She has not spoken to珂 outside official duties since W01, but their eye contact has grown steadier, less flinching — as if both have tacitly agreed to hold space for the unsaid, without requiring it to become spoken.",
+    "talents": {
+        "qualitative": "Her musicality has matured beyond performance into compositional intentionality — she now thinks in textures, silences, and structural echoes rather than just chords and melodies. Her lyric writing retains its visceral precision but gains new layers of sonic awareness: she experiments with syllable stress mimicking guitar arpeggios, line breaks calibrated to breath-hold duration. Academically, her math anxiety persists, but she developed a personalized visual notation system for physics concepts (using guitar fretboard logic to map force vectors), yielding modest but meaningful improvement in conceptual grasp. Her observational skill is now paired with greater ethical discernment — she questions *why* she notices certain things, and whether witnessing demands action. She still hides her notebook, but now sketches melodic motifs in the margins of her physics textbook — private bridges between disciplines.",
+        "quantitative": {
+            "beauty": 80,
+            "communication": 82,
+            "creativity": 92,
+            "health": 72,
+            "honesty": 77,
+            "integrity": 82,
+            "intelligence": 72,
+            "leadership": 67,
+            "trustworthiness": 87
+        }
+    }
+}

@@ -444,10 +444,44 @@ class World:
             elif verify_logger:
                 verify_logger.warning(f"[VERIFY-ECONOMY] {agent.name} has zero income")
 
+    def _settle_weekly_skills(self) -> None:
+        """Apply each agent's position skill growth for the new week."""
+        from src.utils import get_verify_logger, standardize_skill_key
+
+        verify_logger = get_verify_logger(feature="skills")
+        verify_logger.info(
+            "[VERIFY-SKILLS] Distributing weekly_delta_skills from positions"
+        )
+
+        language = self.config.get("language", "en")
+        for agent in self.agents:
+            position = agent.dm.read_profile().get("position", {})
+            delta_skills = position.get("weekly_delta_skills", {})
+            if not delta_skills:
+                continue
+
+            state = agent.dm.read_state(exclude_cur_t=False)
+            skills = state.setdefault("skills", {})
+            changes = []
+            for skill_name, delta in delta_skills.items():
+                standard_key = standardize_skill_key(skill_name, language)
+                old_value = skills.get(standard_key, 0)
+                new_value = max(0, old_value + delta)
+                skills[standard_key] = new_value
+                changes.append(
+                    f"{standard_key}: {old_value} → {new_value} ({delta:+d})"
+                )
+
+            agent.dm.save_state(state)
+            verify_logger.info(
+                f"[VERIFY-SKILLS] {agent.name}: {', '.join(changes)}"
+            )
+
     def _before_week_start(self) -> None:
         """Execute all operations that should happen before each week starts."""
         self._apply_fulfillment_decay()
         self._settle_weekly_income()
+        self._settle_weekly_skills()
 
     def _run_position_application_season(self) -> None:
         """Run position application season at year end.

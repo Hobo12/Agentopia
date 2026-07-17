@@ -1,0 +1,276 @@
+{
+  "version": 1,
+  "positions": [
+    {
+      "name": "京海中学/夜间自习巡查志愿者",
+      "organization": "京海中学",
+      "role": "夜间自习巡查志愿者",
+      "type": "non-work",
+      "description": "晚自习后协助值班教师巡查空置教室与走廊照明、门窗关闭情况，并记录安全隐患；轮值制，重责任而非权威",
+      "weekly_income": 30,
+      "weekly_delta_skills": {
+        "责任心": 4,
+        "观察力": 2,
+        "应急判断": 1
+      },
+      "capacity": 6,
+      "occupied_by": [
+        "刘铭"
+      ],
+      "min_age": 16,
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学/心理辅导助理",
+      "organization": "京海中学",
+      "role": "心理辅导助理",
+      "type": "work",
+      "description": "协助专职心理教师开展学生情绪观察、轻度疏导记录与活动支持；需高度共情力与保密意识，不替代专业咨询",
+      "weekly_income": 180,
+      "weekly_delta_skills": {
+        "观察与共情": 3,
+        "沟通表达": 2,
+        "心理常识": 4
+      },
+      "capacity": 1,
+      "occupied_by": [
+        "何敏"
+      ],
+      "min_age": 16,
+      "min_skills": {
+        "观察与共情": 140
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学化学教研组/高中化学教师",
+      "organization": "京海中学化学教研组",
+      "role": "高中化学教师",
+      "type": "work",
+      "description": "担任高二年级两个班的化学教学工作，负责化学实验室的日常管理和维护，每周有固定的实验课需要在实验室指导学生操作。教龄十二年，职称中级。",
+      "weekly_income": 350,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "刘凡"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学后勤处/学校食堂负责人",
+      "organization": "京海中学后勤处",
+      "role": "学校食堂负责人",
+      "type": "work",
+      "description": "负责学校食堂的日常运营管理，包括采购、菜单制定、后厨卫生、人员调配等",
+      "weekly_income": 200,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "刘世刚"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学后勤处/食堂食材质检协理",
+      "organization": "京海中学后勤处",
+      "role": "食堂食材质检协理",
+      "type": "work",
+      "description": "协助刘世刚师傅执行每日蔬菜农药残留快检、肉类检疫证明核验及冷链温度巡检，建立可追溯台账",
+      "weekly_income": 200,
+      "weekly_delta_skills": {
+        "细致耐心": 4,
+        "食品安全常识": 3,
+        "记录分析": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 17,
+      "min_skills": {
+        "观察力": 130
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学学生会/权益联络员",
+      "organization": "京海中学学生会",
+      "role": "权益联络员",
+      "type": "non-work",
+      "description": "每班一名，收集同学对食堂、作息、设施等日常诉求，汇总至学生会并跟踪反馈；强调务实倾听与跨层级协调",
+      "weekly_income": 60,
+      "weekly_delta_skills": {
+        "沟通表达": 3,
+        "组织协调": 2,
+        "文书写作": 2
+      },
+      "capacity": 12,
+      "occupied_by": [
+        "丛雪薇"
+      ],
+      "min_age": 16,
+      "min_skills": {
+        "观察力": 120
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学实验室/化学实验助管",
+      "organization": "京海中学实验室",
+      "role": "化学实验助管",
+      "type": "work",
+      "description": "在刘凡老师指导下维护实验器材、配制基础试剂、登记耗材使用，保障高二年级常态化实验安全有序运行",
+      "weekly_income": 220,
+      "weekly_delta_skills": {
+        "实验操作": 4,
+        "化学": 3,
+        "细致耐心": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "实验操作": 120,
+        "化学": 90
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学广播站/校园广播主持人",
+      "organization": "京海中学广播站",
+      "role": "校园广播主持人",
+      "type": "non-work",
+      "description": "负责早读前、午休及放学时段的校园广播播报，含新闻简报、美文诵读、音乐点播与温馨提醒",
+      "weekly_income": 80,
+      "weekly_delta_skills": {
+        "语言表达": 4,
+        "音频操作": 2,
+        "临场反应": 2
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 15,
+      "max_age": 17,
+      "min_skills": {
+        "语文": 130
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学文学社/原创歌词编辑",
+      "organization": "京海中学文学社",
+      "role": "原创歌词编辑",
+      "type": "non-work",
+      "description": "遴选、润色校内学生创作的歌词作品，策划季度‘青春声线’主题合辑，对接丛雪薇等音乐特长生进行谱曲合作",
+      "weekly_income": 40,
+      "weekly_delta_skills": {
+        "语文": 4,
+        "审美鉴赏": 3,
+        "协作创意": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "语文": 140
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学物化生竞赛组/物理实验数据录入员",
+      "organization": "京海中学物化生竞赛组",
+      "role": "物理实验数据录入员",
+      "type": "non-work",
+      "description": "为参加省级物理创新实验赛的学生团队整理传感器采集数据、绘制初步图表、标注异常值，要求严谨与效率兼顾",
+      "weekly_income": 70,
+      "weekly_delta_skills": {
+        "物理": 3,
+        "数学": 2,
+        "数据分析": 3
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "物理": 130,
+        "数学": 110
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学高二年级/高中生",
+      "organization": "京海中学高二年级",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高中在读学生，课余在学校食堂帮工",
+      "weekly_income": 45,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学高二年级张老师班/高中生",
+      "organization": "京海中学高二年级张老师班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高中在读学生，班级生活委员",
+      "weekly_income": 0,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学高二（6）班/高中生",
+      "organization": "京海中学高二（6）班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高二在读学生，班级文艺委员，吉他社成员",
+      "weekly_income": 50,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [],
+      "created_year": -1
+    },
+    {
+      "name": "京海市少年宫/公益吉他启蒙助教",
+      "organization": "京海市少年宫",
+      "role": "公益吉他启蒙助教",
+      "type": "work",
+      "description": "周末面向外来务工子女开设免费吉他入门班，在专业教师带领下示范指法、组织小组练习、管理教具",
+      "weekly_income": 233,
+      "weekly_delta_skills": {
+        "吉他演奏": 3,
+        "教学引导": 3,
+        "亲和力": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "吉他演奏": 140
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海社区青少年服务中心/课后托管辅导员",
+      "organization": "京海社区青少年服务中心",
+      "role": "课后托管辅导员",
+      "type": "work",
+      "description": "为双职工家庭学生提供放学后自习监督、作业答疑与兴趣引导（非学科补习），侧重习惯培养与情感陪伴",
+      "weekly_income": 160,
+      "weekly_delta_skills": {
+        "沟通表达": 3,
+        "责任心": 3,
+        "教育常识": 2
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 18,
+      "min_skills": {
+        "观察力": 110,
+        "责任心": 100
+      },
+      "created_year": 2020
+    }
+  ]
+}

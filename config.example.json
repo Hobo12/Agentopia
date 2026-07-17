@@ -157,6 +157,7 @@
   "response_validation": {
     "enabled": false,
     "judge_model": "<MODEL_NAME>",
-    "max_retries": 3
+    "max_retries": 3,
+    "enable_god_judging_override": false
   }
 }

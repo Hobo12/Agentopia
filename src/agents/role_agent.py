@@ -1688,7 +1688,7 @@ class RoleAgent:
         return created
 
     # =========================================================================
-    # Reward: Social Ranking (God Model Task)
+    # Reward: Social Ranking
     # =========================================================================
 
     def judge_others(self) -> "SocialRanking":
@@ -1752,14 +1752,15 @@ class RoleAgent:
                 )
             return ValidationResult(passed=True, feedback="", check_type="format")
 
-        # Generate with god_model: social metrics should always be judged by
-        # the same fair, consistent model regardless of which role_model is used.
+        use_god_override = self.config.get("response_validation", {}).get(
+            "enable_god_judging_override", False
+        )
         outputs = self._generate_with_functions(
             messages,
             save_to_week_response=False,
             keep_compact_reasoning=False,
             format_validator=ranking_validator,
-            model_override=self.config["god_model"],
+            model_override=self.config["god_model"] if use_god_override else None,
         )
         response = outputs[-1]["content"]
 
