@@ -1,0 +1,242 @@
+{
+  "world": {
+    "name": "school",
+    "language": "zh",
+    "time": {
+      "start_year": 2020,
+      "min_age": 16,
+      "n_year": 2,
+      "n_week": 10,
+      "n_day": 5,
+      "n_contact_slot": 3
+    },
+    "contact": {
+      "n_action_per_slot": 5,
+      "max_weeks_for_future_schedule": 4,
+      "n_prev_week_contact_history": 3
+    },
+    "activity": {
+      "joint_activity_min_turns": 5,
+      "joint_activity_max_turns": 20,
+      "solo_activity_min_turns": 2,
+      "solo_activity_max_turns": 5,
+      "enable_verification": true
+    },
+    "solo_activity": {
+      "max_possessions": 50,
+      "discard_count_ratio": 0.25,
+      "delta_limits": {
+        "vitality": {
+          "min": -5,
+          "max": 5
+        },
+        "fulfillment": {
+          "mood": {
+            "min": -5,
+            "max": 5
+          },
+          "material": {
+            "min": -5,
+            "max": 10
+          },
+          "esteem": {
+            "min": -1,
+            "max": 1
+          }
+        },
+        "skills": {
+          "min": 0,
+          "max": 3
+        },
+        "money": {
+          "min": -200,
+          "max": 200
+        }
+      }
+    },
+    "joint_activity": {
+      "delta_limits": {
+        "vitality": {
+          "min": -5,
+          "max": 5
+        },
+        "fulfillment": {
+          "mood": {
+            "min": -5,
+            "max": 5
+          },
+          "social": {
+            "min": -5,
+            "max": 5
+          },
+          "esteem": {
+            "min": -3,
+            "max": 3
+          },
+          "material": {
+            "min": 0,
+            "max": 0
+          }
+        },
+        "skills": {
+          "min": 0,
+          "max": 3
+        }
+      },
+      "allow_consumption": false,
+      "allow_work": false,
+      "allow_gifting": true
+    },
+    "location": {
+      "n_locations": 30,
+      "detail_level": "medium",
+      "load_from_template": false
+    },
+    "position": {
+      "load_from_template": false
+    },
+    "population": {
+      "population_per_year": 10,
+      "by_job_ratio": 0.2,
+      "init": {
+        "by_age": {
+          "age_min": 16,
+          "age_max": 20
+        }
+      },
+      "add_personas_in_first_n_year": 5
+    },
+    "context": {
+      "recent_activities_weeks": 2,
+      "recent_summary_weeks": 5
+    },
+    "public_activity": {
+      "max_events_per_week": 6,
+      "previous_events_weeks": 5,
+      "max_repeat_weeks": 5,
+      "internal_parallelism": 8,
+      "delta_limits": {
+        "vitality": {
+          "min": -5,
+          "max": 5
+        },
+        "fulfillment": {
+          "mood": {
+            "min": -5,
+            "max": 5
+          },
+          "social": {
+            "min": -3,
+            "max": 3
+          },
+          "esteem": {
+            "min": -2,
+            "max": 2
+          }
+        },
+        "skills": {
+          "min": 0,
+          "max": 3
+        }
+      }
+    },
+    "position_application": {
+      "round1_batch_size": 10,
+      "round2_batch_size": 20,
+      "max_neighbors_to_meet": 10,
+      "min_income": 100
+    },
+    "economy": {
+      "weekly_income": {
+        "min": 100,
+        "max": 500
+      },
+      "extra_work_income_per_day": {
+        "min": 40,
+        "max": 200,
+        "tiers": {
+          "low_skilled": {
+            "min": 40,
+            "max": 80,
+            "description": "Part-time, manual labor"
+          },
+          "medium_skilled": {
+            "min": 80,
+            "max": 120,
+            "description": "Tutoring, retail"
+          },
+          "high_skilled": {
+            "min": 120,
+            "max": 200,
+            "description": "Professional services"
+          }
+        }
+      },
+      "living_standards": {
+        "frugal": {
+          "cost": 100,
+          "material_delta": -5,
+          "description": "Save money for big purchases"
+        },
+        "moderate": {
+          "cost": 200,
+          "material_delta": 0,
+          "description": "Maintain current lifestyle"
+        },
+        "comfortable": {
+          "cost": 300,
+          "material_delta": 5,
+          "description": "Better quality of life"
+        },
+        "luxurious": {
+          "cost": 500,
+          "material_delta": 10,
+          "description": "Indulgent lifestyle"
+        }
+      }
+    },
+    "fulfillment_decay_min_ratio": {
+      "mood": 0.15,
+      "social": 0.15,
+      "esteem": 0.15,
+      "material": 0
+    },
+    "reward": {
+      "period_weeks": 10,
+      "max_related_for_ranking": 20,
+      "pagerank_damping": 0.85,
+      "pagerank_max_iter": 100,
+      "affection_weight": 0.5,
+      "mutual_affection_alpha": 2.0,
+      "misery_threshold_percentile": 0.25,
+      "misery_penalty_value": 5,
+      "social_weight": 0.4,
+      "economy_weight": 0.2,
+      "gamma": 0.9,
+      "rft_top_fraction": 0.25
+    },
+    "data_dir": "school_07170937"
+  },
+  "role_model": "qwen-plus",
+  "role_model_max_tokens": 4096,
+  "god_model": "qwen-plus",
+  "god_model_max_tokens": 8192,
+  "fallback_model": "qwen-plus",
+  "models": {
+    "qwen-plus": {
+      "url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+      "api_key": "EMPTY",
+      "vllm_model_name": "qwen-plus",
+      "context_length": 131072,
+      "max_tokens": 8192,
+      "require_user_message": true
+    }
+  },
+  "max_concurrency": 10,
+  "temperature": 0.7,
+  "response_validation": {
+    "enabled": false,
+    "judge_model": "qwen-plus",
+    "max_retries": 3
+  }
+}

@@ -1,0 +1,257 @@
+2026-07-17 09:09:00,337 [INFO] [VERIFY-PUBLIC] Loaded 0 active events from file
+2026-07-17 09:09:12,164 [INFO] [VERIFY-PUBLIC] Generated 5 new events: ['晨光书法研习社', '校园生态观察笔记计划', '旧书修补志愿工坊', '化学趣味实验开放日', '午间听力浸润角']
+2026-07-17 09:09:20,575 [INFO] [VERIFY-PUBLIC] 刘凡: signed up for 1 events: ['public-Y2020-W01-activity-D2-化学趣味实验开放日']
+2026-07-17 09:09:21,274 [INFO] [VERIFY-PUBLIC] 叶: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:21,526 [INFO] [VERIFY-PUBLIC] 周原: signed up for 0 events: []
+2026-07-17 09:09:22,794 [INFO] [VERIFY-PUBLIC] 吕谦: signed up for 0 events: []
+2026-07-17 09:09:23,284 [INFO] [VERIFY-PUBLIC] 刘铭: signed up for 0 events: []
+2026-07-17 09:09:23,388 [INFO] [VERIFY-PUBLIC] 何敏: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D3-校园生态观察笔记计划']
+2026-07-17 09:09:24,116 [INFO] [VERIFY-PUBLIC] 刘世刚: signed up for 0 events: []
+2026-07-17 09:09:24,152 [INFO] [VERIFY-PUBLIC] 君: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:25,163 [INFO] [VERIFY-PUBLIC] 丛雪薇: signed up for 0 events: []
+2026-07-17 09:09:25,249 [INFO] [VERIFY-PUBLIC] 周悠: signed up for 0 events: []
+2026-07-17 09:09:30,006 [INFO] [VERIFY-PUBLIC] 堀北: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:31,066 [INFO] [VERIFY-PUBLIC] 姜鑫: signed up for 0 events: []
+2026-07-17 09:09:31,352 [INFO] [VERIFY-PUBLIC] 宋慧平: signed up for 0 events: []
+2026-07-17 09:09:32,507 [INFO] [VERIFY-PUBLIC] 宁颂: signed up for 0 events: []
+2026-07-17 09:09:33,625 [INFO] [VERIFY-PUBLIC] 岑旭: signed up for 1 events: ['public-Y2020-W01-activity-D3-校园生态观察笔记计划']
+2026-07-17 09:09:34,516 [INFO] [VERIFY-PUBLIC] 孙静: signed up for 1 events: ['public-Y2020-W01-activity-D4-旧书修补志愿工坊']
+2026-07-17 09:09:35,704 [INFO] [VERIFY-PUBLIC] 峰: signed up for 0 events: []
+2026-07-17 09:09:36,513 [INFO] [VERIFY-PUBLIC] 堀川凛: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D5-午间听力浸润角']
+2026-07-17 09:09:36,551 [INFO] [VERIFY-PUBLIC] 宋瑶: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:36,763 [INFO] [VERIFY-PUBLIC] 周知远: signed up for 0 events: []
+2026-07-17 09:09:38,664 [INFO] [VERIFY-PUBLIC] 律: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:38,991 [INFO] [VERIFY-PUBLIC] 张: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:41,354 [INFO] [VERIFY-PUBLIC] 朴: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:42,290 [INFO] [VERIFY-PUBLIC] 方开来: signed up for 0 events: []
+2026-07-17 09:09:42,862 [INFO] [VERIFY-PUBLIC] 朴正浩: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:45,456 [INFO] [VERIFY-PUBLIC] 方序: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:45,524 [INFO] [VERIFY-PUBLIC] 李峥: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:47,241 [INFO] [VERIFY-PUBLIC] 林澜: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:47,549 [INFO] [VERIFY-PUBLIC] 林嘉禾: signed up for 1 events: ['public-Y2020-W01-activity-D2-化学趣味实验开放日']
+2026-07-17 09:09:47,899 [INFO] [VERIFY-PUBLIC] 林屿: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:48,419 [INFO] [VERIFY-PUBLIC] 杰: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:48,572 [INFO] [VERIFY-PUBLIC] 李健: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:51,174 [INFO] [VERIFY-PUBLIC] 林颂: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:51,375 [INFO] [VERIFY-PUBLIC] 江若晚: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:52,750 [INFO] [VERIFY-PUBLIC] 柳波: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D5-午间听力浸润角']
+2026-07-17 09:09:54,127 [INFO] [VERIFY-PUBLIC] 江哲远: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:54,964 [INFO] [VERIFY-PUBLIC] 沈弦: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:55,917 [INFO] [VERIFY-PUBLIC] 沈吟: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:56,899 [INFO] [VERIFY-PUBLIC] 汤瑶: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:57,399 [INFO] [VERIFY-PUBLIC] 沈敏: signed up for 0 events: []
+2026-07-17 09:09:58,657 [INFO] [VERIFY-PUBLIC] 沈珩: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:09:59,682 [INFO] [VERIFY-PUBLIC] 沐澈: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D3-校园生态观察笔记计划']
+2026-07-17 09:10:02,112 [INFO] [VERIFY-PUBLIC] 沈阑: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:03,036 [INFO] [VERIFY-PUBLIC] 海: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:03,069 [INFO] [VERIFY-PUBLIC] 温霁: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:04,287 [INFO] [VERIFY-PUBLIC] 潇: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:04,937 [INFO] [VERIFY-PUBLIC] 牛广原: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:07,301 [INFO] [VERIFY-PUBLIC] 牛淑芬: signed up for 0 events: []
+2026-07-17 09:10:09,351 [INFO] [VERIFY-PUBLIC] 珂: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:11,818 [INFO] [VERIFY-PUBLIC] 祁望舒: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D3-校园生态观察笔记计划']
+2026-07-17 09:10:11,956 [INFO] [VERIFY-PUBLIC] 白惟庸: signed up for 2 events: ['public-Y2020-W01-activity-D1-晨光书法研习社', 'public-Y2020-W01-activity-D4-旧书修补志愿工坊']
+2026-07-17 09:10:12,663 [INFO] [VERIFY-PUBLIC] 白凪: signed up for 1 events: ['public-Y2020-W01-activity-D4-旧书修补志愿工坊']
+2026-07-17 09:10:12,753 [INFO] [VERIFY-PUBLIC] 瞿泽安: signed up for 0 events: []
+2026-07-17 09:10:12,801 [INFO] [VERIFY-PUBLIC] 程吟: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:15,208 [INFO] [VERIFY-PUBLIC] 秋: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:15,774 [INFO] [VERIFY-PUBLIC] 程汐: signed up for 1 events: ['public-Y2020-W01-activity-D3-校园生态观察笔记计划']
+2026-07-17 09:10:19,101 [INFO] [VERIFY-PUBLIC] 程羲: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:10:21,169 [INFO] [VERIFY-PUBLIC] 罗守正: signed up for 0 events: []
+2026-07-17 09:10:21,291 [INFO] [VERIFY-PUBLIC] 程遥: signed up for 1 events: ['public-Y2020-W01-activity-D4-旧书修补志愿工坊']
+2026-07-17 09:11:06,994 [INFO] [VERIFY-PUBLIC] 林珈: signed up for 1 events: ['public-Y2020-W01-activity-D1-晨光书法研习社']
+2026-07-17 09:25:52,854 [INFO] [VERIFY-PUBLIC-ACT] ========== Starting public activity at Y2020-W01-activity-D1 ==========
+2026-07-17 09:25:52,854 [INFO] [VERIFY-PUBLIC-ACT] Activity: 晨光书法研习社, Participants: ['何敏', '叶', '君', '堀北', '堀川凛', '宋瑶', '张', '律', '方序', '朴', '朴正浩', '李健', '李峥', '杰', '林屿', '林澜', '林珈', '林颂', '柳波', '江哲远', '江若晚', '汤瑶', '沈吟', '沈弦', '沈珩', '沈阑', '沐澈', '海', '温霁', '潇', '牛广原', '珂', '白惟庸', '祁望舒', '秋', '程吟', '程羲'], parallel=True, internal_parallelism=8
+2026-07-17 09:25:52,854 [INFO] [VERIFY-PUBLIC-ACT] Split into 2 groups: group 0: 19 agents, group 1: 18 agents
+2026-07-17 09:25:52,858 [INFO] [VERIFY-PUBLIC-ACT-STEP1] ===== ENTER =====
+2026-07-17 09:25:53,037 [INFO] [VERIFY-PUBLIC-ACT-STEP2] ===== ACT (with function calling) =====
+2026-07-17 09:25:58,750 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 堀北 participated, response length: 374
+2026-07-17 09:25:59,011 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 君 participated, response length: 356
+2026-07-17 09:25:59,732 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 宋瑶 participated, response length: 414
+2026-07-17 09:26:00,120 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 何敏 participated, response length: 447
+2026-07-17 09:26:00,226 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 堀川凛 participated, response length: 460
+2026-07-17 09:26:00,375 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 叶 participated, response length: 450
+2026-07-17 09:26:00,773 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 律 participated, response length: 447
+2026-07-17 09:26:00,902 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 张 participated, response length: 437
+2026-07-17 09:26:05,199 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 朴 participated, response length: 368
+2026-07-17 09:26:06,486 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 李健 participated, response length: 411
+2026-07-17 09:26:06,883 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 李峥 participated, response length: 416
+2026-07-17 09:26:07,108 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 林屿 participated, response length: 407
+2026-07-17 09:26:07,368 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 方序 participated, response length: 566
+2026-07-17 09:26:07,372 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 杰 participated, response length: 423
+2026-07-17 09:26:07,693 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 林澜 participated, response length: 398
+2026-07-17 09:26:08,465 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 朴正浩 participated, response length: 409
+2026-07-17 09:26:11,603 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 林珈 participated, response length: 411
+2026-07-17 09:26:12,238 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 柳波 participated, response length: 355
+2026-07-17 09:26:13,167 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 汤瑶 participated, response length: 392
+2026-07-17 09:26:13,251 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 江若晚 participated, response length: 421
+2026-07-17 09:26:13,419 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 江哲远 participated, response length: 378
+2026-07-17 09:26:13,656 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 林颂 participated, response length: 446
+2026-07-17 09:26:15,176 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 沈吟 participated, response length: 441
+2026-07-17 09:26:16,358 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 沈弦 participated, response length: 368
+2026-07-17 09:26:18,903 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 沈阑 participated, response length: 434
+2026-07-17 09:26:18,903 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 沈珩 participated, response length: 512
+2026-07-17 09:26:19,831 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 海 participated, response length: 368
+2026-07-17 09:26:21,069 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 潇 participated, response length: 450
+2026-07-17 09:26:21,088 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 沐澈 participated, response length: 360
+2026-07-17 09:26:22,076 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 温霁 participated, response length: 394
+2026-07-17 09:26:22,831 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 珂 participated, response length: 431
+2026-07-17 09:26:23,596 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 牛广原 participated, response length: 365
+2026-07-17 09:26:25,406 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 祁望舒 participated, response length: 459
+2026-07-17 09:26:26,348 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 秋 participated, response length: 388
+2026-07-17 09:26:26,446 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 程羲 participated, response length: 354
+2026-07-17 09:26:27,443 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 程吟 participated, response length: 414
+2026-07-17 09:26:28,045 [INFO] [VERIFY-PUBLIC-ACT-STEP2] 白惟庸 participated, response length: 442
+2026-07-17 09:26:28,046 [INFO] [VERIFY-PUBLIC-ACT-STEP3] ===== EVALUATE =====
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 何敏: delta_vitality=1, delta_fulfillment={'mood': 4, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'observation': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 叶: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'emotional_regulation': 1}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 君: delta_vitality=-1, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'self_regulation': 1}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 堀北: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 0.5}, delta_skills={'calligraphy': 1, 'observation_and_memory': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 堀川凛: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'environmental_observation': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 宋瑶: delta_vitality=-1, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 0.5}, delta_skills={'calligraphy': 1, 'emotional_awareness': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 张: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'student_psychological_observation': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 律: delta_vitality=0, delta_fulfillment={'mood': 1, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'procedural_discipline': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 方序: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'data_recording_and_precision': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 朴: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'manual_dexterity': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 朴正浩: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'cross-cultural_sensitivity': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 李健: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'kinesthetic_control': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 李峥: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'analytical_focus': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 杰: delta_vitality=-2, delta_fulfillment={'mood': 1, 'social': 1, 'esteem': 0.5}, delta_skills={'calligraphy': 1, 'self_composure': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 林屿: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'sensory_grounding': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 林澜: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'logical_structuring': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 林珈: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'observational_recordkeeping': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 林颂: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'attentive_listening': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 柳波: delta_vitality=-1, delta_fulfillment={'mood': 1, 'social': 1, 'esteem': 0.5}, delta_skills={'calligraphy': 1, 'ethical_reflection': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 江哲远: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'systemic_analysis': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 江若晚: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'interpersonal_perception': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 汤瑶: delta_vitality=-1, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 0.5}, delta_skills={'calligraphy': 1, 'authentic_self_access': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 沈吟: delta_vitality=0, delta_fulfillment={'mood': 4, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'auditory_attention': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 沈弦: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'mindful_practice': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 沈珩: delta_vitality=-1, delta_fulfillment={'mood': 1, 'social': 1, 'esteem': 1}, delta_skills={'calligraphy': 1, 'strategic_patience': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 沈阑: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'nonverbal_empathy': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 沐澈: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'value_clarification': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 海: delta_vitality=0, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'cognitive_flexibility': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 温霁: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'quiet_reliability': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 潇: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'embodied_calm': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 牛广原: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'presence_and_attunement': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 珂: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'intentional_writing': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 白惟庸: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'archival_mindfulness': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 祁望舒: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'narrative_containment': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 秋: delta_vitality=-1, delta_fulfillment={'mood': 2, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'disciplined_focus': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 程吟: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'textual_analysis': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP3] 程羲: delta_vitality=0, delta_fulfillment={'mood': 3, 'social': 2, 'esteem': 1}, delta_skills={'calligraphy': 1, 'relational_sensitivity': 0.5}
+2026-07-17 09:27:07,222 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] ===== RECEIVE + APPLY =====
+2026-07-17 09:27:07,228 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 叶 received + applied: vitality_delta=0
+2026-07-17 09:27:07,229 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 堀北 received + applied: vitality_delta=0
+2026-07-17 09:27:07,229 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 何敏 received + applied: vitality_delta=1
+2026-07-17 09:27:07,229 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 张 received + applied: vitality_delta=0
+2026-07-17 09:27:07,229 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 君 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,230 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 宋瑶 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,230 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 堀川凛 received + applied: vitality_delta=0
+2026-07-17 09:27:07,230 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 律 received + applied: vitality_delta=0
+2026-07-17 09:27:07,232 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 方序 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 林屿 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 朴 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 李峥 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 朴正浩 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 林澜 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 李健 received + applied: vitality_delta=0
+2026-07-17 09:27:07,234 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 杰 received + applied: vitality_delta=-2
+2026-07-17 09:27:07,236 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 林珈 received + applied: vitality_delta=0
+2026-07-17 09:27:07,237 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 柳波 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,238 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 江哲远 received + applied: vitality_delta=0
+2026-07-17 09:27:07,238 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 林颂 received + applied: vitality_delta=0
+2026-07-17 09:27:07,239 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 江若晚 received + applied: vitality_delta=0
+2026-07-17 09:27:07,239 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 沈珩 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,239 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 沈弦 received + applied: vitality_delta=0
+2026-07-17 09:27:07,239 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 汤瑶 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,240 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 沈吟 received + applied: vitality_delta=0
+2026-07-17 09:27:07,241 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 沐澈 received + applied: vitality_delta=0
+2026-07-17 09:27:07,241 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 海 received + applied: vitality_delta=0
+2026-07-17 09:27:07,241 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 沈阑 received + applied: vitality_delta=0
+2026-07-17 09:27:07,242 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 温霁 received + applied: vitality_delta=0
+2026-07-17 09:27:07,242 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 牛广原 received + applied: vitality_delta=0
+2026-07-17 09:27:07,243 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 潇 received + applied: vitality_delta=0
+2026-07-17 09:27:07,243 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 珂 received + applied: vitality_delta=0
+2026-07-17 09:27:07,243 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 白惟庸 received + applied: vitality_delta=0
+2026-07-17 09:27:07,243 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 祁望舒 received + applied: vitality_delta=0
+2026-07-17 09:27:07,244 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 程吟 received + applied: vitality_delta=0
+2026-07-17 09:27:07,244 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 秋 received + applied: vitality_delta=-1
+2026-07-17 09:27:07,244 [INFO] [VERIFY-PUBLIC-ACT-STEP4+5] 程羲 received + applied: vitality_delta=0
+2026-07-17 09:27:07,244 [INFO] [VERIFY-PUBLIC-ACT-STEP6] ===== EXIT =====
+2026-07-17 09:27:12,568 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 君 EXIT, reflection length: 283
+2026-07-17 09:27:12,726 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 叶 EXIT, reflection length: 298
+2026-07-17 09:27:12,853 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 律 EXIT, reflection length: 319
+2026-07-17 09:27:12,904 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 堀北 EXIT, reflection length: 329
+2026-07-17 09:27:13,017 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 何敏 EXIT, reflection length: 328
+2026-07-17 09:27:14,227 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 宋瑶 EXIT, reflection length: 384
+2026-07-17 09:27:14,910 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 张 EXIT, reflection length: 312
+2026-07-17 09:27:18,628 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 堀川凛 EXIT, reflection length: 532
+2026-07-17 09:27:19,096 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 朴 EXIT, reflection length: 222
+2026-07-17 09:27:19,139 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 朴正浩 EXIT, reflection length: 340
+2026-07-17 09:27:19,167 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 李峥 EXIT, reflection length: 372
+2026-07-17 09:27:19,596 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 杰 EXIT, reflection length: 263
+2026-07-17 09:27:20,289 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 方序 EXIT, reflection length: 472
+2026-07-17 09:27:21,470 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 李健 EXIT, reflection length: 377
+2026-07-17 09:27:24,923 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 林澜 EXIT, reflection length: 336
+2026-07-17 09:27:24,970 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 林珈 EXIT, reflection length: 359
+2026-07-17 09:27:25,041 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 林颂 EXIT, reflection length: 303
+2026-07-17 09:27:25,777 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 江哲远 EXIT, reflection length: 381
+2026-07-17 09:27:25,786 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 柳波 EXIT, reflection length: 228
+2026-07-17 09:27:26,318 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 汤瑶 EXIT, reflection length: 271
+2026-07-17 09:27:26,855 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 江若晚 EXIT, reflection length: 253
+2026-07-17 09:27:30,109 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 沈弦 EXIT, reflection length: 270
+2026-07-17 09:27:31,219 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 沐澈 EXIT, reflection length: 268
+2026-07-17 09:27:31,760 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 沈珩 EXIT, reflection length: 376
+2026-07-17 09:27:32,503 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 海 EXIT, reflection length: 309
+2026-07-17 09:27:32,638 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 沈吟 EXIT, reflection length: 468
+2026-07-17 09:27:35,269 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 温霁 EXIT, reflection length: 323
+2026-07-17 09:27:36,398 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 沈阑 EXIT, reflection length: 475
+2026-07-17 09:27:37,927 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 珂 EXIT, reflection length: 318
+2026-07-17 09:27:38,147 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 潇 EXIT, reflection length: 428
+2026-07-17 09:27:38,278 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 牛广原 EXIT, reflection length: 425
+2026-07-17 09:27:39,200 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 白惟庸 EXIT, reflection length: 383
+2026-07-17 09:27:39,882 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 祁望舒 EXIT, reflection length: 261
+2026-07-17 09:27:40,052 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 秋 EXIT, reflection length: 220
+2026-07-17 09:27:44,386 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 程羲 EXIT, reflection length: 386
+2026-07-17 09:27:44,909 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 程吟 EXIT, reflection length: 374
+2026-07-17 09:28:36,405 [INFO] [VERIFY-PUBLIC-ACT-STEP6] 林屿 EXIT, reflection length: 226
+2026-07-17 09:28:36,408 [INFO] [VERIFY-PUBLIC-ACT-STEP7] ===== RECORD =====
+2026-07-17 09:28:36,411 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 堀北
+2026-07-17 09:28:36,411 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 叶
+2026-07-17 09:28:36,411 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 宋瑶
+2026-07-17 09:28:36,411 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 君
+2026-07-17 09:28:36,411 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 何敏
+2026-07-17 09:28:36,412 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 张
+2026-07-17 09:28:36,412 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 堀川凛
+2026-07-17 09:28:36,412 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 方序
+2026-07-17 09:28:36,412 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 朴
+2026-07-17 09:28:36,412 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 律
+2026-07-17 09:28:36,413 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 朴正浩
+2026-07-17 09:28:36,413 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 李健
+2026-07-17 09:28:36,413 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 林屿
+2026-07-17 09:28:36,413 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 李峥
+2026-07-17 09:28:36,414 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 杰
+2026-07-17 09:28:36,414 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 柳波
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 林珈
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 林澜
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 江若晚
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 林颂
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 江哲远
+2026-07-17 09:28:36,415 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 汤瑶
+2026-07-17 09:28:36,416 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 沈吟
+2026-07-17 09:28:36,416 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 沈弦
+2026-07-17 09:28:36,416 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 沈阑
+2026-07-17 09:28:36,417 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 沈珩
+2026-07-17 09:28:36,417 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 海
+2026-07-17 09:28:36,417 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 温霁
+2026-07-17 09:28:36,417 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 沐澈
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 牛广原
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 潇
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 珂
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 祁望舒
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 秋
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 程羲
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 白惟庸
+2026-07-17 09:28:36,418 [INFO] [VERIFY-PUBLIC-ACT-STEP7] Saved record for 程吟
+2026-07-17 09:28:36,419 [INFO] [VERIFY-PUBLIC-ACT] ========== Public activity completed ==========

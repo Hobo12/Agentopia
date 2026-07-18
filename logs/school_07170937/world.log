@@ -1,0 +1,76 @@
+2026-07-17 09:37:32,290 - world - INFO - Resume point: Y2020-W01 (cleanup from Y2020-W01-begin)
+2026-07-17 09:37:32,333 - world - INFO - Assigned 10 agents to 1 model(s): qwen-plus=10
+2026-07-17 09:39:04,841 - world - INFO - [locations] generated map via LLM: 30 locations
+2026-07-17 09:39:04,843 - world - INFO - Generating 10 homes in parallel...
+2026-07-17 09:39:04,846 - world - INFO -   Generated home for 刘铭
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 刘世刚
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 丛雪薇
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 刘凡
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 何敏
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 叶
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 吕谦
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 君
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 周原
+2026-07-17 09:39:04,847 - world - INFO -   Generated home for 周悠
+2026-07-17 09:39:04,848 - world - INFO - Generating positions for 10 agents...
+2026-07-17 09:39:38,695 - world - INFO - Generated 10 positions
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学2019级3班/高中生 (capacity=2, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学2020届高二（6）班/高中生 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学化学教研组/高中化学教师 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学后勤处/学校食堂负责人 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学总务处/总务处职员 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二(6)班/高中生 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二年级/高中生 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二年级张老师班/高中生 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged from profile: 京海中学高二（6）班/高中生 (capacity=1, created_year=-1)
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Merged 9 positions from agent profiles
+2026-07-17 09:39:38,699 - world - INFO - [POSITIONS] Year 2020: initialized 19 positions
+2026-07-17 09:39:38,703 - world - INFO - 丛雪薇 received weekly_income 120, deposit: 200 -> 320
+2026-07-17 09:39:38,703 - world - INFO - 何敏 received weekly_income 120, deposit: 200 -> 320
+2026-07-17 09:39:38,703 - world - INFO - 刘世刚 received weekly_income 200, deposit: 4000 -> 4200
+2026-07-17 09:39:38,703 - world - INFO - 刘凡 received weekly_income 350, deposit: 10000 -> 10350
+2026-07-17 09:39:38,704 - world - INFO - 刘铭 received weekly_income 105, deposit: 150 -> 255
+2026-07-17 09:39:38,704 - world - INFO - 叶 received weekly_income 115, deposit: 300 -> 415
+2026-07-17 09:39:38,704 - world - INFO - 吕谦 received weekly_income 167, deposit: 2800 -> 2967
+2026-07-17 09:39:38,705 - world - INFO - 君 received weekly_income 150, deposit: 800 -> 950
+2026-07-17 09:39:38,705 - world - INFO - 周原 received weekly_income 115, deposit: 300 -> 415
+2026-07-17 09:39:38,705 - world - INFO - 周悠 received weekly_income 118, deposit: 300 -> 418
+2026-07-17 09:39:38,705 - world - INFO - == PLAN STAGE == year=2020 week=1
+2026-07-17 09:39:38,801 - world - INFO - == BEFORE_CONTACT STAGE == year=2020 week=1
+2026-07-17 09:39:47,639 - world - INFO - Public events this week: 5 total, 5 new
+2026-07-17 09:41:11,047 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=1
+2026-07-17 09:41:32,466 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=2
+2026-07-17 09:41:52,326 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=3
+2026-07-17 09:42:14,357 - world - INFO - == AFTER CONTACT STAGE == year=2020 week=1
+2026-07-17 09:42:47,518 - world - INFO - Generated 4 encounter events for this week
+2026-07-17 09:42:47,519 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=1 | joint=0 encounter=2 public=0 solo=6
+2026-07-17 09:48:30,784 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=2 | joint=0 encounter=2 public=0 solo=6
+2026-07-17 09:53:15,954 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=3 | joint=0 encounter=0 public=0 solo=10
+2026-07-17 09:53:37,194 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=4 | joint=0 encounter=0 public=0 solo=10
+2026-07-17 09:53:53,025 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=5 | joint=0 encounter=0 public=0 solo=10
+2026-07-17 09:55:23,832 - world - INFO - == REVIEW STAGE == year=2020 week=1
+2026-07-17 09:57:35,998 - world - INFO - Resume point: Y2020-W01 (cleanup from Y2020-W01-begin)
+2026-07-17 09:57:36,129 - world - INFO - Loaded model assignment from data/school_07170937/model_assignment.json
+2026-07-17 09:57:36,131 - world - INFO - [locations] loaded map from: data/school_07170937/locations.json
+2026-07-17 09:57:36,134 - world - INFO - [POSITIONS] Year 2020: initialized 19 positions
+2026-07-17 09:57:36,137 - world - INFO - 丛雪薇 received weekly_income 120, deposit: 200 -> 320
+2026-07-17 09:57:36,137 - world - INFO - 何敏 received weekly_income 120, deposit: 200 -> 320
+2026-07-17 09:57:36,138 - world - INFO - 刘世刚 received weekly_income 200, deposit: 4000 -> 4200
+2026-07-17 09:57:36,138 - world - INFO - 刘凡 received weekly_income 350, deposit: 10000 -> 10350
+2026-07-17 09:57:36,138 - world - INFO - 刘铭 received weekly_income 105, deposit: 150 -> 255
+2026-07-17 09:57:36,140 - world - INFO - 叶 received weekly_income 115, deposit: 300 -> 415
+2026-07-17 09:57:36,141 - world - INFO - 吕谦 received weekly_income 167, deposit: 2800 -> 2967
+2026-07-17 09:57:36,141 - world - INFO - 君 received weekly_income 150, deposit: 800 -> 950
+2026-07-17 09:57:36,141 - world - INFO - 周原 received weekly_income 115, deposit: 300 -> 415
+2026-07-17 09:57:36,142 - world - INFO - 周悠 received weekly_income 118, deposit: 300 -> 418
+2026-07-17 09:57:36,142 - world - INFO - == PLAN STAGE == year=2020 week=1
+2026-07-17 09:57:36,282 - world - INFO - == BEFORE_CONTACT STAGE == year=2020 week=1
+2026-07-17 09:57:44,331 - world - INFO - Public events this week: 4 total, 4 new
+2026-07-17 09:59:10,242 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=1
+2026-07-17 09:59:29,464 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=2
+2026-07-17 09:59:53,370 - world - INFO - == CONTACT STAGE == year=2020 week=1 slot=3
+2026-07-17 10:00:13,724 - world - INFO - == AFTER CONTACT STAGE == year=2020 week=1
+2026-07-17 10:01:57,791 - world - INFO - Generated 8 encounter events for this week
+2026-07-17 10:01:57,792 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=1 | joint=0 encounter=1 public=1 solo=3
+2026-07-17 10:08:12,395 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=2 | joint=0 encounter=1 public=1 solo=6
+2026-07-17 10:11:54,577 - world - INFO - == ACTIVITY STAGE == year=2020 week=1 day=3 | joint=0 encounter=1 public=1 solo=7

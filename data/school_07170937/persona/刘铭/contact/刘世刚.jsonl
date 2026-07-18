@@ -1,0 +1,8 @@
+{"time": "Y2020-W01-contact-S1", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午的帮厨岗，我准时到后厨。\", to=\"刘世刚\")", "seq": 1}
+{"time": "Y2020-W01-contact-S1", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午的帮厨岗，我准时到后厨。\", to=\"刘世刚\")", "seq": 2}
+{"time": "Y2020-W01-contact-S2", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午十二点，我在后厨门口等您。\", to=\"刘世刚\")", "seq": 1}
+{"time": "Y2020-W01-contact-S2", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午十二点，我在后厨门口等您。\", to=\"刘世刚\")", "seq": 2}
+{"time": "Y2020-W01-contact-S3", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午十二点，我在后厨门口等您。\", to=\"刘世刚\")", "seq": 1}
+{"time": "Y2020-W01-contact-S3", "from": "刘铭", "content": "contact(message=\"刘叔，周二中午十二点，我在后厨门口等您。\", to=\"刘世刚\")", "seq": 2}
+{"time": "Y2020-W01-contact-S3", "from": "刘世刚", "content": "contact(message=\"刘铭！周二中午十二点，后厨门口，我给你留一碗红烧肉，鸡腿单独装，汤多舀两勺。别迟到，灶火一旺，肉就老了。\", to=\"刘铭\")", "seq": 1}
+{"time": "Y2020-W01-contact-S3", "from": "刘世刚", "content": "contact(message=\"刘铭！周二中午十二点，后厨门口，我给你留一碗红烧肉，鸡腿单独装，汤多舀两勺。别迟到，灶火一旺，肉就老了。\", to=\"刘铭\")", "seq": 2}

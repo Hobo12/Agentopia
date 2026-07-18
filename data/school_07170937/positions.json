@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "positions": [
+    {
+      "name": "京海中学/心理辅导助理",
+      "organization": "京海中学",
+      "role": "心理辅导助理",
+      "type": "work",
+      "description": "协助牛广原心理咨询师开展学生心理支持工作：整理来访记录、准备团体活动材料、维护咨询室环境；需严格遵守保密规范，不参与诊断或干预。",
+      "weekly_income": 180,
+      "weekly_delta_skills": {
+        "观察力": 3,
+        "人际沟通": 4,
+        "共情能力": 4
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 17,
+      "min_skills": {
+        "观察力": 120,
+        "人际沟通": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学/新生适应向导",
+      "organization": "京海中学",
+      "role": "新生适应向导",
+      "type": "non-work",
+      "description": "高二优秀学生志愿者，一对一结对帮扶高一新生适应寄宿生活、课程节奏与校园规则；无薪酬，但计入综合素质评价加分项，并获校级‘启明使者’认证。",
+      "weekly_income": 0,
+      "weekly_delta_skills": {
+        "人际沟通": 5,
+        "共情能力": 4,
+        "学习方法": 3
+      },
+      "capacity": 5,
+      "occupied_by": [],
+      "min_age": 16,
+      "max_age": 17,
+      "min_skills": {
+        "人际沟通": 120,
+        "共情能力": 110
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学/晚自习学业伙伴",
+      "organization": "京海中学",
+      "role": "晚自习学业伙伴",
+      "type": "work",
+      "description": "经教师推荐、通过基础测试的学生，为英语薄弱或学习习惯待优化的同学提供结构化晚自习陪伴：共同制定计划、监督专注时长、答疑基础问题（限教材范围）；非授课角色，重在示范与支持。",
+      "weekly_income": 120,
+      "weekly_delta_skills": {
+        "学习方法": 5,
+        "耐心": 4,
+        "英语": 2
+      },
+      "capacity": 3,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "数学": 130,
+        "学习方法": 110
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学2019级3班/高中生",
+      "organization": "京海中学2019级3班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高二在读学生，班级文艺委员",
+      "weekly_income": 21,
+      "weekly_delta_skills": {},
+      "capacity": 2,
+      "occupied_by": [
+        "叶",
+        "君"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学2020届高二（6）班/高中生",
+      "organization": "京海中学2020届高二（6）班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高中在读住校学生，班级宣传委员（协助），宿舍内务最整洁的人",
+      "weekly_income": 25,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "周悠"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学化学教研组/高中化学教师",
+      "organization": "京海中学化学教研组",
+      "role": "高中化学教师",
+      "type": "work",
+      "description": "担任高二年级两个班的化学教学工作，负责化学实验室的日常管理和维护，每周有固定的实验课需要在实验室指导学生操作。教龄十二年，职称中级。",
+      "weekly_income": 350,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "刘凡"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学后勤处/学校食堂负责人",
+      "organization": "京海中学后勤处",
+      "role": "学校食堂负责人",
+      "type": "work",
+      "description": "负责学校食堂的日常运营管理，包括采购、菜单制定、后厨卫生、人员调配等",
+      "weekly_income": 200,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "刘世刚"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学图书馆/图书编目协理员",
+      "organization": "京海中学图书馆",
+      "role": "图书编目协理员",
+      "type": "work",
+      "description": "协助馆员进行新书分类、贴标、录入系统及旧书归档；熟悉《中图法》基础类目，能识别常见学科标签，保持书架有序可查。",
+      "weekly_income": 130,
+      "weekly_delta_skills": {
+        "语文": 2,
+        "逻辑推理": 3,
+        "家务整理": 4
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "家务整理": 120,
+        "逻辑推理": 90
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学学生会/权益联络员",
+      "organization": "京海中学学生会",
+      "role": "权益联络员",
+      "type": "work",
+      "description": "班级与学生会之间的正式联络人：收集同学对食堂、作息、设施等的意见建议，每月汇总提交至学生会权益部；需客观中立、记录准确、反馈及时。",
+      "weekly_income": 140,
+      "weekly_delta_skills": {
+        "观察力": 3,
+        "人际沟通": 4,
+        "文书写作": 3
+      },
+      "capacity": 3,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "观察力": 110,
+        "语文": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学家长委员会/家校沟通实习生",
+      "organization": "京海中学家长委员会",
+      "role": "家校沟通实习生",
+      "type": "work",
+      "description": "在班主任指导下整理家长问卷、转录线上家长会要点、协助筹备开放日物料；需高度责任心与细节意识，严守隐私边界。",
+      "weekly_income": 140,
+      "weekly_delta_skills": {
+        "观察力": 3,
+        "文书写作": 4,
+        "人际沟通": 2
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 17,
+      "min_skills": {
+        "观察力": 120,
+        "文书写作": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学广播站/校园广播主持人",
+      "organization": "京海中学广播站",
+      "role": "校园广播主持人",
+      "type": "work",
+      "description": "负责每日早读前、午休及放学时段的校园广播：播报通知、分享美文、播放轻音乐；需语音清晰、情绪稳定，能独立撰写简短播音稿。",
+      "weekly_income": 150,
+      "weekly_delta_skills": {
+        "语文": 4,
+        "人际沟通": 3,
+        "声音表现": 5
+      },
+      "capacity": 3,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "语文": 130
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学总务处/总务处职员",
+      "organization": "京海中学总务处",
+      "role": "总务处职员",
+      "type": "work",
+      "description": "京海中学总务处设施维护员，负责教学楼全部教室和功能室的门窗、灯具、水电、 桌椅等设施的日常维护和应急维修，以及全校教室钥匙的保管和借还登记。\n",
+      "weekly_income": 167,
+      "weekly_delta_skills": {
+        "设施维修": 0.5
+      },
+      "capacity": 1,
+      "occupied_by": [
+        "吕谦"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学科技创新社/实验器材管理员",
+      "organization": "京海中学科技创新社",
+      "role": "实验器材管理员",
+      "type": "work",
+      "description": "管理社团实验室仪器设备借还、校准与基础保养；配合指导教师完成物理/化学拓展实验的前期准备与安全核查。",
+      "weekly_income": 160,
+      "weekly_delta_skills": {
+        "实验操作": 4,
+        "逻辑推理": 2,
+        "体力劳动": 3
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "实验操作": 110,
+        "物理": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学美术教研组/创意视觉助手",
+      "organization": "京海中学美术教研组",
+      "role": "创意视觉助手",
+      "type": "work",
+      "description": "协助美术老师设计黑板报模板、制作宣传栏立体装置、数字化班级手工作品影像存档；融合手工制作与基础数字工具应用能力。",
+      "weekly_income": 170,
+      "weekly_delta_skills": {
+        "手工制作": 4,
+        "语文": 2,
+        "人际沟通": 3
+      },
+      "capacity": 2,
+      "occupied_by": [],
+      "min_age": 16,
+      "min_skills": {
+        "手工制作": 130,
+        "语文": 100
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学英语教研组/语言实践助教",
+      "organization": "京海中学英语教研组",
+      "role": "语言实践助教",
+      "type": "work",
+      "description": "辅助英语教师组织口语角、批改基础听说作业、录制单词跟读音频；须发音标准、语法扎实，能用简单英文进行教学互动。",
+      "weekly_income": 220,
+      "weekly_delta_skills": {
+        "英语": 5,
+        "人际沟通": 3,
+        "语音表现": 4
+      },
+      "capacity": 1,
+      "occupied_by": [],
+      "min_age": 17,
+      "min_skills": {
+        "英语": 140,
+        "人际沟通": 120
+      },
+      "created_year": 2020
+    },
+    {
+      "name": "京海中学高二(6)班/高中生",
+      "organization": "京海中学高二(6)班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高二在读学生，成绩中上游偏理科，校羽毛球队候补队员",
+      "weekly_income": 25,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "周原"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学高二年级/高中生",
+      "organization": "京海中学高二年级",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高中在读学生，课余在学校食堂帮工",
+      "weekly_income": 45,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "刘铭"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学高二年级张老师班/高中生",
+      "organization": "京海中学高二年级张老师班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高中在读学生，班级生活委员",
+      "weekly_income": 0,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "何敏"
+      ],
+      "created_year": -1
+    },
+    {
+      "name": "京海中学高二（6）班/高中生",
+      "organization": "京海中学高二（6）班",
+      "role": "高中生",
+      "type": "non-work",
+      "description": "高二在读学生，班级文艺委员，吉他社成员",
+      "weekly_income": 50,
+      "weekly_delta_skills": {},
+      "capacity": 1,
+      "occupied_by": [
+        "丛雪薇"
+      ],
+      "created_year": -1
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+2026-07-17 09:39:38,702 [INFO] [VERIFY-ECONOMY] Distributing weekly_income to all agents
+2026-07-17 09:39:38,703 [INFO] [VERIFY-ECONOMY] 丛雪薇: total_income=120 (position=50, extra=70), deposit 200 → 320
+2026-07-17 09:39:38,703 [INFO] [VERIFY-ECONOMY] 何敏: total_income=120 (position=0, extra=120), deposit 200 → 320
+2026-07-17 09:39:38,703 [INFO] [VERIFY-ECONOMY] 刘世刚: total_income=200 (position=200, extra=0), deposit 4000 → 4200
+2026-07-17 09:39:38,703 [INFO] [VERIFY-ECONOMY] 刘凡: total_income=350 (position=350, extra=0), deposit 10000 → 10350
+2026-07-17 09:39:38,704 [INFO] [VERIFY-ECONOMY] 刘铭: total_income=105 (position=45, extra=60), deposit 150 → 255
+2026-07-17 09:39:38,704 [INFO] [VERIFY-ECONOMY] 叶: total_income=115 (position=21, extra=94), deposit 300 → 415
+2026-07-17 09:39:38,704 [INFO] [VERIFY-ECONOMY] 吕谦: total_income=167 (position=167, extra=0), deposit 2800 → 2967
+2026-07-17 09:39:38,705 [INFO] [VERIFY-ECONOMY] 君: total_income=150 (position=0, extra=150), deposit 800 → 950
+2026-07-17 09:39:38,705 [INFO] [VERIFY-ECONOMY] 周原: total_income=115 (position=25, extra=90), deposit 300 → 415
+2026-07-17 09:39:38,705 [INFO] [VERIFY-ECONOMY] 周悠: total_income=118 (position=25, extra=93), deposit 300 → 418
+2026-07-17 09:57:36,137 [INFO] [VERIFY-ECONOMY] Distributing weekly_income to all agents
+2026-07-17 09:57:36,137 [INFO] [VERIFY-ECONOMY] 丛雪薇: total_income=120 (position=50, extra=70), deposit 200 → 320
+2026-07-17 09:57:36,137 [INFO] [VERIFY-ECONOMY] 何敏: total_income=120 (position=0, extra=120), deposit 200 → 320
+2026-07-17 09:57:36,138 [INFO] [VERIFY-ECONOMY] 刘世刚: total_income=200 (position=200, extra=0), deposit 4000 → 4200
+2026-07-17 09:57:36,138 [INFO] [VERIFY-ECONOMY] 刘凡: total_income=350 (position=350, extra=0), deposit 10000 → 10350
+2026-07-17 09:57:36,138 [INFO] [VERIFY-ECONOMY] 刘铭: total_income=105 (position=45, extra=60), deposit 150 → 255
+2026-07-17 09:57:36,140 [INFO] [VERIFY-ECONOMY] 叶: total_income=115 (position=21, extra=94), deposit 300 → 415
+2026-07-17 09:57:36,141 [INFO] [VERIFY-ECONOMY] 吕谦: total_income=167 (position=167, extra=0), deposit 2800 → 2967
+2026-07-17 09:57:36,141 [INFO] [VERIFY-ECONOMY] 君: total_income=150 (position=0, extra=150), deposit 800 → 950
+2026-07-17 09:57:36,141 [INFO] [VERIFY-ECONOMY] 周原: total_income=115 (position=25, extra=90), deposit 300 → 415
+2026-07-17 09:57:36,142 [INFO] [VERIFY-ECONOMY] 周悠: total_income=118 (position=25, extra=93), deposit 300 → 418
