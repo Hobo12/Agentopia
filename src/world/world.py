@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import random
+import unicodedata
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple, Union
 from concurrent.futures import ThreadPoolExecutor
@@ -100,9 +101,9 @@ class World:
         # Every persona should have a profile; for simplicity we no longer filter here. If one is missing, an error will be raised later at read time to surface the problem early.
         all_dirs = [p for p in sorted(root.iterdir()) if p.is_dir()]
         names = (
-            [p.name for p in all_dirs[:max_agents]]
+            [unicodedata.normalize("NFC", p.name) for p in all_dirs[:max_agents]]
             if max_agents
-            else [p.name for p in all_dirs]
+            else [unicodedata.normalize("NFC", p.name) for p in all_dirs]
         )
 
         # Ensure locations file and private homes exist for current run world

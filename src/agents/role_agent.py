@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Callable, List, Optional, Dict, Set, Tuple
 import json
 import copy
+import unicodedata
 
 from src.config import get_config
 from src.utils import (
@@ -42,7 +43,7 @@ class RoleAgent:
         no_context_engineering: bool = False,
         no_history: bool = False,
     ) -> None:
-        self.name = name
+        self.name = unicodedata.normalize("NFC", name)
         self.clock = clock
         self.model = model
         # logs dir is created by src.utils import side-effect

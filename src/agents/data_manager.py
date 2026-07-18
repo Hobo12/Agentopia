@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import fcntl
 import json
+import unicodedata
 from dataclasses import dataclass, field
 from datetime import datetime
 from pathlib import Path
@@ -70,6 +71,10 @@ def _ensure_file(p: Path) -> None:
         p.touch()
 
 
+def _normalize_path_text(value: str) -> str:
+    return unicodedata.normalize("NFC", str(value).strip())
+
+
 @dataclass
 class DataManager:
     """File-backed memory manager for an agent.
@@ -115,6 +120,8 @@ class DataManager:
     _send_seq_map: Dict[Tuple[str, str], int] = field(init=False, default_factory=dict)
 
     def __post_init__(self) -> None:
+        self.char = _normalize_path_text(self.char)
+        self.world = _normalize_path_text(self.world)
         self.logger = get_logger(f"agent_{self.char}", quiet=True)
         self.generation = (
             Path("data") / self.world / "persona" / self.char / "generation"
@@ -280,7 +287,7 @@ class DataManager:
         - If only I know them: shows only appearance.
         - Order: summary first, then public info. Labels unified.
         """
-        who = str(who or "").strip()
+        who = _normalize_path_text(who or "")
         if not who:
             return ""
         lines: List[str] = []
@@ -562,6 +569,7 @@ class DataManager:
 
         Returns None if profile not found.
         """
+        who = _normalize_path_text(who)
         if not who:
             return None
         root = Path("data") / self.world / "persona" / who / "profile"
@@ -577,6 +585,7 @@ class DataManager:
 
         Mutual knowledge = both have each other's character scratchpad.
         """
+        who = _normalize_path_text(who)
         if not who or who == self.char:
             return False
 
@@ -1503,7 +1512,7 @@ class DataManager:
         Returns:
             True if created successfully, False if already exists or invalid
         """
-        who = str(who).strip()
+        who = _normalize_path_text(who)
         if not who or who == self.char:
             return False
 
@@ -1653,7 +1662,7 @@ class DataManager:
                 return []
             out: List[str] = []
             for n in names:
-                s = str(n).strip()
+                s = _normalize_path_text(n)
                 if not s:
                     continue
                 if s.startswith("characters/"):
@@ -1766,7 +1775,7 @@ class DataManager:
             return ""
 
         summaries = []
-        for name in sorted(known_names):
+        for name in sorted(_normalize_path_text(name) for name in known_names):
             path = self.character_scratchpads / f"{name}.jsonl"
             if not path.exists():
                 continue
@@ -1787,7 +1796,7 @@ class DataManager:
         Only allows reading if the file was created at or before the current time.
         Returns each line's `content` field (or the raw JSON if missing).
         """
-        raw = s_name.strip()
+        raw = _normalize_path_text(s_name)
         # Strip user-facing display extension (case-insensitive)
         lower = raw.lower()
         if lower.endswith(".txt"):
@@ -1842,7 +1851,7 @@ class DataManager:
         *,
         allow_characters_create: bool = False,
     ) -> str:
-        raw = s_name.strip()
+        raw = _normalize_path_text(s_name)
         lower = raw.lower()
         if lower.endswith(".txt"):
             name = raw[:-4]
@@ -1956,6 +1965,7 @@ class DataManager:
           treated as the BEGIN of that directory's earliest year.
         - That creation time is strictly before the current time.
         """
+        who = _normalize_path_text(who)
         profile_dir = Path("data") / self.world / "persona" / who / "profile"
         if not profile_dir.exists() or not profile_dir.is_dir():
             return False
@@ -2010,6 +2020,7 @@ class DataManager:
 
         _append_jsonl will add the current TimeState string as time.
         """
+        to = _normalize_path_text(to)
         t = self.clock.get_time()
 
         # Resolve paths (unified single-file layout)
@@ -2071,8 +2082,8 @@ class DataManager:
             rows = self._read_jsonl(my_signal, max_weeks=weeks_window)
             for obj in rows:
                 # Direct access without fallback per coding standards
-                frm = str(obj["from"]).strip()
-                to = str(obj["to"]).strip()
+                frm = _normalize_path_text(obj["from"])
+                to = _normalize_path_text(obj["to"])
 
                 if frm == self.char:
                     if to and to not in peers:
